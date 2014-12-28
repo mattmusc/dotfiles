@@ -2,8 +2,8 @@
 # BashRC
 # @author matteo.muscella@usi.ch
 # ------------------------------------------------------------------------
-source $HOME/.sh/exports
-source $HOME/.sh/aliases
+source $HOME/.sh/environment.zsh
+source $HOME/.sh/aliases.zsh
 # {{{ Options
 shopt -s extglob
 shopt -s force_fignore
