@@ -13,7 +13,6 @@ typeset -ga sources
 sources+="$HOME/.sh/environment.zsh"
 sources+="$HOME/.sh/functions.zsh"
 sources+="$HOME/.sh/options.zsh"
-sources+="$HOME/.sh/prompt.zsh"
 sources+="$HOME/.sh/aliases.zsh"
 
 HISTFILE=~/.zsh-history
@@ -26,5 +25,26 @@ foreach file (`echo $sources`)
         source $file
     fi
 end
+
+# prompt
+case $TERM in
+
+	urxvt*)
+		ZSHFG=`expr $RANDOM / 15`
+		precmd () {
+  			psvar=()
+  			LANG=en_US.UTF-8
+
+  			if [ $ZSHFG -ge 15 ]
+  			then
+    			ZSHFG=0
+  			fi
+
+  			ZSHFG=`expr $ZSHFG + 1`
+
+  			PROMPT="%{%B%F{$ZSHFG}%} ▬ "
+  			RPS1="%B%F{$ZSHFG}%~%b%f"
+		}
+esac
 
 #}}}
