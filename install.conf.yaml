@@ -1,0 +1,9 @@
+- clean: ["~"]
+
+- link:
+    ~/.sh: sh/
+
+- shell:
+    - 
+        - "git submodule update --init --recursive --remote"
+        - "Installing/updating submodules"

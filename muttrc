@@ -1,0 +1,97 @@
+###
+# MuttRC
+# matteo.muscella@usi.ch
+###
+
+set realname          = $MUTT_REALNAME
+set from              = $MUTT_EMAIL_ADDRESS
+set imap_user         = $MUTT_EMAIL_ADDRESS
+set imap_pass         = `security find-generic-password -w -s mutt -a \
+"$MUTT_EMAIL_ADDRESS"`
+set folder            = "imaps://imap.gmail.com:993" # Base IMAP path.
+set spoolfile         = "+INBOX" # Path to inbox, + is replaced with 'folder'.
+set postponed         = "+[Gmail]/Drafts"
+unset record    # Gmail's SMTP servers take care of this
+set smtp_url          = $MUTT_SMTP_URL
+set smtp_pass         = `security find-generic-password -w -s mutt -a \
+"$MUTT_EMAIL_ADDRESS"`
+
+# Store cache data in ~/.mutt/
+set header_cache      = "~/.mutt/cache/headers"
+set message_cachedir  = "~/.mutt/cache/bodies"
+set certificate_file  = "~/.mutt/certificates"
+
+# Sort email by threads and sort those threads by date, newest first.
+set sort              = threads
+set sort_aux          = 'reverse-last-date-received'
+set timeout           = 3
+set mail_check        = 900
+# Try and prevent imap timeouts
+set imap_keepalive    = 300
+
+# Cache
+set header_cache      = ~/.mutt/cache/headers
+set message_cachedir  = ~/.mutt/cache/bodies
+set certificate_file  = ~/.mutt/certificates
+
+# preview
+set pager_index_lines = 10
+
+# no ugly line breaks
+set text_flowed       = yes
+
+# This should be ' »›-‹L' to match Gmail, but $to_chars breaks on unicode.
+set to_chars          = ' +>-<L'
+# Don't move read mail.
+set move              = no
+
+# Use gmail IMAP IDLE support.
+set imap_idle
+set imap_check_subscribed
+unset imap_passive
+unset imap_peek
+
+
+# Gmail style keybindings
+bind  editor <space> noop
+bind  index,pager c  mail               #Compose
+macro index,pager e  "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive conversation"
+bind  generic     x  tag-entry          #Select Conversation
+bind  index       x  tag-thread         #Select Conversation
+bind  pager       x  tag-message        #Select Conversation
+bind  index,pager S  flag-message       #Star a message
+macro index,pager +  <save-message>=[Gmail]/Important<enter><enter> "Mark as important"
+macro index,pager !  <save-message>=[Gmail]/Spam<enter><enter> "Report spam"
+bind  index,pager a  group-reply        #Reply all
+bind  index,pager \# delete-thread      #Delete
+bind  index,pager l  copy-message       #Label
+bind  index,pager s  save-message       #Move to
+macro index,pager I  <set-flag>O        "Mark as read"
+macro index,pager U  <clear-flag>O      "Mark as unread"
+macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>"  "Go to all mail"
+macro index,pager gs <change-folder>=[Gmail]/Starred<enter>     "Go to 'Starred'"
+macro index,pager gd <change-folder>=[Gmail]/Drafts<enter>      "Go to 'Drafts'"
+macro index,pager gl <change-folder>?                           "Go to 'Label'"
+macro index,pager gi <change-folder>=INBOX<enter>               "Go to inbox"
+macro index,pager gt "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to 'Sent Mail'"
+folder-hook +INBOX 'macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive conversation"'
+folder-hook +[Gmail]/Trash macro index,pager y <save-message>=INBOX<enter><enter> "Move to inbox"
+folder-hook +[Gmail]/Starred bind  index,pager y flag-message #"Toggle star"
+macro index cb |urlviewn 'call urlview to extract URLs out of a message'
+macro pager cb |urlviewn 'call urlview to extract URLs out of a message'
+ 
+# appearance
+# colors
+source ~/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
+# This is the index format for non-list folders.
+set index_format="%4C %Z %{%b %d %H:%M:%S} %-20.20L [%5c] %s"
+# display formats
+set alias_format="%2n %t %-20.20a: %r"
+set attach_format="%2n %D%I%u%t %T%f %d (%s) (%m/%M, %e, %C)"
+set compose_format="Compose %h [Approx. msg size: %l, Atts: %a] %v %>-"
+set date_format="!%a %e.%h'%y at %k:%M:%S %Z"
+#set folder_format="%N %3C %d %2l (%5s) %f"
+set folder_format="[%N] %d (%10s) %f"
+set message_format="From: <%a>, Sub: %s"
+set status_format="_%r_ %h: %f, %l/%m (%P,%s) [ %?p?PP:%p ?%?t?Tag:%t \
+?%?d?DEL:%d ?]%?V?, %L/%M only=%V? < %?F?go:%F ?%?n?new:%n ?> %v"
