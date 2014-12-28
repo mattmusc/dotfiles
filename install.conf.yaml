@@ -2,6 +2,21 @@
 
 - link:
     ~/.sh: sh/
+    ~/.bashrc: bashrc
+    ~/.zshrc: zshrc
+    ~/.tmux.conf: tmux.conf
+    ~/.mpd.conf: mpd.conf
+    ~/.vim: vim/
+    ~/.vimrc: vimrc
+    ~/.gitconfig: gitconfig
+    ~/.gitignore_global: gitignore_global
+    ~/.latexmkrc: latexmkrc
+    ~/Library/texmf/tex/latex/assignment.cls:
+        create: true
+        path: templates/assignment.cls
+    ~/.irssi/conf:
+        create: true
+        path: irssi.conf
 
 - shell:
     - 

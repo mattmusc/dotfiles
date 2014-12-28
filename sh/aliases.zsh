@@ -110,9 +110,4 @@ alias addSpacer="defaults write com.apple.dock persistent-apps -array-add '{tile
 alias ducks='du -cks *|sort -rn|head -11'
 
 # }}}
-# {{{ suffix
 
-alias -s {jpg,png,gif}='open'
-alias -s {txt,c,h,conf,tex,vim,zsh,sh,py}='vim'
-
-# }}}
