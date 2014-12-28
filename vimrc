@@ -13,10 +13,12 @@ filetype plugin indent on
 syntax on
 " }}}
 " {{{ Basic
-set smartindent
-set tabstop=4
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
 set shiftwidth=4
-set expandtab
+set tabstop=4
 set nocompatible
 set encoding=utf8 
 set incsearch
