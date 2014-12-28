@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# vim:filetype=sh
+
+set -e
+
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+echo $BASEDIR
+DOTBOT_DIR="libs/dotbot"
+DOTBOT_BIN="bin/dotbot"
+CONFIG="install.conf.yaml"
+
+cd "${BASEDIR}"
+git submodule update --init --recursive "${DOTBOT_DIR}"
+
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
