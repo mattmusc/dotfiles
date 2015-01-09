@@ -2,6 +2,7 @@
 ### ZshRC
 ### author matteo.muscella@usi.ch
 ###
+#{{{ ZSH Init
 
 autoload -Uz compinit colors zmv
 compinit
@@ -48,3 +49,4 @@ esac
 
 # source custom file
 [ -f "$HOME/.custom.zsh" ] && source $HOME/.custom.zsh
+#}}}

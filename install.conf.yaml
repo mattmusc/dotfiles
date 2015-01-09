@@ -19,6 +19,6 @@
         path: irssi.conf
 
 - shell:
-    - 
+    -
         - "git submodule update --recursive --remote"
         - "Installing/updating submodules"
