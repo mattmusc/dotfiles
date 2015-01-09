@@ -12,7 +12,9 @@ filetype plugin on
 filetype plugin indent on
 syntax on
 " }}}
-" {{{ Basic
+" {{{ basic
+set hlsearch
+set incsearch
 set noexpandtab
 set copyindent
 set preserveindent
@@ -41,6 +43,9 @@ set cmdheight=1
 set colorcolumn=80
 set listchars=tab:▸\ ,extends:❯,precedes:❮,trail:·
 set list
+" }}}
+" {{{ autocmd
+autocmd filetype html,xml set listchars-=tab:>.
 " }}}
 " {{{ backup files
 " Save your backups to a less annoying place than the current directory.
@@ -83,7 +88,7 @@ if exists("+undofile")
   set undofile
 endif
 " }}}
-" {{{ Colors
+" {{{ colors
 hi LineNr         ctermfg=238
 hi CursorLine     ctermbg=236 cterm=none
 hi CursorLineNr   ctermfg=3
@@ -91,4 +96,13 @@ hi StatusLine     ctermfg=8 cterm=bold
 hi StatusLineNC   ctermfg=8
 hi Title          ctermfg=243
 hi Visual         ctermfg=146
+hi ColorColumn    ctermbg=7
+" }}}
+" {{{ keys
+let mapleader=","
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> ,/ :nohlsearch<CR>
+set pastetoggle=<leader>p
 " }}}

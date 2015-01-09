@@ -14,11 +14,11 @@
     ~/Library/texmf/tex/latex/assignment.cls:
         create: true
         path: templates/assignment.cls
-    ~/.irssi/conf:
+    ~/.irssi/config:
         create: true
         path: irssi.conf
 
 - shell:
     - 
-        - "git submodule update --init --recursive --remote"
+        - "git submodule update --recursive --remote"
         - "Installing/updating submodules"
