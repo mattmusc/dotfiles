@@ -11,3 +11,6 @@
 [submodule "sh/plugins/dircolors-solarized"]
 	path = sh/plugins/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized.git
+[submodule "sh/oh-my-zsh"]
+	path = sh/oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
