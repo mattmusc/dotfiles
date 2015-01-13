@@ -5,7 +5,7 @@
     ~/.bashrc: bashrc
     ~/.zshrc: zshrc
     ~/.tmux.conf: tmux.conf
-    ~/.mpd.conf: mpd.conf
+    ~/.mpdconf: mpd.conf
     ~/.vim: vim/
     ~/.vimrc: vimrc
     ~/.gitconfig: gitconfig
