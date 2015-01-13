@@ -2,51 +2,60 @@
 ### ZshRC
 ### author matteo.muscella@usi.ch
 ###
-#{{{ ZSH Init
 
-autoload -Uz compinit colors zmv
-compinit
-colors
-unsetopt BG_NICE menu_complete
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.sh/oh-my-zsh
 
-typeset -ga sources
-sources+="$HOME/.sh/environment.zsh"
-sources+="$HOME/.sh/functions.zsh"
-sources+="$HOME/.sh/options.zsh"
-sources+="$HOME/.sh/aliases.zsh"
+# Set name of the theme to load.
+ZSH_THEME="agnoster"
 
-HISTFILE=~/.zsh-history
-SAVEHIST=256
-HISTSIZE=256
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# try to include all sources
-foreach file (`echo $sources`)
-    if [[ -a $file ]]; then
-        source $file
-    fi
-end
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-# prompt
-case $TERM in
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
-	urxvt*)
-		ZSHFG=`expr $RANDOM / 15`
-		precmd () {
-  			psvar=()
-  			LANG=en_US.UTF-8
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-  			if [ $ZSHFG -ge 15 ]
-  			then
-    			ZSHFG=0
-  			fi
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-  			ZSHFG=`expr $ZSHFG + 1`
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-  			PROMPT="%{%B%F{$ZSHFG}%} ▬ "
-  			RPS1="%B%F{$ZSHFG}%~%b%f"
-		}
-esac
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git brew)
+
+# User configuration
+
+source "$HOME/.sh/environment.zsh"
+source "$HOME/.sh/aliases.zsh"
+
+source $ZSH/oh-my-zsh.sh
 
 # source custom file
 [ -f "$HOME/.custom.zsh" ] && source $HOME/.custom.zsh
-#}}}
+
