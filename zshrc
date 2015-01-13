@@ -54,6 +54,10 @@ source "$HOME/.sh/aliases.zsh"
 
 source $ZSH/oh-my-zsh.sh
 
+# Syntax highlighting
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+source ~/.sh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # source custom file
 [ -f "$HOME/.custom.zsh" ] && source $HOME/.custom.zsh
 
