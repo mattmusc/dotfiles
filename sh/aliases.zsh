@@ -3,18 +3,10 @@
 #
 # {{{ cd
 
-# get rid of command not found
-alias cd..='cd ..'
- 
 # a quick way to get out of current directory
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
-alias .4='cd ../../../../'
-alias .5='cd ../../../../../'
-alias .6='cd ../../../../../../'
-alias .7='cd ../../../../../../../'
-alias .8='cd ../../../../../../../../'
 
 # }}}
 # {{{ ls
@@ -45,25 +37,11 @@ alias l.="find . -maxdepth 1 -type f -name '.*'"
 # }}}
 # {{{ shortcuts
 
-#alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs &"
-
 alias cl="cd ~/Dropbox/USI/Classes"
 alias sem="cd ~/Dropbox/USI/Classes/FallSem2014-2015"
 alias P="cd ~/Dropbox/Programming"
 alias dots="cd ~/Dotfiles"
 alias configs="cd $XDG_CONFIG_HOME"
-
-alias ez="vim ~/.zshrc"
-alias ea="vim ~/.aliases"
-alias ee="vim ~/.exports"
-alias ev="vim ~/.vimrc"
-alias el="vim ~/.latexmkrc"
-alias egi="vim ~/.gitignore_global"
-alias egc="vim ~/.gitconfig"
-alias emt="vim ~/.muttrc"
-alias empd="vim ~/.mpd.conf"
-
-alias solrdir="cd $(brew --prefix)/solr/4.10.0/libexec/example/"
 
 alias sc="source ~/.zshrc"
 
@@ -72,8 +50,6 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 alias update='brew cleanup && brew update && brew upgrade && brew cleanup && brew doctor'
-
-alias backupUsiTen='rsync -rltDv --stats ~/Pictures/Lightroom.Archive/ /Volumes/MUSCIHDD/Backup ; rsync -rltDv --stats ~/Documents/Projects/ /Volumes/MUSCIHDD/Backup'
 
 # }}}
 # {{{ ssh machines
@@ -91,10 +67,6 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+
 # }}}
 # {{{  misc
 
-alias grep='grep --color=auto'
-alias more='less'
-alias df='df -h'
-alias du='du -c -h'
 alias mkdir='mkdir -p -v'
 alias nano='nano -w'
 alias ping='ping -c 5'
@@ -110,4 +82,52 @@ alias addSpacer="defaults write com.apple.dock persistent-apps -array-add '{tile
 alias ducks='du -cks *|sort -rn|head -11'
 
 # }}}
+# {{{ git aliases
 
+alias g='git'
+alias gst='git status'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gdt='git diff-tree --no-commit-id --name-only -r'
+alias gl='git pull'
+alias gup='git pull --rebase'
+alias gp='git push'
+alias gd='git diff'
+alias gdt='git difftool'
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gca='git commit -v -a'
+alias gca!='git commit -v -a --amend'
+alias gcmsg='git commit -m'
+alias gco='git checkout'
+alias gcm='git checkout master'
+alias gr='git remote'
+alias grv='git remote -v'
+alias grmv='git remote rename'
+alias grrm='git remote remove'
+alias grset='git remote set-url'
+alias grup='git remote update'
+alias grbi='git rebase -i'
+alias grbc='git rebase --continue'
+alias grba='git rebase --abort'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gbr='git branch --remote'
+alias gcount='git shortlog -sn'
+alias gcl='git config --list'
+alias gcp='git cherry-pick'
+alias glg='git log --stat --max-count=10'
+alias glgg='git log --graph --max-count=10'
+alias glgga='git log --graph --decorate --all'
+alias glo='git log --oneline --decorate --color'
+alias glog='git log --oneline --decorate --color --graph'
+alias gss='git status -s'
+alias ga='git add'
+alias gap='git add --patch'
+alias gm='git merge'
+alias grh='git reset HEAD'
+alias grhh='git reset HEAD --hard'
+alias gclean='git reset --hard && git clean -dfx'
+alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
+
+# }}}
