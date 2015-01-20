@@ -17,6 +17,12 @@
     ~/.irssi/config:
         create: true
         path: irssi.conf
+    ~/.ncmpcpp/config:
+        create: true
+        path: ncmpcpp/config
+    ~/.ncmpcpp/bindings:
+        create: true
+        path: ncmpcpp/bindings
 
 - shell:
     -
