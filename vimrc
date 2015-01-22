@@ -15,7 +15,7 @@ syntax on
 " {{{ basic
 set hlsearch
 set incsearch
-set noexpandtab
+set expandtab
 set copyindent
 set preserveindent
 set softtabstop=0
@@ -89,14 +89,21 @@ if exists("+undofile")
 endif
 " }}}
 " {{{ colors
-hi LineNr         ctermfg=238
-hi CursorLine     ctermbg=236 cterm=none
-hi CursorLineNr   ctermfg=3
-hi StatusLine     ctermfg=8 cterm=bold
-hi StatusLineNC   ctermfg=8
-hi Title          ctermfg=243
-hi Visual         ctermfg=146
-hi ColorColumn    ctermbg=7
+if &term =~ "xterm"
+    set background=dark
+    colorscheme solarized
+    hi StatusLine     ctermfg=14 ctermbg=0 cterm=bold
+    hi StatusLineNC   ctermfg=14 ctermbg=0
+else
+    hi LineNr         ctermfg=238
+    hi CursorLine     ctermbg=236 cterm=none
+    hi CursorLineNr   ctermfg=3
+    hi StatusLine     ctermfg=8 cterm=bold
+    hi StatusLineNC   ctermfg=8
+    hi Title          ctermfg=243
+    hi Visual         ctermfg=146
+    hi ColorColumn    ctermbg=7
+endif
 " }}}
 " {{{ keys
 let mapleader=","
@@ -106,3 +113,4 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nmap <silent> ,/ :nohlsearch<CR>
 set pastetoggle=<leader>p
 " }}}
+
