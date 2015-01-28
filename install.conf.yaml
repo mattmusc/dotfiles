@@ -23,6 +23,7 @@
     ~/.ncmpcpp/bindings:
         create: true
         path: ncmpcpp/bindings
+    ~/.muttrc: muttrc
 
 - shell:
     -

@@ -12,12 +12,10 @@ if __name__ == '__main__':
         print( "Usage: python wake.py [<LAN_BROADCAST_IP>] <TARGET_MAC_ADDRESS>" )
         sys.exit( 1 )
 
-    if ( sys.argv[1][3] == ":" ):
+    bcast_addr = '192.168.2.255' # broadcast address for you network
+    target_mac = sys.argv[1] # colons are optional, case does not matter
 
-        bcast_addr = '192.168.2.255' # broadcast address for you network
-        target_mac = sys.argv[1] # colons are optional, case does not matter
-
-    else:
+    if len( sys.argv ) > 2:
 
         bcast_addr = sys.argv[1] # broadcast address for you network
         target_mac = sys.argv[2] # colons are optional, case does not matter
@@ -29,8 +27,13 @@ if __name__ == '__main__':
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 
-    while 1:
-        s.sendto(WoL_packet, (bcast_addr, 9))
-        print "Sent paket!"
-        time.sleep(180)
+    try:
+        while 1:
+            s.sendto(WoL_packet, (bcast_addr, 9))
+            print "Sent paket!"
+            time.sleep(180)
+
+    except KeyboardInterrupt:
+        print( '\nQuit' )
+        sys.exit( 0 )
 

@@ -17,6 +17,9 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR="vim"
 export PAGER=less
 
+export MUTT_REALNAME="Matteo Muscella"
+export MUTT_EMAIL_ADDRESS="matteo.muscella@gmail.com"
+
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
