@@ -6,7 +6,7 @@
 export ZSH_CACHE="~/.zsh-cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 
-export JAVA_HOME="`/usr/libexec/java_home --version 1.7`"
+export JAVA_HOME="`/usr/libexec/java_home --version 1.8`"
 export M2_HOME="/usr/local/Cellar/maven/3.2.3/libexec"
 export M2="$M2_HOME/libexec"
 
