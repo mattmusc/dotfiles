@@ -2,10 +2,8 @@
 # BashRC
 # @author matteo.muscella@usi.ch
 # ---------------------------------------------------------------------------
-# {{{ Imports
 source $HOME/.sh/environment.zsh
-source $HOME/.sh/aliases.zsh
-# }}}
+[[ $- != *i* ]] && return
 # {{{ Options
 set editing-mode emacs
 shopt -s extglob
@@ -58,4 +56,6 @@ case "$TERM" in
        ;;
 esac
 # }}}
+[[ $- != *i* ]] && return
+source $HOME/.sh/aliases.zsh
 # end --
