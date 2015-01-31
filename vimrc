@@ -46,6 +46,9 @@ set list
 " }}}
 " {{{ autocmd
 autocmd filetype html,xml set listchars-=tab:>.
+" Note, perl automatically sets foldmethod in the syntax file
+autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
+autocmd Syntax vim,sh                   setlocal foldmethod=marker
 " }}}
 " {{{ backup files
 " Save your backups to a less annoying place than the current directory.

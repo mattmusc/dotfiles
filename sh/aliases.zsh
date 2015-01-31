@@ -29,7 +29,7 @@ alias lu='ls -ltur'        #  Sort by/show access time,most recent last.
 alias ls="command ls ${colorflag}"
 
 alias cl="cd ~/Dropbox/USI/Classes"
-alias sem="cd ~/Dropbox/USI/Classes/FallSem2014-2015"
+alias sem="cd ~/SpringSem2015"
 alias P="cd ~/Dropbox/Programming"
 alias dots="cd ~/.dotfiles"
 alias configs="cd $XDG_CONFIG_HOME"
@@ -46,7 +46,6 @@ alias addSpacer="defaults write com.apple.dock persistent-apps -array-add '{tile
 # list top ten largest files/directories in current directory
 alias ducks='du -cks *|sort -rn|head -11'
 
-alias g='git'
 alias gst='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'

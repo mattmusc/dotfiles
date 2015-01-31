@@ -3,14 +3,16 @@
 ### author matteo.muscella@usi.ch
 ###
 
-autoload -Uz compinit colors zmv
-compinit
-colors
+# Import modules/stuff
+autoload -U  compinit   && compinit
+autoload -U  promptinit && promptinit
+autoload -U  colors     && colors
+autoload -U  zmv
 unsetopt BG_NICE menu_complete
 
 typeset -ga sources
 sources+="$HOME/.sh/environment.zsh"
-sources+="$HOME/.sh/options.zsh"
+#sources+="$HOME/.sh/options.zsh"
 sources+="$HOME/.sh/aliases.zsh"
 
 HISTFILE=~/.zsh-history
@@ -28,21 +30,21 @@ end
 case $TERM in
 
     (urxvt|xterm)*)
-            ZSHFG=`expr $RANDOM / 15`
-            precmd () {
-                psvar=()
-                LANG=en_US.UTF-8
+        ZSHFG=`expr $RANDOM / 15`
+        precmd () {
+            psvar=()
+            LANG=en_US.UTF-8
 
-                if [ $ZSHFG -ge 15 ]
-                then
-                    ZSHFG=0
-                fi
+            if [ $ZSHFG -ge 15 -o $ZSHFG -eq 7 ]
+            then
+                ZSHFG=0
+            fi
 
-                ZSHFG=`expr $ZSHFG + 1`
+            ZSHFG=`expr $ZSHFG + 1`
 
-                PROMPT="%{%B%F{$ZSHFG}%} ▬ "
-                RPS1="%B%F{$ZSHFG}%~%b%f"
-            }
+            PROMPT="%{%B%F{$ZSHFG}%} ▬ "
+            RPS1="%B%F{$ZSHFG}%~%b%f"
+        }
 
 esac
 
