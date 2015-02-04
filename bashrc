@@ -60,13 +60,22 @@ export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 # Old: PS1="▬ "
 case "$TERM" in
     xterm*|rxvt*)
-        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u: \w\a\]$PS1"
+        # Check for an interactive session
+        [ -z "$PS1" ] && return
+
+#        _PROMPT() {
+#            _EXIT_STATUS=$?
+#            [ $_EXIT_STATUS != 0 ] && _EXIT_STATUS_STR="\[\033[1;30m\][\[\033[1;31m\]$_EXIT_STATUS\[\033[1;30m\]] "
+#            PS1="\033[1;30m\]» \[\e[0;33m\]fu\033[1;30m\]╺─╸$_EXIT_STATUS_STR\[\033[1;30m\][\[\033[0m\]\W\[\033[1;30m\]]\[\033[1;34m\];\[\033[0m\] "
+#            unset _EXIT_STATUS_STR
+#        }
+#
+#        PROMPT_COMMAND=_PROMPT
+
+        #PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u: \w\a\]$PS1"
         ;;
     dumb | emacs)
         PROMPT="%m:%~> "
-        ;;
-    *)
-        PS1="\W $ "
         ;;
 esac
 # }}}

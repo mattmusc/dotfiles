@@ -74,3 +74,4 @@ alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
 alias extip='curl -s ifconfig.me'
 alias iamhome='[ `curl -s ifconfig.me` = "2.235.177.223" ]'
 
+alias start_mysql='/usr/local/opt/mysql/bin/mysqld_safe &'
