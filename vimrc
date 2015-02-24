@@ -8,10 +8,16 @@ if exists("syntax_on")
     syntax reset
 endif
 filetype off
-filetype plugin on
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-endwise'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'jlanzarotta/bufexplorer'
+filetype on
 filetype plugin indent on
-syntax on
-execute pathogen#infect()
 " }}}
 " {{{ basic
 set hlsearch
