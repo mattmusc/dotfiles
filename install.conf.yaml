@@ -11,7 +11,7 @@
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
     ~/.latexmkrc: latexmkrc
-    ~/Library/texmf/tex/latex/assignment.cls:
+    ~/.texmf/tex/latex/assignment.cls:
         create: true
         path: templates/assignment.cls
     ~/.irssi/config:

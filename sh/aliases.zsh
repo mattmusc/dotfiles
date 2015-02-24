@@ -4,29 +4,12 @@
 
 # a quick way to get out of current directory
 alias ..='cd ..'
-alias ...='cd ../../'
-alias ....='cd ../../../'
 
-# Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-        colorflag="--color"
-else # OS X `ls`
-        colorflag="-G"
-fi
-# List all files colorized in long format
-alias l="ls -lF ${colorflag}"
-# List all files colorized in long format, including dot files
-alias la="ls -laF ${colorflag}"
-# List only directories
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
-alias ll="ls -lF ${colorflag}"
 alias lx='ls -lXB'         #  Sort by extension.
 alias lk='ls -lSr'         #  Sort by size, biggest last.
 alias lt='ls -ltr'         #  Sort by date, most recent last.
 alias lc='ls -ltcr'        #  Sort by/show change time,most recent last.
 alias lu='ls -ltur'        #  Sort by/show access time,most recent last.
-# Always use color output for `ls`
-alias ls="command ls ${colorflag}"
 
 alias cl="cd ~/Dropbox/USI/Classes"
 alias sem="cd ~/SpringSem2015"

@@ -3,53 +3,42 @@
 ### author matteo.muscella@usi.ch
 ###
 
-# Import modules/stuff
-autoload -U  compinit   && compinit
-autoload -U  promptinit && promptinit
-autoload -U  colors     && colors
-autoload -U  zmv
-unsetopt BG_NICE menu_complete
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="agnoster"
 
-typeset -ga sources
-sources+="$HOME/.sh/environment.zsh"
-#sources+="$HOME/.sh/options.zsh"
-sources+="$HOME/.sh/aliases.zsh"
+# CASE_SENSITIVE="true"
+# DISABLE_AUTO_UPDATE="true"
+# export UPDATE_ZSH_DAYS=13
+# DISABLE_LS_COLORS="true"
+# DISABLE_AUTO_TITLE="true"
+# ENABLE_CORRECTION="true"
+# COMPLETION_WAITING_DOTS="true"
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
 
-HISTFILE=~/.zsh-history
-SAVEHIST=256
-HISTSIZE=256
+plugins=(git svn vagrant)
 
-# try to include all sources
-foreach file (`echo $sources`)
-    if [[ -a $file ]]; then
-        source $file
-    fi
-end
+# User configuration
+if [[ -f "$HOME/.sh/environment.zsh" ]]
+then
+    source "$HOME/.sh/environment.zsh"
+fi
 
-# prompt
-case $TERM in
+source $ZSH/oh-my-zsh.sh
 
-    (urxvt|xterm)*)
-        ZSHFG=`expr $RANDOM / 15`
-        precmd () {
-            psvar=()
-            LANG=en_US.UTF-8
+if [[ -f "$HOME/.sh/aliases.zsh" ]]
+then
+    source "$HOME/.sh/aliases.zsh"
+fi
 
-            if [ $ZSHFG -ge 15 -o $ZSHFG -eq 7 ]
-            then
-                ZSHFG=0
-            fi
-
-            ZSHFG=`expr $ZSHFG + 1`
-
-            PROMPT="%{%B%F{$ZSHFG}%} ▬ "
-            RPS1="%B%F{$ZSHFG}%~%b%f"
-        }
-
-esac
-
-fpath=(/usr/local/share/zsh-completions $fpath)
+# Syntax highlighting
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+source ~/.sh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # source custom file
-[ -f "$HOME/.custom.zsh" ] && source "$HOME/.custom.zsh"
+if [[ -f "$HOME/.custom.zsh" ]]
+then
+    source $HOME/.custom.zsh
+fi
 

@@ -11,6 +11,7 @@ filetype off
 filetype plugin on
 filetype plugin indent on
 syntax on
+execute pathogen#infect()
 " }}}
 " {{{ basic
 set hlsearch
@@ -22,7 +23,7 @@ set softtabstop=0
 set shiftwidth=4
 set tabstop=4
 set nocompatible
-set encoding=utf8 
+set encoding=utf8
 set incsearch
 set hlsearch
 set mouse=a
@@ -37,7 +38,7 @@ set foldmethod=syntax
 set wildmenu
 set wildmode=longest,full,list
 set fillchars=vert:\
-set statusline=\ \%F%m%r%h%w\ \ %y\ [%{&ff}]\%=\ [%p%%:\ %l/%L]
+"set statusline=\ \%f%m%r%h%w\ \ %y\ [%{&ff}]\%=\ [%p%%:\ %l/%L]
 set laststatus=2
 set cmdheight=1
 set colorcolumn=80
@@ -92,10 +93,10 @@ if exists("+undofile")
 endif
 " }}}
 " {{{ colors
-if &term =~ "xterm"
+if &term =~ "xterm*"
     set background=dark
     colorscheme solarized
-    hi StatusLine     ctermfg=14 ctermbg=0 cterm=bold
+    hi StatusLine     ctermfg=10 ctermbg=8 cterm=bold
     hi StatusLineNC   ctermfg=14 ctermbg=0
 else
     hi LineNr         ctermfg=238
@@ -115,5 +116,15 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nmap <silent> ,/ :nohlsearch<CR>
 set pastetoggle=<leader>p
+if has("gui_running")
+    " C-Space seems to work under gVim on both Linux and win32
+    inoremap <C-Space> <C-n>
+else " no gui
+  if has("unix")
+    inoremap <Nul> <C-n>
+  else
+  " I have no idea of the name of Ctrl-Space elsewhere
+  endif
+endif
 " }}}
 

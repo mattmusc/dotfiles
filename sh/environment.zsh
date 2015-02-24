@@ -22,6 +22,7 @@ esac
 #export M2="$M2_HOME/libexec"
 
 #export PATH=$M2_HOME/bin:$PATH
+export PATH=$HOME/.cabal/bin:$PATH
 export PATH=/usr/texbin:$PATH
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=$HOME/.dotfiles/scripts:$PATH
@@ -37,4 +38,6 @@ export LC_CTYPE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 export TEXMFDIR="$HOME/.texmf"
+
+export USER="$(hostname)"
 
