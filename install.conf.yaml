@@ -24,6 +24,8 @@
         create: true
         path: ncmpcpp/bindings
     ~/.muttrc: muttrc
+    ~/.sh/oh-my-zsh/custom/themes/matteo.zsh-theme:
+        path: sh/themes/matteo.zsh-theme
 
 - shell:
     -
