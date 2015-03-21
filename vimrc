@@ -17,7 +17,7 @@ if exists("syntax_on")
 endif
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/vundle/
 call vundle#begin()
 
 Bundle 'gmarik/vundle'
