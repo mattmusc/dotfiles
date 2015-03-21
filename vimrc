@@ -21,11 +21,12 @@ set rtp+=~/.vim/vundle/
 call vundle#begin()
 
 Bundle 'gmarik/vundle'
+"Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-markdown'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'jlanzarotta/bufexplorer'
-Plugin 'bling/vim-airline'
+"Plugin 'bling/vim-airline'
 
 call vundle#end()
 
@@ -56,9 +57,9 @@ set autoread
 
 " Show line numbers and length
 set number
+set ruler
 set tw=79
 set nowrap
-set fo-=t
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
 set cursorline
@@ -94,7 +95,7 @@ colorscheme solarized
 " }}}
 " {{{ statusline
 
-set laststatus=2
+"set laststatus=2
 "set statusline=\ \%f%m%r%h%w\ \ %y\ [%{&ff}]\%=\ [%p%%:\ %l/%L]
 
 "--------------------------
