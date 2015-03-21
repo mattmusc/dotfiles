@@ -5,23 +5,27 @@
 # a quick way to get out of current directory
 alias ..='cd ..'
 
+alias l='ls -h -G'
+alias ll='ls -lh -G'
 alias lx='ls -lXB'         #  Sort by extension.
 alias lk='ls -lSr'         #  Sort by size, biggest last.
 alias lt='ls -ltr'         #  Sort by date, most recent last.
 alias lc='ls -ltcr'        #  Sort by/show change time,most recent last.
 alias lu='ls -ltur'        #  Sort by/show access time,most recent last.
 
-alias cl="cd ~/Dropbox/USI/Classes"
-alias sem="cd ~/SpringSem2015"
+alias compilers="cd ~/Git/mattmusc-homework-lc2015/$(ls -t ~/Git/mattmusc-homework-lc2015/ | head -n 1)"
+alias sem="cd ~/SpringSemester2015"
 alias P="cd ~/Dropbox/Programming"
 alias dots="cd ~/.dotfiles"
 alias configs="cd $XDG_CONFIG_HOME"
 
+alias atelier="ssh muscellm@atelier.inf.usi.ch"
+
 alias sc="source ~/.zshrc"
 
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
 
 alias update='brew cleanup && brew update && brew upgrade && brew cleanup && brew doctor'
 alias addSpacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' ; killall Dock"
@@ -58,3 +62,6 @@ alias extip='curl -s ifconfig.me'
 alias iamhome='[ `curl -s ifconfig.me` = "2.235.177.223" ]'
 
 alias start_mysql='/usr/local/opt/mysql/bin/mysqld_safe &'
+
+alias ghclean='rm -f *.hi *.o $1'
+

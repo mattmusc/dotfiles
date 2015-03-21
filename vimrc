@@ -2,62 +2,168 @@
 """ VIM RC
 """ @author matteo.muscella@usi.ch
 """
+" {{{ functions
+
+" Automatic reloading of .vimrc
+autocmd! bufwritepost .vimrc source %
+
+" }}}
 " {{{ filetype & vundle
+
+set nocompatible
 hi clear
 if exists("syntax_on")
     syntax reset
 endif
 filetype off
-set nocompatible
-filetype off
+
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
+
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-markdown'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'jlanzarotta/bufexplorer'
-filetype on
+Plugin 'bling/vim-airline'
+
+call vundle#end()
+
 filetype plugin indent on
+
 " }}}
-" {{{ basic
-set hlsearch
-set incsearch
-set expandtab
-set copyindent
-set preserveindent
-set softtabstop=0
-set shiftwidth=4
+" {{{ look
+
+" Use spaces instead of tabs
 set tabstop=4
-set nocompatible
-set encoding=utf8
-set incsearch
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set expandtab
+set preserveindent
+
+" Help with search
 set hlsearch
-set mouse=a
-set modeline
-set ruler
+set incsearch
+set ignorecase
+set smartcase
+
+" Encoding
+set encoding=utf8
+
+" Auto read changed files
+set autoread
+
+" Show line numbers and length
+set number
+set tw=79
+set nowrap
+set fo-=t
+set colorcolumn=80
+highlight ColorColumn ctermbg=233
 set cursorline
+set fillchars+=stl:\ ,stlnc:\
+
+" Command line
 set showmode
 set showcmd
+set cmdheight=1
+
+" Mouse support
+set mouse=a
 set backspace=2
+
+" Screen not redrawn while macros or commands
 set lazyredraw
-set foldmethod=syntax
+"
+" Enable code folding
+set foldmethod=marker
+
+" Completion for command mode
 set wildmenu
 set wildmode=longest,full,list
-set fillchars=vert:\
-"set statusline=\ \%f%m%r%h%w\ \ %y\ [%{&ff}]\%=\ [%p%%:\ %l/%L]
+
+" }}}
+" {{{ colors
+
+" https://github.com/altercation/vim-colors-solarized
+syntax enable
+set background=dark
+colorscheme solarized
+
+" }}}
+" {{{ statusline
+
 set laststatus=2
-set cmdheight=1
-set colorcolumn=80
-set listchars=tab:▸\ ,extends:❯,precedes:❮,trail:·
-set list
+"set statusline=\ \%f%m%r%h%w\ \ %y\ [%{&ff}]\%=\ [%p%%:\ %l/%L]
+
+"--------------------------
+"Airline Settings
+"--------------------------
+let g:airline_symbols = {}
+let g:airline_powerline_fonts                     = 1
+let g:airline_left_sep                            = '⮀'
+let g:airline_left_alt_sep                        = '⮁'
+let g:airline_right_sep                           = '⮂'
+let g:airline_right_alt_sep                       = '⮃'
+let g:airline_theme                               = 'solarized'
+let g:airline_toggle_whitespace                   = 1
+"let g:airline#extensions#tabline#enabled          = 1
+"let g:airline#extensions#tabline#show_buffers     = 1
+"let g:airline#extensions#tabline#show_tabs        = 1
+"let g:airline#extensions#tabline#formatter        = 'unique_tail_improved'
+"let g:airline#extensions#tabline#buffer_min_count = 0
+let g:airline_symbols.branch                      = '⭠'
+let g:airline_symbols.readonly                    = '⭤'
+let g:airline_symbols.linenr                      = '⭡'
+
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ ' ' : 'S',
+      \ }
+
+" unicode symbols
+"let g:airline_left_sep          = '»'
+"let g:airline_left_sep          = '▶'
+"let g:airline_right_sep         = '«'
+"let g:airline_right_sep         = '◀'
+"let g:airline_symbols.linenr    = '␊'
+"let g:airline_symbols.linenr    = '␤'
+"let g:airline_symbols.linenr     = '¶'
+"let g:airline_symbols.branch    = '⎇'
+"let g:airline_symbols.paste      = 'ρ'
+"let g:airline_symbols.paste     = 'Þ'
+"let g:airline_symbols.paste     = '∥'
+"let g:airline_symbols.whitespace = 'Ξ'
+
+" powerline symbols
+"let g:airline_left_sep          = ''
+"let g:airline_left_alt_sep      = ''
+"let g:airline_right_sep         = ''
+"let g:airline_right_alt_sep     = ''
+"let g:airline_symbols.branch    = ''
+"let g:airline_symbols.readonly  = ''
+"let g:airline_symbols.linenr    = ''
+
 " }}}
 " {{{ autocmd
+
 autocmd filetype html,xml set listchars-=tab:>.
-" Note, perl automatically sets foldmethod in the syntax file
-autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
-autocmd Syntax vim,sh                   setlocal foldmethod=marker
+autocmd filetype haskell  set tabstop=2 softtabstop=2 shiftwidth=2
+autocmd filetype c,cpp,vim,xml,html,xhtml set foldmethod=syntax
+autocmd filetype vim,sh set foldmethod=marker
+
 " }}}
 " {{{ backup files
+
 " Save your backups to a less annoying place than the current directory.
 " If you have .vim-backup in the current directory, it'll use that.
 " Otherwise it saves it to ~/.vim/backup or . if all else fails.
@@ -97,25 +203,10 @@ if exists("+undofile")
   set undodir+=~/.vim/undo//
   set undofile
 endif
-" }}}
-" {{{ colors
-if &term =~ "xterm*"
-    set background=dark
-    colorscheme solarized
-    hi StatusLine     ctermfg=10 ctermbg=8 cterm=bold
-    hi StatusLineNC   ctermfg=14 ctermbg=0
-else
-    hi LineNr         ctermfg=238
-    hi CursorLine     ctermbg=236 cterm=none
-    hi CursorLineNr   ctermfg=3
-    hi StatusLine     ctermfg=8 cterm=bold
-    hi StatusLineNC   ctermfg=8
-    hi Title          ctermfg=243
-    hi Visual         ctermfg=146
-    hi ColorColumn    ctermbg=7
-endif
+
 " }}}
 " {{{ keys
+
 let mapleader=","
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -132,5 +223,11 @@ else " no gui
   " I have no idea of the name of Ctrl-Space elsewhere
   endif
 endif
+
+" }}}
+" {{{ abbreviations
+
+ab atauthor @author matteo.muscella@usi.ch
+
 " }}}
 
