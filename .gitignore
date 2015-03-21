@@ -4,6 +4,7 @@
 history*
 viminfo
 vim/backup/
+vim/bundle/
 vim/swap/
 vim/undo/
 vim/viminfo
