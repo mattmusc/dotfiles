@@ -26,6 +26,8 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-markdown'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'jlanzarotta/bufexplorer'
+Bundle 'morhetz/gruvbox'
+Bundle 'noahfrederick/vim-hemisu'
 "Plugin 'bling/vim-airline'
 
 call vundle#end()
@@ -60,8 +62,8 @@ set number
 set ruler
 set tw=79
 set nowrap
-set colorcolumn=80
-highlight ColorColumn ctermbg=233
+"set colorcolumn=80
+"highlight ColorColumn ctermbg=210
 set cursorline
 set fillchars+=stl:\ ,stlnc:\
 
@@ -88,9 +90,11 @@ set wildmode=longest,full,list
 " {{{ colors
 
 " https://github.com/altercation/vim-colors-solarized
+set t_Co=265
 syntax enable
-set background=dark
-colorscheme solarized
+set background=light
+colorscheme hemisu
+"hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
 
 " }}}
 " {{{ statusline
