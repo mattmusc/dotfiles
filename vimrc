@@ -18,7 +18,7 @@ endif
 filetype off
 
 set rtp+=~/.vim/vundle/
-call vundle#begin()
+call vundle#begin('~/.vim/bundle')
 
 Bundle 'gmarik/vundle'
 "Bundle 'tpope/vim-fugitive'
