@@ -29,6 +29,7 @@ Bundle 'jlanzarotta/bufexplorer'
 Bundle 'morhetz/gruvbox'
 Bundle 'noahfrederick/vim-hemisu'
 "Plugin 'bling/vim-airline'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 call vundle#end()
 
