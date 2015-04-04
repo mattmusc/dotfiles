@@ -13,6 +13,7 @@ alias lt='ls -ltr'         #  Sort by date, most recent last.
 alias lc='ls -ltcr'        #  Sort by/show change time,most recent last.
 alias lu='ls -ltur'        #  Sort by/show access time,most recent last.
 
+alias pin="cd ~/Git/pintos/pintos-env/pintos/"
 alias compilers="cd ~/Git/mattmusc-homework-lc2015/$(ls -t ~/Git/mattmusc-homework-lc2015/ | head -n 1)"
 alias sem="cd ~/SpringSemester2015"
 alias P="cd ~/Dropbox/Programming"
