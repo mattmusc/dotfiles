@@ -17,17 +17,19 @@ if exists("syntax_on")
 endif
 filetype off
 
-set rtp+=~/.vim/vundle/
-call vundle#begin('~/.vim/bundle')
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-"Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-markdown'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'jlanzarotta/bufexplorer'
-Bundle 'morhetz/gruvbox'
-Bundle 'noahfrederick/vim-hemisu'
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-markdown'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'morhetz/gruvbox'
+Plugin 'noahfrederick/vim-hemisu'
 "Plugin 'bling/vim-airline'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 
