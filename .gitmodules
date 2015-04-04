@@ -14,3 +14,6 @@
 [submodule "sh/oh-my-zsh"]
 	path = sh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "vim/vundle/Vundle.vim"]
+	path = vim/vundle/Vundle.vim
+	url = https://github.com/gmarik/Vundle.vim.git

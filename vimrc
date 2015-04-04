@@ -17,11 +17,11 @@ if exists("syntax_on")
 endif
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=~/.vim/vundle/Vundle.vim
+call vundle#begin('~/.vim/bundle/')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim', {'pinned' : 1}
 
 "Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-endwise'
