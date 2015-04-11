@@ -5,6 +5,9 @@
 if [ -f $HOME/.sh/environment.zsh ]; then
     source $HOME/.sh/environment.zsh
 fi
+if [ -f $HOME/.sh/function.zsh ]; then
+    source $HOME/.sh/function.zsh
+fi
 [[ $- != *i* ]] && return
 # {{{ Options
 set editing-mode emacs

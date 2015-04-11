@@ -1,5 +1,5 @@
 #
-# Zsh Function definitions
+# Shell Function definitions
 
 # get external ip address
 extip() {
