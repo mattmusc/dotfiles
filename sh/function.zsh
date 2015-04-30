@@ -2,12 +2,12 @@
 # Shell Function definitions
 
 # get external ip address
-extip() {
+function extip() {
   curl -s http://ipecho.net/plain
 }
 
 # check if i am home
-iamhome() {
+function iamhome() {
   IP_ADDRESS="2.235.177.223"
   if [ "$IP_ADDRESS" = "$(extip)" ] ; then
     true
