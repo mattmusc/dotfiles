@@ -1,5 +1,4 @@
 ---
-# We'll use defaults from the LLVM style, but with 4 columns indentation.
 BasedOnStyle: Google
 IndentWidth: 4
 SpacesInParentheses: true
@@ -9,6 +8,7 @@ Language: Cpp
 # Force pointers to the type for C++.
 DerivePointerAlignment: false
 PointerAlignment: Left
+AccessModifierOffset: -4
 ---
 Language: JavaScript
 # Use 100 columns for JS.

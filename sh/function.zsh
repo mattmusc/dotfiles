@@ -9,10 +9,6 @@ function extip() {
 # check if i am home
 function iamhome() {
   IP_ADDRESS="2.235.177.223"
-  if [ "$IP_ADDRESS" = "$(extip)" ] ; then
-    true
-  else
-    false
-  fi
+  [ "$IP_ADDRESS" = "$(extip)" ]
 }
 
