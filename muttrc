@@ -4,7 +4,7 @@
 ###
 
 set realname = 'Matteo Muscella'
-set imap_user = 'matteo.muscella@gmail.com'
+set imap_user = 'matteo.muscella'
 set smtp_url = "smtp://matteo.muscella@smtp.gmail.com:587/"
 set spoolfile = imaps://imap.gmail.com:993/INBOX
 set folder = "imaps://imap.gmail.com:993"
@@ -15,6 +15,5 @@ set message_cachedir="~/.mutt/cache/bodies"
 set certificate_file=~/.mutt/certificates
 
 # These two lines appear to be needed on some Linux distros, like Arch Linux
-# set ssl_starttls = yes
-# set ssl_force_tls = yes
-
+set ssl_starttls = yes
+set ssl_force_tls = yes
