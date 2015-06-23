@@ -13,7 +13,3 @@ set postponed="+[Gmail]/Drafts"
 set header_cache="~/.mutt/cache/headers"
 set message_cachedir="~/.mutt/cache/bodies"
 set certificate_file=~/.mutt/certificates
-
-# These two lines appear to be needed on some Linux distros, like Arch Linux
-set ssl_starttls = yes
-set ssl_force_tls = yes
