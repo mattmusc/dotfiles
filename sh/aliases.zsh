@@ -7,9 +7,20 @@
 
 alias :q='exit'
 
+case `uname -s` in
+    "Darwin")
+        alias l='ls -h -G'
+        alias ls='ls -G'
+        alias ll='ls -lh -G'
+        ;;
+    "Linux")
+        alias l='ls -h --color=auto'
+        alias ls='ls --color=auto'
+        alias ll='ls -lh --color=auto'
+        ;;
+esac
+
 alias ..='cd ..'
-alias l='ls -h -G'
-alias ll='ls -lh -G'
 alias lx='ls -lXB'         #  Sort by extension.
 alias lk='ls -lSr'         #  Sort by size, biggest last.
 alias lt='ls -ltr'         #  Sort by date, most recent last.
@@ -22,8 +33,6 @@ alias ducks='du -cks *|sort -rn|head -11'
 
 alias extip='curl -s ifconfig.me'
 alias iamhome='[ `curl -s ifconfig.me` = "2.235.177.223" ]'
-
-alias start_mysql='/usr/local/opt/mysql/bin/mysqld_safe &'
 
 alias ghclean='rm -f *.hi *.o $1'
 
@@ -67,28 +76,7 @@ alias addSpacer="defaults write com.apple.dock persistent-apps -array-add \
 # {{{ git
 
 alias gst='git status'
-alias gd='git diff'
-alias gdc='git diff --cached'
-alias gdt='git diff-tree --no-commit-id --name-only -r'
-alias gl='git pull'
-alias gup='git pull --rebase'
-alias gp='git push'
-alias gd='git diff'
-alias gdt='git difftool'
-alias gc='git commit -v'
-alias gc!='git commit -v --amend'
-alias gco='git checkout'
-alias gcm='git checkout master'
-alias gr='git remote'
-alias grv='git remote -v'
-alias gb='git branch'
-alias glg='git log --stat --max-count=10'
-alias glgg='git log --graph --max-count=10'
-alias glgga='git log --graph --decorate --all'
-alias glo='git log --oneline --decorate --color'
-alias glog='git log --oneline --decorate --color --graph'
 alias gss='git status -s'
-alias ga='git add'
 alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
 
 # }}}
