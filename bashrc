@@ -43,7 +43,7 @@ export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 # {{{ Prompt
 
 case "$TERM" in
-    xterm*|rxvt*)
+    *term*|rxvt*)
         PS1="\w \$ "
         ;;
     dumb)
@@ -59,4 +59,3 @@ if [ -f $HOME/.sh/aliases.zsh ]; then
 fi
 
 # }}}
-# end

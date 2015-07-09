@@ -32,7 +32,9 @@ Plugin 'noahfrederick/vim-hemisu'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-markdown'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'Chiel92/vim-autoformat'
+Plugin 'kana/vim-operator-user'
+Plugin 'rhysd/vim-clang-format'
+
 
 call vundle#end()
 
@@ -48,6 +50,7 @@ set shiftwidth=4
 set shiftround
 set expandtab
 set preserveindent
+set modeline
 
 " Help with search
 set hlsearch
@@ -62,7 +65,7 @@ set encoding=utf8
 set autoread
 
 " Show line numbers and length
-set relativenumber
+set number
 set ruler
 set tw=79
 set nowrap
@@ -112,35 +115,35 @@ let g:cpp_experimental_template_highlight = 1
 "--------------------------
 "Airline Settings
 "--------------------------
-let g:airline_symbols = {}
-let g:airline_powerline_fonts                     = 1
-let g:airline_left_sep                            = '⮀'
-let g:airline_left_alt_sep                        = '⮁'
-let g:airline_right_sep                           = '⮂'
-let g:airline_right_alt_sep                       = '⮃'
-let g:airline_theme                               = 'solarized'
-let g:airline_toggle_whitespace                   = 1
+"let g:airline_symbols = {}
+"let g:airline_powerline_fonts                     = 1
+"let g:airline_left_sep                            = '⮀'
+"let g:airline_left_alt_sep                        = '⮁'
+"let g:airline_right_sep                           = '⮂'
+"let g:airline_right_alt_sep                       = '⮃'
+"let g:airline_theme                               = 'solarized'
+"let g:airline_toggle_whitespace                   = 1
 "let g:airline#extensions#tabline#enabled          = 1
 "let g:airline#extensions#tabline#show_buffers     = 1
 "let g:airline#extensions#tabline#show_tabs        = 1
 "let g:airline#extensions#tabline#formatter        = 'unique_tail_improved'
 "let g:airline#extensions#tabline#buffer_min_count = 0
-let g:airline_symbols.branch                      = '⭠'
-let g:airline_symbols.readonly                    = '⭤'
-let g:airline_symbols.linenr                      = '⭡'
+"let g:airline_symbols.branch                      = '⭠'
+"let g:airline_symbols.readonly                    = '⭤'
+"let g:airline_symbols.linenr                      = '⭡'
 
-let g:airline_mode_map = {
-            \ '__' : '-',
-            \ 'n'  : 'N',
-            \ 'i'  : 'I',
-            \ 'R'  : 'R',
-            \ 'c'  : 'C',
-            \ 'v'  : 'V',
-            \ 'V'  : 'V',
-            \ 's'  : 'S',
-            \ 'S'  : 'S',
-            \ ' ' : 'S',
-            \ }
+"let g:airline_mode_map = {
+"            \ '__' : '-',
+"            \ 'n'  : 'N',
+"            \ 'i'  : 'I',
+"            \ 'R'  : 'R',
+"            \ 'c'  : 'C',
+"            \ 'v'  : 'V',
+"            \ 'V'  : 'V',
+"            \ 's'  : 'S',
+"            \ 'S'  : 'S',
+"            \ ' ' : 'S',
+"            \ }
 
 " unicode symbols
 "let g:airline_left_sep          = '»'
@@ -164,21 +167,6 @@ let g:airline_mode_map = {
 "let g:airline_symbols.branch    = ''
 "let g:airline_symbols.readonly  = ''
 "let g:airline_symbols.linenr    = ''
-
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-"
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-"
-let g:syntastic_quiet_messages = { "type": "style" }
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 
 " }}}
 " {{{ autocmd
@@ -251,9 +239,9 @@ else " no gui
     endif
 endif
 
-noremap <Leader>f :Autoformat<CR><CR>
+noremap <Leader>f :ClangFormat<CR><CR>
 
-nnoremap <C-w>e :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+"nnoremap <C-w>e :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 " }}}
 " {{{ abbreviations
