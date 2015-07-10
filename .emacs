@@ -111,13 +111,14 @@ to the Emacs load path."
       transient-mark-mode 0
       inhibit-startup-message t)
 
-(setq default-font-list-index 4)
+(setq default-font-list-index 7)
 (setq font-list-index default-font-list-index)
 
 (setq font-list
-      (list "-*-agave for Powerline-*-*-*-*-*-140-*-*-*-*-*-*"
+      (list "-*-agave for Powerline-*-*-*-*-*-130-*-*-*-*-*-*"
             "-*-Anka/Coder-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-Anonymous Pro for Powerline-*-*-*-*-*-140-*-*-*-*-*-*"
+            "-*-Consolas-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-Droid Sans Mono for Powerline-*-*-*-*-*-120-*-*-*-*-*-*"
             "-*-Fira Mono Medium for Powerline-*-*-*-*-*-120-*-*-*-*-*-*"
             "-*-GohuFont-*-*-*-*-*-140-*-*-*-*-*-*"
@@ -131,14 +132,14 @@ to the Emacs load path."
   (cond ((string-equal system-type "darwin")
          (progn
            (menu-bar-mode 1)
-           (set-frame-font (nth 4 font-list) nil t)
+           (set-frame-font (nth default-font-list-index font-list) nil t)
            (load-theme 'sanityinc-solarized-light t)
            ))
         ((or (string-equal system-type "gnu")
              (string-equal system-type "gnu/linux"))
          (progn
            (menu-bar-mode 0)
-           (set-frame-font (nth 4 font-list) nil t)
+           (set-frame-font (nth default-font-list-index font-list) nil t)
            (load-theme 'sanityinc-tomorrow-night t)
            ))))
 
@@ -154,7 +155,7 @@ to the Emacs load path."
 (size-indication-mode 1)
 (set-fringe-mode 0)
 (show-paren-mode t)
-
+(setq confirm-kill-emacs 'y-or-n-p)
 
 
 ;;;; Interactively Do Things
@@ -266,6 +267,10 @@ to the Emacs load path."
                  (format "g++ -Wall -o %s %s"
                          (file-name-base buffer-file-name)
                          (file-name-nondirectory buffer-file-name)))))
+
+(add-hook 'c-mode-common-hook 
+          (lambda () (define-key c-mode-base-map (kbd "C-c C-c") 'compile)))
+
 
 
 

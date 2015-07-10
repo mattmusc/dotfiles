@@ -25,6 +25,7 @@
         path: ncmpcpp/bindings
     ~/.muttrc: muttrc
     ~/.clang-format: clang-format
+    ~/.fonts: fonts
 
 - shell:
     -

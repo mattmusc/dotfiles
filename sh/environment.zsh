@@ -22,6 +22,7 @@ esac
 #export M2="$M2_HOME/libexec"
 
 #export PATH=$M2_HOME/bin:$PATH
+export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
 export PATH=/usr/texbin:$PATH
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
