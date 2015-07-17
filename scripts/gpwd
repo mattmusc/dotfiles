@@ -1,4 +1,0 @@
-#!/bin/bash
-
-password=`security find-internet-password -g -a matteo.muscella@gmail.com -s imap.gmail.com 2>&1 | perl -e 'if (<STDIN> =~ m/password: "(.*)"$/ ) { print $1; }'`
-echo -n $password
