@@ -17,26 +17,26 @@ if exists("syntax_on")
 endif
 filetype off
 
-"set rtp+=~/.vim/vundle/Vundle.vim
-"call vundle#begin('~/.vim/bundle/')
-"
-"" let Vundle manage Vundle, required
-"Plugin 'gmarik/Vundle.vim', {'pinned' : 1}
-"
-""Plugin 'tpope/vim-fugitive'
-""Plugin 'altercation/vim-colors-solarized'
-""Plugin 'bling/vim-airline'
-"
+set rtp+=~/.vim/vundle/Vundle.vim
+call vundle#begin('~/.vim/bundle/')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim', {'pinned' : 1}
+
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'altercation/vim-colors-solarized'
+"Plugin 'bling/vim-airline'
+
 "Plugin 'morhetz/gruvbox'
-"Plugin 'noahfrederick/vim-hemisu'
+Plugin 'noahfrederick/vim-hemisu'
 "Plugin 'tpope/vim-endwise'
 "Plugin 'tpope/vim-markdown'
 "Plugin 'octol/vim-cpp-enhanced-highlight'
 "Plugin 'kana/vim-operator-user'
 "Plugin 'rhysd/vim-clang-format'
-"
-"
-"call vundle#end()
+
+
+call vundle#end()
 
 filetype plugin indent on
 
@@ -100,7 +100,7 @@ set wildmode=longest,full,list
 set t_Co=265
 syntax enable
 set background=light
-"colorscheme hemisu
+colorscheme hemisu
 "hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
 " additional cpp highlighting
 let g:cpp_class_scope_highlight = 1
