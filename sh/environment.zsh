@@ -18,10 +18,7 @@ case $(uname) in
         export JAVA_HOME=`$(dirname $(dirname $(readlink -f $(which javac))))`
         ;;
 esac
-#export M2_HOME="/usr/local/Cellar/maven/3.2.3/libexec"
-#export M2="$M2_HOME/libexec"
 
-#export PATH=$M2_HOME/bin:$PATH
 export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
 export PATH=/usr/texbin:$PATH
@@ -47,3 +44,4 @@ export GHC_DOT_APP="/Applications/ghc-7.8.4.app"
 if [ -d "$GHC_DOT_APP" ]; then
     export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
 fi
+

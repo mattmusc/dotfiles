@@ -10,6 +10,7 @@ fi
 if [ -f $HOME/.sh/function.zsh ]; then
     source $HOME/.sh/function.zsh
 fi
+# The shell’s option flags (in $-) will contain i
 [[ $- != *i* ]] && return
 
 # }}}
@@ -44,7 +45,7 @@ export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 
 case "$TERM" in
     *term*|rxvt*)
-        PS1="\w \$ "
+        PS1="\[\033[0;34m\]\W \[\033[0;31m\]::\e[0m "
         ;;
     dumb)
         PS1="\n>>> "

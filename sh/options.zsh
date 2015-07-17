@@ -1,6 +1,5 @@
-# syntax highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-source ~/.sh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source ~/.sh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # colored man pages
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
@@ -14,24 +13,16 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 setopt correct
 setopt auto_menu
 setopt extendedglob
+setopt menu_complete
 
 # completion options
-zstyle ':completion:*:*:*:*:*' menu select
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format '%d'
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-#zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -c -u $USER -o pid,%cpu,cputime,state,comm'
+#autoload -U compinit && compinit
+#zstyle ':completion:*' completer _complete _correct _approximate
+#zstyle ':completion:*' menu select
+#zstyle ':completion:*' menu select=20
+#zstyle ':completion:*:cd:*' tag-order local-directories path-directories
 
 # keys
+export WORDCHARS=${WORDCHARS//[&.;\/]}
 bindkey -e
-bindkey "^[b"    backward-word  # M-b
-bindkey "^[f"    forward-word   # M-f
-bindkey "^[^[[D" backward-word  # M-left
-bindkey "^[^[[C" forward-word   # M-right
 
