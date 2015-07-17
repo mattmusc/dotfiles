@@ -6,6 +6,21 @@
 # {{{ useful commands
 
 alias :q='exit'
+alias :r="source $HOME/.$(ps -p $$ | grep -ioe '\(bash\|zsh\)')rc"
+
+function edit() {
+    case "$1" in
+        bashrc|zshrc)
+            vim $HOME/.$1
+            ;;
+        bspwmrc|sxhkdrc)
+            vim $HOME/.config/$(echo $1| sed 's/rc//g')/$1
+            ;;
+        *)
+            echo "error: invalid file: $1"
+            ;;
+    esac
+}
 
 case `uname -s` in
     "Darwin")

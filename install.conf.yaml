@@ -29,6 +29,12 @@
     ~/.colors:
         create: true
         path:   colors/
+    ~/.config/sxhkd/sxhkdrc:
+        create: true
+        path:   config/sxhkd/sxhkdrc
+    ~/.config/bspwm/bspwmrc:
+        create: true
+        path:   config/bspwm/bspwmrc
 
 - shell:
     -
