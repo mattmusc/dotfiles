@@ -35,6 +35,8 @@
     ~/.config/bspwm/bspwmrc:
         create: true
         path:   config/bspwm/bspwmrc
+    ~/.emacs:
+        emacs
 
 - shell:
     -
