@@ -26,6 +26,9 @@
     ~/.muttrc: muttrc
     ~/.clang-format: clang-format
     ~/.fonts: fonts
+    ~/.colors:
+        create: true
+        path:   colors/
 
 - shell:
     -
