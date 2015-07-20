@@ -10,11 +10,14 @@ alias :r="source $HOME/.$(ps -p $$ | grep -ioe '\(bash\|zsh\)')rc"
 
 function edit() {
     case "$1" in
-        bashrc|zshrc)
-            vim $HOME/.$1
+        bash|zsh)
+            vim $HOME/.$1rc
             ;;
-        bspwmrc|sxhkdrc)
-            vim $HOME/.config/$(echo $1| sed 's/rc//g')/$1
+        bspwm|sxhkd)
+            vim $HOME/.config/$1/$1rc
+            ;;
+        xres)
+            vim $HOME/.Xresources ; xrdb -merge $HOME/.Xresources
             ;;
         *)
             echo "error: invalid file: $1"

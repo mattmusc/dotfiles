@@ -3,8 +3,8 @@
 # bspwm hotkeys
 #
 
-#mod1 + shift + q
-#	bspc quit 1 && pkill bar && pkill dzen2
+mod1 + shift + q
+	bspc quit 1
 
 # Toggle panels
 mod1 + q
