@@ -24,6 +24,7 @@ call vundle#begin('~/.vim/bundle/')
 Plugin 'gmarik/Vundle.vim', {'pinned' : 1}
 
 "Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 "Plugin 'altercation/vim-colors-solarized'
 "Plugin 'bling/vim-airline'
 
@@ -50,7 +51,7 @@ set shiftwidth=4
 set shiftround
 set expandtab
 set preserveindent
-set modeline
+set modelines=1
 
 " Help with search
 set hlsearch
@@ -105,6 +106,19 @@ colorscheme hemisu
 " additional cpp highlighting
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
+
+" syntax highlighting groups
+"hi Comment      ctermfg=7
+"hi VertSplit	ctermfg=0 ctermbg=none
+"hi StatusLine	ctermfg=0 ctermbg=none
+"hi StatusLineNC	ctermfg=0 ctermbg=none
+"
+"hi Pmenu ctermfg=7 ctermbg=0
+"hi PmenuSel ctermfg=0 ctermbg=15
+"hi LineNr ctermfg=0 ctermbg=none
+"hi CursorLine ctermfg=none ctermbg=none cterm=none
+"hi CursorLineNr ctermfg=none ctermbg=0 
+"hi CursorColumn ctermfg=none ctermbg=0
 
 " }}}
 " {{{ statusline
@@ -247,4 +261,3 @@ endif
 ab atauthor @author matteo.muscella@usi.ch
 
 " }}}
-

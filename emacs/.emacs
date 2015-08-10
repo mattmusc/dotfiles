@@ -8,9 +8,17 @@
 
 (defvar *emacs-load-start* (current-time))
 (defun anarcat/time-to-ms (time)
-  (+ (* (+ (* (car time) (expt 2 16)) (car (cdr time))) 1000000) (car (cdr (cdr time)))))
+  (+ (* (+ (* (car time)
+              (expt 2 16))
+           (car (cdr time)))
+        1000000)
+     (car(cdr (cdr time)))))
 (defun anarcat/display-timing ()
-  (message ".emacs loaded in %fms" (/ (- (anarcat/time-to-ms (current-time)) (anarcat/time-to-ms *emacs-load-start*)) 1000000.0)))
+  (message
+   ".emacs loaded in %fms"
+   (/ (- (anarcat/time-to-ms (current-time))
+         (anarcat/time-to-ms *emacs-load-start*))
+      1000000.0)))
 (add-hook 'after-init-hook 'anarcat/display-timing t)
 
 
@@ -81,7 +89,7 @@ to the Emacs load path."
     color-theme-sanityinc-tomorrow
     color-theme-sanityinc-solarized
     gnuplot gnuplot-mode haskell-mode
-    magit
+    magit php-mode
     rainbow-mode rainbow-delimiters
     yasnippet)
   "A list of packages to ensure are installed at launch.")
@@ -105,12 +113,13 @@ to the Emacs load path."
 
 ;;;; Appearance
 
-(setq frame-title-format #'("" "%b")
-      initial-scratch-message ";;"
-      custom-theme-directory "~/.emacs.d/themes"
-      linum-format "%d  "
-      transient-mark-mode 0
-      inhibit-startup-message t)
+(setq-default frame-title-format #'("" "%b")
+              initial-scratch-message ";;"
+              custom-theme-directory "~/.emacs.d/themes"
+              linum-format "%d  "
+              transient-mark-mode 0
+              inhibit-startup-message t
+              line-spacing 5)
 
 (setq default-font-list-index 7)
 (setq font-list-index default-font-list-index)

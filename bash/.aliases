@@ -1,4 +1,4 @@
-# vim: fdm=marker ft=sh
+# vim: filetype=sh
 # Aliases
 # @author matteo.muscella@usi.ch
 #
@@ -41,6 +41,9 @@ alias ll='ls -lh'$COLORFLAG
 alias lt='ls -ltr '$COLORFLAG         #  Sort by date, most recent last.
 alias lc='ls -ltcr '$COLORFLAG        #  Sort by/show change time,most recent last.
 alias lu='ls -ltur '$COLORFLAG        #  Sort by/show access time,most recent last.
+# Find all the symbolic links in a directory
+alias lk='ls -l `find . -maxdepth 1 -type l -print`'
+
 
 alias ..='cd ..'
 
@@ -58,19 +61,16 @@ alias ghclean='rm -f *.hi *.o $1'
 # }}}
 # {{{ working directories
 
-alias pin="cd ~/Git/pintos/pintos-env/pintos/"
-alias compilers="cd ~/Git/mattmusc-homework-lc2015/$([ -d "~/Git/mattmusc-homework-lc2015/" ] \
-    && ls -t ~/Git/mattmusc-homework-lc2015/ | head -n 1)"
 alias sem="cd ~/SpringSemester2015"
 alias P="cd ~/Dropbox/Programming"
 alias dots="cd ~/.dotfiles"
 alias configs="cd $XDG_CONFIG_HOME"
 
 # setup aliases for my SpringSemester2015 folder
-for i in `ls -d ~/SpringSemester2015/*`
-do 
-    alias $(basename $i | sed 's/&//g' | tr '[:upper:]' '[:lower:]')="cd '$i'"
-done
+#for i in `ls -d ~/SpringSemester2015/*`
+#do 
+#    alias $(basename $i | sed 's/&//g' | tr '[:upper:]' '[:lower:]')="cd '$i'"
+#done
 
 # }}}
 # {{{ servers

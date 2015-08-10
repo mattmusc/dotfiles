@@ -25,20 +25,20 @@ URxvt.keysym.C-Down:   font-size:decrease
 URxvt.keysym.C-S-Up:   font-size:incglobal
 URxvt.keysym.C-S-Down: font-size:decglobal
 
-urxvt*font:            xft:Inconsolata for Powerline:size=11
-urxvt*boldFont:        xft:Inconsolata for Powerline:bold:size=11
-urxvt*italicFont:      xft:Inconsolata for Powerline:italic:size=11
-urxvt*bolditalicFont:  xft:Inconsolata for Powerline:bold:size=11
+!urxvt*font:            xft:Inconsolata for Powerline:size=11
+!urxvt*boldFont:        xft:Inconsolata for Powerline:bold:size=11
+!urxvt*italicFont:      xft:Inconsolata for Powerline:italic:size=11
+!urxvt*bolditalicFont:  xft:Inconsolata for Powerline:bold:size=11
 
 !urxvt*font:            xft:Terminess Powerline:size=9
 !urxvt*boldFont:        xft:Terminess Powerline:bold:size=9
 !urxvt*italicFont:      xft:Terminess Powerline:italic:size=9
 !urxvt*bolditalicFont: -*-smoothansi-*-*-*-*-*-*-*-*-*-*-*-*
 
-!urxvt*font: -*-smoothansi-*-*-*-*-*-*-*-*-*-*-*-*
-!urxvt*boldFont: -*-smoothansi-*-*-*-*-*-*-*-*-*-*-*-*
-!urxvt*italicFont: -*-smoothansi-*-*-*-*-*-*-*-*-*-*-*-*
-!urxvt*bolditalicFont: -*-smoothansi-*-*-*-*-*-*-*-*-*-*-*-*
+urxvt*font: -*-smoothansi-*-*-*-*-*-*-*-*-*-*-*-*
+urxvt*boldFont: -*-smoothansi-*-*-*-*-*-*-*-*-*-*-*-*
+urxvt*italicFont: -*-smoothansi-*-*-*-*-*-*-*-*-*-*-*-*
+urxvt*bolditalicFont: -*-smoothansi-*-*-*-*-*-*-*-*-*-*-*-*
 
 !urxvt*font: -*-tamzen-medium-r-normal-*-*-87-*-*-*-*-*-*
 !urxvt*boldFont: -*-tamzen-medium-r-normal-*-*-87-*-*-*-*-*-*
