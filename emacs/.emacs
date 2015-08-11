@@ -89,7 +89,7 @@ to the Emacs load path."
     color-theme-sanityinc-tomorrow
     color-theme-sanityinc-solarized
     gnuplot gnuplot-mode haskell-mode
-    magit php-mode
+    magit multiple-cursors php-mode
     rainbow-mode rainbow-delimiters
     yasnippet)
   "A list of packages to ensure are installed at launch.")
@@ -174,6 +174,7 @@ to the Emacs load path."
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
 
+
 ;;;; Interactively Do Things
 
 (require 'ido)
@@ -238,6 +239,8 @@ to the Emacs load path."
 ;; Auto Complete
 (ac-config-default)
 
+;; Multiple Cursors
+(require 'multiple-cursors)
 
 
 ;;;; Editor
@@ -294,23 +297,26 @@ to the Emacs load path."
 
 (global-unset-key (kbd "C-x C-+"))
 (global-unset-key (kbd "C-x C--"))
-(global-set-key (kbd "C-M-=")     'text-scale-increase)
-(global-set-key (kbd "C-M--")     'text-scale-decrease)
-(global-set-key (kbd "C--")       'prev-font)
-(global-set-key (kbd "C-=")       'next-font)
-(global-set-key (kbd "C-0")       'default-font)
-(global-set-key (kbd "C-x C-b")   'ido-switch-buffer)
-(global-set-key (kbd "C-c C-r")   'eval-region)
-(global-set-key (kbd "C-c C-b")   'eval-buffer)
-(global-set-key (kbd "s-<left>")  'windmove-left)
-(global-set-key (kbd "s-<right>") 'windmove-right)
-(global-set-key (kbd "s-<up>")    'windmove-up)
-(global-set-key (kbd "s-<down>")  'windmove-down)
-(global-set-key (kbd "C-c C-s")   'shell)
-(global-set-key (kbd "C-c C-n")   'linum-mode)
-(global-set-key (kbd "s-F")       'clang-format-buffer)
-(global-set-key (kbd "C-x g")     'magit-status)
-
+(global-set-key   (kbd "C-M-=")        'text-scale-increase)
+(global-set-key   (kbd "C-M--")        'text-scale-decrease)
+(global-set-key   (kbd "C--")          'prev-font)
+(global-set-key   (kbd "C-=")          'next-font)
+(global-set-key   (kbd "C-0")          'default-font)
+(global-set-key   (kbd "C-x C-b")      'ido-switch-buffer)
+(global-set-key   (kbd "C-c C-r")      'eval-region)
+(global-set-key   (kbd "C-c C-b")      'eval-buffer)
+(global-set-key   (kbd "s-<left>")     'windmove-left)
+(global-set-key   (kbd "s-<right>")    'windmove-right)
+(global-set-key   (kbd "s-<up>")       'windmove-up)
+(global-set-key   (kbd "s-<down>")     'windmove-down)
+(global-set-key   (kbd "C-c C-s")      'shell)
+(global-set-key   (kbd "C-c C-n")      'linum-mode)
+(global-set-key   (kbd "s-F")          'clang-format-buffer)
+(global-set-key   (kbd "C-x g")        'magit-status)
+(global-set-key   (kbd "C-S-c C-S-c")  'mc/edit-lines)
+(global-set-key   (kbd "C->")          'mc/mark-next-like-this)
+(global-set-key   (kbd "C-<")          'mc/mark-previous-like-this)
+(global-set-key   (kbd "C-c C-<")      'mc/mark-all-like-this)
 
 
 ;;;; Functions
