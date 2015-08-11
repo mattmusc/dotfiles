@@ -125,18 +125,18 @@ to the Emacs load path."
 (setq font-list-index default-font-list-index)
 
 (setq font-list
-      (list "-*-agave for Powerline-*-*-*-*-*-130-*-*-*-*-*-*"
+      (list "-*-agave for Powerline-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-Anka/Coder-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-Anonymous Pro for Powerline-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-Consolas-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-Droid Sans Mono for Powerline-*-*-*-*-*-120-*-*-*-*-*-*"
-            "-*-Fira Mono Medium for Powerline-*-*-*-*-*-120-*-*-*-*-*-*"
+            "-*-Fira Mono Medium for Powerline-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-GohuFont-*-*-*-*-*-140-*-*-*-*-*-*"
-            "-*-Inconsolata for Powerline-*-*-*-*-*-140-*-*-*-*-*-*"
+            "-*-Inconsolata for Powerline-*-*-*-*-*-150-*-*-*-*-*-*"
             "-*-M+ 1m-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-Monaco-*-*-*-*-*-120-*-*-*-*-*-*"
             "-*-PragmataPro-*-*-*-*-*-140-*-*-*-*-*-*"
-            "-*-Source Code Pro for Powerline-*-*-*-*-*-120-*-*-*-*-*-*"))
+            "-*-Source Code Pro for Powerline-*-*-*-*-*-140-*-*-*-*-*-*"))
 
 (when (display-graphic-p)
   (cond ((string-equal system-type "darwin")
@@ -166,6 +166,12 @@ to the Emacs load path."
 (set-fringe-mode 0)
 (show-paren-mode t)
 (setq confirm-kill-emacs 'y-or-n-p)
+
+;; scroll one line at a time (less "jumpy" than defaults)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 1) ;; keyboard scroll one line at a time
 
 
 ;;;; Interactively Do Things
@@ -302,7 +308,6 @@ to the Emacs load path."
 (global-set-key (kbd "s-<down>")  'windmove-down)
 (global-set-key (kbd "C-c C-s")   'shell)
 (global-set-key (kbd "C-c C-n")   'linum-mode)
-(global-set-key (kbd "C-.")       'imenu-anywhere)
 (global-set-key (kbd "s-F")       'clang-format-buffer)
 (global-set-key (kbd "C-x g")     'magit-status)
 
