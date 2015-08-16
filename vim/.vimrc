@@ -23,19 +23,11 @@ call vundle#begin('~/.vim/bundle/')
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim', {'pinned' : 1}
 
-"Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-"Plugin 'altercation/vim-colors-solarized'
-"Plugin 'bling/vim-airline'
-
-"Plugin 'morhetz/gruvbox'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'noahfrederick/vim-hemisu'
-"Plugin 'tpope/vim-endwise'
-"Plugin 'tpope/vim-markdown'
-"Plugin 'octol/vim-cpp-enhanced-highlight'
-"Plugin 'kana/vim-operator-user'
-"Plugin 'rhysd/vim-clang-format'
-
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'rhysd/vim-clang-format'
 
 call vundle#end()
 
@@ -44,143 +36,85 @@ filetype plugin indent on
 " }}}
 " {{{ look
 
-" Use spaces instead of tabs
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set shiftround
-set expandtab
-set preserveindent
-set modelines=1
+" Tabs and indenting
+set tabstop=4                   " Set the size of tabs
+set softtabstop=4               " Set the number of spaces for indeting
+set shiftwidth=4                " Set the size of autoindent
+set shiftround                  " Indent relative to beginning of line
+set expandtab                   " Make sure our tabs are spaces
+set preserveindent              " Preserve as much of the indent structure
+set modelines=1                 " Number of lines of modeline
+set backspace=2                 " Set backspace to 'indent,eol,start'
 
 " Help with search
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
+set hlsearch                    " Set incremental search highlight
+set incsearch                   " Set incremental search
+set ignorecase                  " Set case-insensitive search
+set smartcase                   " Override ignore-case option
 
 " Encoding
-set encoding=utf8
+set encoding=utf8               " Set character encoding
 
 " Auto read changed files
-set autoread
+set autoread                    " Read again a file if changed outside of Vim
 
 " Show line numbers and length
-set number
-set ruler
-set tw=79
-set nowrap
-"set colorcolumn=80
-"highlight ColorColumn ctermbg=210
-set cursorline
-set fillchars+=stl:\ ,stlnc:\
+set number                      " Show line numbers
+set ruler                       " Show line,column number
+set textwidth=79                " Set max width of text
+set nowrap                      " No wrapping of text
+set colorcolumn=80              " Highlight entire column
+set cursorline                  " Highlight current line
+set fillchars+=stl:\ ,stlnc:\   " Characters to fill the statuslines
 
 " Command line
-set showmode
-set showcmd
-set cmdheight=1
+set showmode                    " Show the current mode we are in
+set showcmd                     " Show command in the last line of the screen
+set cmdheight=1                 " Set number of screen lines for command-line
 
 " Mouse support
-set mouse=a
-set backspace=2
+set mouse=a                     " Enable the mouse in all modes
 
-" Screen not redrawn while macros or commands
-set lazyredraw
-"
-" Enable code folding
-set foldmethod=marker
+" Screen draw
+set lazyredraw                  " Screen is not redrawn when in macros
+
+" Code folding
+set foldmethod=marker           " Set preferred method to look for folds
 
 " Completion for command mode
-set wildmenu
-set wildmode=longest,full,list
+set wildmenu                    " Set comamnd-line completion enhanced mode
+set wildmode=longest,full,list  " Till longest, Next full, list all matches
+set wildchar=<Tab>              " Character to start wildcard expansion
 
 " }}}
 " {{{ colors
 
-" https://github.com/altercation/vim-colors-solarized
 set t_Co=265
 syntax enable
 set background=light
 colorscheme hemisu
-"hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
 " additional cpp highlighting
-let g:cpp_class_scope_highlight = 1
-let g:cpp_experimental_template_highlight = 1
+let g:cpp_class_scope_highlight=1
+let g:cpp_experimental_template_highlight=1
 
 " syntax highlighting groups
+"hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
 "hi Comment      ctermfg=7
 "hi VertSplit	ctermfg=0 ctermbg=none
 "hi StatusLine	ctermfg=0 ctermbg=none
 "hi StatusLineNC	ctermfg=0 ctermbg=none
-"
+
 "hi Pmenu ctermfg=7 ctermbg=0
 "hi PmenuSel ctermfg=0 ctermbg=15
 "hi LineNr ctermfg=0 ctermbg=none
 "hi CursorLine ctermfg=none ctermbg=none cterm=none
-"hi CursorLineNr ctermfg=none ctermbg=0 
+"hi CursorLineNr ctermfg=none ctermbg=0
 "hi CursorColumn ctermfg=none ctermbg=0
 
 " }}}
 " {{{ statusline
 
-"set laststatus=2
-"set statusline=\ \%f%m%r%h%w\ \ %y\ [%{&ff}]\%=\ [%p%%:\ %l/%L]
-
-"--------------------------
-"Airline Settings
-"--------------------------
-"let g:airline_symbols = {}
-"let g:airline_powerline_fonts                     = 1
-"let g:airline_left_sep                            = '⮀'
-"let g:airline_left_alt_sep                        = '⮁'
-"let g:airline_right_sep                           = '⮂'
-"let g:airline_right_alt_sep                       = '⮃'
-"let g:airline_theme                               = 'solarized'
-"let g:airline_toggle_whitespace                   = 1
-"let g:airline#extensions#tabline#enabled          = 1
-"let g:airline#extensions#tabline#show_buffers     = 1
-"let g:airline#extensions#tabline#show_tabs        = 1
-"let g:airline#extensions#tabline#formatter        = 'unique_tail_improved'
-"let g:airline#extensions#tabline#buffer_min_count = 0
-"let g:airline_symbols.branch                      = '⭠'
-"let g:airline_symbols.readonly                    = '⭤'
-"let g:airline_symbols.linenr                      = '⭡'
-
-"let g:airline_mode_map = {
-"            \ '__' : '-',
-"            \ 'n'  : 'N',
-"            \ 'i'  : 'I',
-"            \ 'R'  : 'R',
-"            \ 'c'  : 'C',
-"            \ 'v'  : 'V',
-"            \ 'V'  : 'V',
-"            \ 's'  : 'S',
-"            \ 'S'  : 'S',
-"            \ ' ' : 'S',
-"            \ }
-
-" unicode symbols
-"let g:airline_left_sep          = '»'
-"let g:airline_left_sep          = '▶'
-"let g:airline_right_sep         = '«'
-"let g:airline_right_sep         = '◀'
-"let g:airline_symbols.linenr    = '␊'
-"let g:airline_symbols.linenr    = '␤'
-"let g:airline_symbols.linenr     = '¶'
-"let g:airline_symbols.branch    = '⎇'
-"let g:airline_symbols.paste      = 'ρ'
-"let g:airline_symbols.paste     = 'Þ'
-"let g:airline_symbols.paste     = '∥'
-"let g:airline_symbols.whitespace = 'Ξ'
-
-" powerline symbols
-"let g:airline_left_sep          = ''
-"let g:airline_left_alt_sep      = ''
-"let g:airline_right_sep         = ''
-"let g:airline_right_alt_sep     = ''
-"let g:airline_symbols.branch    = ''
-"let g:airline_symbols.readonly  = ''
-"let g:airline_symbols.linenr    = ''
+set laststatus=0                       " Set statusline: 0,1,2
 
 " }}}
 " {{{ autocmd
@@ -253,7 +187,8 @@ else " no gui
     endif
 endif
 
-"noremap <Leader>f :ClangFormat<CR><CR>
+noremap <Leader>f :ClangFormat<CR><CR>
+nnoremap <Leader>rtw :%s/\s\+$//e<CR>  " delete trailing whitespace
 
 " }}}
 " {{{ abbreviations

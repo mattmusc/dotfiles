@@ -6,7 +6,7 @@
 # {{{ Init
 
 [ -f $HOME/.environment ] && source $HOME/.environment
-[ -f $HOME/.aliases ] && source $HOME/.aliases
+[ -f $HOME/.aliases ]     && source $HOME/.aliases
 
 [[ $- != *i* ]] && return
 

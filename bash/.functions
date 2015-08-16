@@ -1,16 +1,21 @@
-#!/bin/bash
-#
+# vim: ft=sh
 # Shell Function definitions
 # @author matteo.muscella@usi.ch
 
-# get external ip address
-function extip() {
-$(curl -s 'http://ipecho.net/plain')
-}
+#------------------------------------------------
+# Get external ip address
+#------------------------------------------------
+function extip()#{{{
+{
+    echo $(curl -s 'http://myexternalip.com/raw')
+}#}}}
 
-# check if i am home
-function iamhome() {
-IP_ADDRESS="2.235.177.223"
-[ "$IP_ADDRESS" == "$(extip)" ] ; echo $?
-}
+#------------------------------------------------
+# Check if i am home
+#------------------------------------------------
+function iamhome()#{{{
+{
+    IP_ADDRESS="2.235.177.223"
+    [ "$IP_ADDRESS" == "$(extip)" ] ; echo $?
+}#}}}
 
