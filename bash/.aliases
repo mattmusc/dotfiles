@@ -8,7 +8,8 @@
 alias :q='exit'
 alias :r="source $HOME/.$(ps -p $$ | grep -ioe '\(bash\|zsh\)')rc"
 
-function edit() {
+edit() #{{{
+{
     case "$1" in
         bash|zsh)
             vim $HOME/.$1rc ; source $HOME/.$1rc
@@ -26,22 +27,21 @@ function edit() {
             echo "error: invalid file: $1"
             ;;
     esac
-}
+} #}}}
 
-mkcdir ()
-{
+mkcdir () { #{{{
     mkdir -p -- "$1" &&
         cd -P -- "$1"
-}
+} #}}}
 
-case `uname -s` in
+case `uname -s` in # {{{
     "Darwin")
         COLORFLAG=' -G'
         ;;
     "Linux")
         COLORFLAG=' --color=auto'
         ;;
-esac
+esac #}}}
 
 alias l='ls -h'$COLORFLAG
 alias la='ls -lha'$COLORFLAG
@@ -53,19 +53,16 @@ alias lu='ls -ltur '$COLORFLAG        #  Sort by/show access time,most recent la
 # Find all the symbolic links in a directory
 alias lk='ls -l `find . -maxdepth 1 -type l -print`'
 
-
 alias ..='cd ..'
-
-alias sb="source ~/.bashrc"
-alias sc="source ~/.zshrc"
 
 # list top ten largest files/directories in current directory
 alias ducks='du -cks *|sort -rn|head -11'
 
-alias extip='curl -s ifconfig.me'
-alias iamhome='[ `curl -s ifconfig.me` = "2.235.177.223" ]'
-
 alias ghclean='rm -f *.hi *.o $1'
+
+alias ip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
+alias extip='curl -s http://myexternalip.com/raw'
+alias iamhome='[ \"$(extip)\" == \"2.235.177.223\" ] ; echo $?'
 
 # }}}
 # {{{ working directories
@@ -96,15 +93,16 @@ alias rm="rm -i"
 # }}}
 # {{{ mac os specific
 
-alias update='brew cleanup && brew update && brew upgrade && brew cleanup && brew doctor'
+alias update='brew cleanup && brew update && brew upgrade &&\
+    brew cleanup && brew doctor'
 alias addSpacer="defaults write com.apple.dock persistent-apps -array-add \
     '{tile-data={}; tile-type=\"spacer-tile\";}' ; killall Dock"
 
 # show/hide hidden files in the finder
-alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall\
 Finder /System/Library/CoreServices/Finder.app'
-alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall
-Finder /System/Library/CoreServices/Finder.app'
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;\
+    killall Finder /System/Library/CoreServices/Finder.app'
 
 # }}}
 # {{{ git

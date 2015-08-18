@@ -3,19 +3,12 @@
 # @author matteo.muscella@usi.ch
 
 #------------------------------------------------
-# Get external ip address
+# Rename files matching wildcards with sequential
+# numbers starting from 0001
 #------------------------------------------------
-function extip()#{{{
+function rseq() #{{{
 {
-    echo $(curl -s 'http://myexternalip.com/raw')
-}#}}}
-
-#------------------------------------------------
-# Check if i am home
-#------------------------------------------------
-function iamhome()#{{{
-{
-    IP_ADDRESS="2.235.177.223"
-    [ "$IP_ADDRESS" == "$(extip)" ] ; echo $?
-}#}}}
-
+    find -E . -regex '.*\.(jpg|png)' | # find files
+    awk 'BEGIN{ a=1 }{ printf "mv \"%s\" %04d.jpg\n", $0, a++ }' | # build cmd
+    bash
+} #}}}

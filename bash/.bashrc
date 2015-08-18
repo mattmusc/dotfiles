@@ -5,8 +5,10 @@
 # ---------------------------------------------------------------------------
 # {{{ Init
 
-[ -f $HOME/.environment ] && source $HOME/.environment
-[ -f $HOME/.aliases ]     && source $HOME/.aliases
+[ -f  "$HOME/.environment" ] && source "$HOME/.environment"
+[ -f  "$HOME/.aliases"     ] && source "$HOME/.aliases"
+[ -f  "$HOME/.functions"   ] && source "$HOME/.functions"
+
 
 [[ $- != *i* ]] && return
 
@@ -69,7 +71,7 @@ bakwht='\e[47m'   # White
 txtrst='\e[0m'    # Text Reset
 
 case "$TERM" in
-    *term*|rxvt*)
+    *term*|rxvt*|screen*)
         #PS1="\[$txtblu\]\W\[$txtrst\] \[$txtred\]─\[$txtrst\] "
         PS1="\[$txtblu\] \W \[$txtred\]»\[$txtrst\] "
         ;;

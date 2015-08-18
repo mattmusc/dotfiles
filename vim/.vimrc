@@ -28,6 +28,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'noahfrederick/vim-hemisu'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()
 
@@ -66,6 +67,7 @@ set nowrap                      " No wrapping of text
 set colorcolumn=80              " Highlight entire column
 set cursorline                  " Highlight current line
 set fillchars+=stl:\ ,stlnc:\   " Characters to fill the statuslines
+set linespace=6                 " Set line height
 
 " Command line
 set showmode                    " Show the current mode we are in
@@ -85,6 +87,9 @@ set foldmethod=marker           " Set preferred method to look for folds
 set wildmenu                    " Set comamnd-line completion enhanced mode
 set wildmode=longest,full,list  " Till longest, Next full, list all matches
 set wildchar=<Tab>              " Character to start wildcard expansion
+
+" GUI Font
+set guifont=Menlo:h14
 
 " }}}
 " {{{ colors

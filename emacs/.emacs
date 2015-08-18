@@ -1,10 +1,11 @@
+;; ---~------~-----------------------------------------------------------~---
 ;; Emacs config
 ;; @author matteo.muscella@usi.ch
+;; ---~------~-----------------------------------------------------------~---
 
 (require 'cl)
 
-
-;;;; Benchmarking
+;;;; Benchmarking {{{
 
 (defvar *emacs-load-start* (current-time))
 (defun anarcat/time-to-ms (time)
@@ -21,9 +22,8 @@
       1000000.0)))
 (add-hook 'after-init-hook 'anarcat/display-timing t)
 
-
-
-;;;; Necessary function
+;;;; }}}
+;;;; Necessary function {{{
 
 (defun add-subfolders-to-load-path (parent-dir &optional the-list)
   "Adds all first level `parent-dir' subdirs to a list.  Default
@@ -42,9 +42,8 @@ to the Emacs load path."
   (unless (file-exists-p the-dir)
   (make-directory the-dir)))
 
-
-
-;;;; Constants
+;;;; }}}
+;;;; Constants {{{
 
 (defconst base-dir     "~/.emacs.d/")
 (defconst elisp-dir    (expand-file-name "elisp"    base-dir))
@@ -56,9 +55,8 @@ to the Emacs load path."
 (defconst personal-dir (expand-file-name "personal" base-dir)
   "All Emacs Lisp files here are loaded automatically.")
 
-
-
-;;;; Init
+;;;; }}}
+;;;; Init {{{
 
 (make-dir-if-nec elisp-dir)
 (make-dir-if-nec vendor-dir)
@@ -71,9 +69,8 @@ to the Emacs load path."
 (add-to-list 'load-path vendor-dir)
 (add-to-list 'load-path personal-dir)
 
-
-
-;;;; Package Manager
+;;;; }}}
+;;;; Package Manager {{{
 
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -109,9 +106,49 @@ to the Emacs load path."
     (when (not (package-installed-p p))
       (package-install p))))
 
+;;;; }}}
+;;;; Functions {{{
+
+(defun next-font ()
+  "Selects next font in the font list"
+  (interactive)
+  (progn
+    (setq font-list-index (min (- (length font-list) 1)
+                               (+ font-list-index 1)))
+    (message (nth font-list-index font-list))
+    (set-frame-font (nth font-list-index font-list))))
+
+(defun prev-font ()
+  "Selects previous font in the font list"
+  (interactive)
+  (progn
+    (setq font-list-index (max 0
+                               (- font-list-index 1)))
+    (message (nth font-list-index font-list))
+    (set-frame-font (nth font-list-index font-list))))
+
+(defun default-font ()
+  "Sets frames font as in 'default-font-list-index"
+  (interactive)
+  (progn
+    (setq font-list-index default-font-list-index)
+    (message (nth font-list-index font-list))
+    (set-frame-font (nth font-list-index font-list))))
+
+(defun imenu-elisp-sections ()
+  "Imenu display if four comment syntax ;;;;"
+  (setq imenu-prev-index-position-function nil)
+  (add-to-list 'imenu-generic-expression '(nil "^;;;; \\(.+\\)$" 1) t))
+
+(defun set-default-compilation-command (mode command)
+  "Add a new default compilation command to major mode"
+  (add-hook mode
+            (lambda ()
+              (set (make-local-variable 'compile-command) command))))
 
 
-;;;; Appearance
+;;;; }}}
+;;;; Appearance {{{
 
 (setq-default frame-title-format #'("" "%b")
               initial-scratch-message ";;"
@@ -119,7 +156,7 @@ to the Emacs load path."
               linum-format "%d  "
               transient-mark-mode 0
               inhibit-startup-message t
-              line-spacing 5)
+              line-spacing 4)
 
 (setq default-font-list-index 7)
 (setq font-list-index default-font-list-index)
@@ -158,6 +195,7 @@ to the Emacs load path."
             (set-face-attribute 'fringe nil :background "#fdf6e3")
             (set-face-attribute 'linum nil :background "#fdf6e3")))
 
+
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 (blink-cursor-mode 0)
@@ -174,17 +212,16 @@ to the Emacs load path."
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
 
-
-;;;; Interactively Do Things
+;;;; }}}
+;;;; Interactively Do Things {{{
 
 (require 'ido)
 (setq ido-enable-flex-matching t
       ido-everywhere t)
 (ido-mode t)
 
-
-
-;;;; Backup and Save places
+;;;; }}}
+;;;; Backup and Save places {{{
 
 (require 'saveplace)
 (setq save-place-file savefile-fil)
@@ -215,9 +252,8 @@ to the Emacs load path."
 
 (add-hook 'mouse-leave-buffer-hook 'prelude-auto-save-command)
 
-
-
-;;;; Autocomplete
+;;;; }}}
+;;;; Editor {{{
 (setq hippie-expand-try-functions-list
       '(try-expand-dabbrev
         try-expand-dabbrev-all-buffers
@@ -242,8 +278,18 @@ to the Emacs load path."
 ;; Multiple Cursors
 (require 'multiple-cursors)
 
+;; Hide Show
+(add-to-list
+ 'hs-special-modes-alist
+ '(ruby-mode
+   "\\(def\\|do\\|{\\)" "\\(end\\|end\\|}\\)" "#"
+   (lambda (arg) (ruby-end-of-block)) nil))
 
-;;;; Editor
+(add-to-list
+ 'hs-special-modes-alist
+ '(lisp-mode
+   "{" "}" ";" nil nil))
+
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -291,9 +337,17 @@ to the Emacs load path."
           (lambda () (define-key c-mode-base-map (kbd "C-c C-c") 'compile)))
 
 
+;; Haskell
+(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
 
+(eval-after-load "haskell-mode"
+  '(define-key haskell-mode-map (kbd "C-c C-c") 'haskell-compile))
 
-;;;; Keys
+(eval-after-load "haskell-cabal"
+  '(define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-compile))
+
+;;;; }}}
+;;;; Keys {{{
 
 (global-unset-key (kbd "C-x C-+"))
 (global-unset-key (kbd "C-x C--"))
@@ -317,43 +371,19 @@ to the Emacs load path."
 (global-set-key   (kbd "C->")          'mc/mark-next-like-this)
 (global-set-key   (kbd "C-<")          'mc/mark-previous-like-this)
 (global-set-key   (kbd "C-c C-<")      'mc/mark-all-like-this)
+                                   
+(eval-after-load "hideshow"
+  '(progn
+     (message "Hs minor mode customizations")
+     (defun my-hs-minor-mode-hook ()
+       (define-key hs-minor-mode-map   (kbd "C-c @ C-h")     nil)
+       (define-key hs-minor-mode-map   (kbd "C-c @ C-s")     nil)
+       (define-key hs-minor-mode-map   (kbd "C-c @ C-M-h")   nil)
+       (define-key hs-minor-mode-map   (kbd "M-<up>")       'hs-hide-block)
+       (define-key hs-minor-mode-map   (kbd "M-<down>")     'hs-show-block)
+       (define-key hs-minor-mode-map   (kbd "M-S-<up>")     'hs-hide-all)
+       (define-key hs-minor-mode-map   (kbd "M-S-<down>")     'hs-show-all))
+     (add-hook 'hs-minor-mode-hook 'my-hs-minor-mode-hook)))
 
+;;;; }}}
 
-;;;; Functions
-
-(defun next-font ()
-  "Selects next font in the font list"
-  (interactive)
-  (progn
-    (setq font-list-index (min (- (length font-list) 1)
-                               (+ font-list-index 1)))
-    (message (nth font-list-index font-list))
-    (set-frame-font (nth font-list-index font-list))))
-
-(defun prev-font ()
-  "Selects previous font in the font list"
-  (interactive)
-  (progn
-    (setq font-list-index (max 0
-                               (- font-list-index 1)))
-    (message (nth font-list-index font-list))
-    (set-frame-font (nth font-list-index font-list))))
-
-(defun default-font ()
-  "Sets frames font as in 'default-font-list-index"
-  (interactive)
-  (progn
-    (setq font-list-index default-font-list-index)
-    (message (nth font-list-index font-list))
-    (set-frame-font (nth font-list-index font-list))))
-
-(defun imenu-elisp-sections ()
-  "Imenu display if four comment syntax ;;;;"
-  (setq imenu-prev-index-position-function nil)
-  (add-to-list 'imenu-generic-expression '(nil "^;;;; \\(.+\\)$" 1) t))
-
-(defun set-default-compilation-command (mode command)
-  "Add a new default compilation command to major mode"
-  (add-hook mode
-            (lambda ()
-              (set (make-local-variable 'compile-command) command))))
