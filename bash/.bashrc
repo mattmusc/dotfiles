@@ -72,8 +72,8 @@ txtrst='\e[0m'    # Text Reset
 
 case "$TERM" in
     *term*|rxvt*|screen*)
-        #PS1="\[$txtblu\]\W\[$txtrst\] \[$txtred\]─\[$txtrst\] "
-        PS1="\[$txtblu\] \W \[$txtred\]»\[$txtrst\] "
+        PS1="\[$txtblu\]\W\[$txtrst\] \[$txtred\]─\[$txtrst\] "
+        #PS1="\[$txtblu\] \W \[$txtred\]»\[$txtrst\] "
         ;;
     dumb)
         PS1="\n>>> "
