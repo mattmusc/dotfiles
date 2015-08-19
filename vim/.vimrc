@@ -24,6 +24,7 @@ call vundle#begin('~/.vim/bundle/')
 Plugin 'gmarik/Vundle.vim', {'pinned' : 1}
 
 Plugin 'airblade/vim-gitgutter'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'noahfrederick/vim-hemisu'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rhysd/vim-clang-format'
