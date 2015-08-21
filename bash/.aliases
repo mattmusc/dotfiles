@@ -72,11 +72,11 @@ alias P="cd ~/Dropbox/Programming"
 alias dots="cd ~/.dotfiles"
 alias configs="cd $XDG_CONFIG_HOME"
 
-# setup aliases for my SpringSemester2015 folder
-#for i in `ls -d ~/SpringSemester2015/*`
-#do 
-#    alias $(basename $i | sed 's/&//g' | tr '[:upper:]' '[:lower:]')="cd '$i'"
-#done
+# setup aliases for my semester folder
+for i in `ls -d ~/FallSem2015-2016/*`
+do 
+    alias $(basename $i | sed 's/&//g' | tr '[:upper:]' '[:lower:]')="cd '$i'"
+done
 
 # }}}
 # {{{ servers

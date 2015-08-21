@@ -26,6 +26,7 @@ Plugin 'gmarik/Vundle.vim', {'pinned' : 1}
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'noahfrederick/vim-hemisu'
+Plugin 'chriskempson/base16-vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'terryma/vim-multiple-cursors'
