@@ -1,13 +1,7 @@
-"""
-""" VIM RC
-""" @author matteo.muscella@usi.ch
-"""
-" {{{ functions
-
-" Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
-
-" }}}
+" ---"---"--------------------------------------------------------------------
+" VIM RC
+" @author matteo.muscella@usi.ch
+" ---"---"--------------------------------------------------------------------
 " {{{ filetype & vundle
 
 set nocompatible
@@ -101,14 +95,15 @@ set guifont=Menlo:h13           " Set GUI font for my MacVim
 " {{{ colors
 
 "set t_Co=265
-syntax enable
-set background=dark
-colorscheme gruvbox
-" additional cpp highlighting
+syntax enable                          " Enable syntax highlighting
+set background=light                   " Set the colorscheme background
+colorscheme hemisu                     " Set the colorscheme
+
+" Additional cpp highlighting
 let g:cpp_class_scope_highlight=1
 let g:cpp_experimental_template_highlight=1
 
-" syntax highlighting groups
+" Syntax highlighting groups
 "hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
 "hi Comment      ctermfg=7
 "hi VertSplit	ctermfg=0 ctermbg=none
@@ -130,6 +125,8 @@ set laststatus=0                       " Set statusline: 0,1,2
 " }}}
 " {{{ autocmd
 
+" Automatic reloading of .vimrc
+autocmd! bufwritepost .vimrc source %
 autocmd filetype html,xml set listchars-=tab:>.
 autocmd filetype haskell  set tabstop=2 softtabstop=2 shiftwidth=2
 autocmd filetype c,cpp,vim,xml,html,xhtml set foldmethod=syntax
@@ -181,13 +178,15 @@ endif
 " }}}
 " {{{ keys
 
-let mapleader=","
+let mapleader=","                      " Set the leader key
+
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nmap <silent> ,/ :nohlsearch<CR>
 set pastetoggle=<leader>p
-if has("gui_running")
+
+if has("gui_running")                  " Remap Ctrl-Space to completion
     " C-Space seems to work under gVim on both Linux and win32
     inoremap <C-Space> <C-n>
 else " no gui
@@ -198,8 +197,14 @@ else " no gui
     endif
 endif
 
-noremap <Leader>f :ClangFormat<CR><CR>
-nnoremap <Leader>rtw :%s/\s\+$//e<CR>  " delete trailing whitespace
+" Invoke Clang Format for current buffer
+nnoremap <Leader>f      :ClangFormat<CR><CR>
+
+" Delete trailing whitespaces
+nnoremap <Leader>rtw    :%s/\s\+$//e<CR>
+ 
+" Substitute all occurrences of the word under the cursor
+nnoremap <Leader>s      :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " }}}
 " {{{ abbreviations
@@ -207,3 +212,4 @@ nnoremap <Leader>rtw :%s/\s\+$//e<CR>  " delete trailing whitespace
 ab atauthor @author matteo.muscella@usi.ch
 
 " }}}
+
