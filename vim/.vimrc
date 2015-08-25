@@ -24,12 +24,17 @@ call vundle#begin('~/.vim/bundle/')
 Plugin 'gmarik/Vundle.vim', {'pinned' : 1}
 
 Plugin 'airblade/vim-gitgutter'
+
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'noahfrederick/vim-hemisu'
 Plugin 'chriskempson/base16-vim'
+Plugin 'morhetz/gruvbox'
+
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'terryma/vim-multiple-cursors'
+
+Plugin 'urso/haskell_syntax.vim'
 
 call vundle#end()
 
@@ -95,10 +100,10 @@ set guifont=Menlo:h13           " Set GUI font for my MacVim
 " }}}
 " {{{ colors
 
-set t_Co=265
+"set t_Co=265
 syntax enable
-set background=light
-colorscheme hemisu
+set background=dark
+colorscheme gruvbox
 " additional cpp highlighting
 let g:cpp_class_scope_highlight=1
 let g:cpp_experimental_template_highlight=1

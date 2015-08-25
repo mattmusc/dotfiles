@@ -1,14 +1,16 @@
-# vim: ft=sh
+# -----------------------------------------------------------------------
 # Shell Function definitions
 # @author matteo.muscella@usi.ch
+# -----------------------------------------------------------------------
 
-#------------------------------------------------
+#
 # Rename files matching wildcards with sequential
 # numbers starting from 0001
-#------------------------------------------------
 function rseq() #{{{
 {
     find -E . -regex '.*\.(jpg|png)' | # find files
     awk 'BEGIN{ a=1 }{ printf "mv \"%s\" %04d.jpg\n", $0, a++ }' | # build cmd
     bash
 } #}}}
+
+# vim: ft=sh

@@ -1,8 +1,8 @@
 # ---------------------------------------------------------------------------
 # BashRC
 # @author matteo.muscella@usi.ch
-# vim: fdm=marker
 # ---------------------------------------------------------------------------
+
 # {{{ Init
 
 [ -f  "$HOME/.environment" ] && source "$HOME/.environment"
@@ -19,6 +19,9 @@ for opt in cdspell dotglob extglob \
         no_empty_cmd_completion; do
     shopt -s $opt
 done
+
+HISTCONTROL=ignorespace
+export HISTIGNORE="ls:passwd: "
 
 # }}}
 # {{{ Color for man pages
@@ -81,3 +84,5 @@ case "$TERM" in
 esac
 
 # }}}
+
+# vim: ft=sh fdm=marker
