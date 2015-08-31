@@ -67,7 +67,7 @@ set nowrap                      " No wrapping of text
 set colorcolumn=80              " Highlight entire column
 set cursorline                  " Highlight current line
 set fillchars+=stl:\ ,stlnc:\   " Characters to fill the statuslines
-set linespace=5                 " Set line height
+set linespace=6                 " Set line height
 
 " Command line
 set showmode                    " Show the current mode we are in
@@ -96,12 +96,8 @@ set guifont=Menlo:h13           " Set GUI font for my MacVim
 
 syntax enable                          " Enable syntax highlighting
 set background=light                   " Set the colorscheme background
-colorscheme hemisu                     " Set the colorscheme
-
-if has("gui_running")
-    set guifont=agave_for_Powerline:h14
-    colorscheme solarized
-endif
+colorscheme solarized                  " Set the colorscheme
+set guifont=PragmataPro:h14
 
 " Additional cpp highlighting
 let g:cpp_class_scope_highlight=1
