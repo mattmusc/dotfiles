@@ -1,7 +1,7 @@
-# vim: filetype=sh
+# ----------------------------------------------------------------------------
 # Aliases
 # @author matteo.muscella@usi.ch
-#
+# ----------------------------------------------------------------------------
 
 # {{{ useful commands
 
@@ -62,7 +62,9 @@ alias ghclean='rm -f *.hi *.o $1'
 
 alias ip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 alias extip='curl -s http://myexternalip.com/raw'
-alias iamhome='[ \"$(extip)\" == \"2.235.177.223\" ] ; echo $?'
+alias iamhome='[ \"$(extip)\" = \"2.235.177.223\" ] ; echo $?'
+
+alias timecmd='/usr/bin/time $1 -l'
 
 # }}}
 # {{{ working directories
@@ -71,12 +73,6 @@ alias sem="cd ~/SpringSemester2015"
 alias P="cd ~/Dropbox/Programming"
 alias dots="cd ~/.dotfiles"
 alias configs="cd $XDG_CONFIG_HOME"
-
-# setup aliases for my semester folder
-for i in `ls -d ~/FallSem2015-2016/*`
-do 
-    alias $(basename $i | sed 's/&//g' | tr '[:upper:]' '[:lower:]')="cd '$i'"
-done
 
 # }}}
 # {{{ servers
@@ -113,3 +109,4 @@ alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
 
 # }}}
 
+# vim: ft=sh fdm=marker

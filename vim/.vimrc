@@ -67,7 +67,7 @@ set nowrap                      " No wrapping of text
 set colorcolumn=80              " Highlight entire column
 set cursorline                  " Highlight current line
 set fillchars+=stl:\ ,stlnc:\   " Characters to fill the statuslines
-set linespace=6                 " Set line height
+set linespace=5                 " Set line height
 
 " Command line
 set showmode                    " Show the current mode we are in
@@ -94,28 +94,18 @@ set guifont=Menlo:h13           " Set GUI font for my MacVim
 " }}}
 " {{{ colors
 
-"set t_Co=265
 syntax enable                          " Enable syntax highlighting
 set background=light                   " Set the colorscheme background
 colorscheme hemisu                     " Set the colorscheme
 
+if has("gui_running")
+    set guifont=agave_for_Powerline:h14
+    colorscheme solarized
+endif
+
 " Additional cpp highlighting
 let g:cpp_class_scope_highlight=1
 let g:cpp_experimental_template_highlight=1
-
-" Syntax highlighting groups
-"hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
-"hi Comment      ctermfg=7
-"hi VertSplit	ctermfg=0 ctermbg=none
-"hi StatusLine	ctermfg=0 ctermbg=none
-"hi StatusLineNC	ctermfg=0 ctermbg=none
-
-"hi Pmenu ctermfg=7 ctermbg=0
-"hi PmenuSel ctermfg=0 ctermbg=15
-"hi LineNr ctermfg=0 ctermbg=none
-"hi CursorLine ctermfg=none ctermbg=none cterm=none
-"hi CursorLineNr ctermfg=none ctermbg=0
-"hi CursorColumn ctermfg=none ctermbg=0
 
 " }}}
 " {{{ statusline
@@ -205,6 +195,10 @@ nnoremap <Leader>rtw    :%s/\s\+$//e<CR>
  
 " Substitute all occurrences of the word under the cursor
 nnoremap <Leader>s      :%s/\<<C-r><C-w>\>//g<Left><Left>
+
+" Git gutter
+nnoremap <Leader>ha     <Plug>GitGutterStageHunk
+nnoremap <Leader>hu     <Plug>GitGutterRevertHunk
 
 " }}}
 " {{{ abbreviations

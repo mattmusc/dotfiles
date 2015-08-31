@@ -5,20 +5,19 @@
 
 # {{{ Init
 
-[ -f  "$HOME/.environment" ] && source "$HOME/.environment"
-[ -f  "$HOME/.aliases"     ] && source "$HOME/.aliases"
-[ -f  "$HOME/.functions"   ] && source "$HOME/.functions"
+sourceIfPresent() { if [[ -f "$1" ]] ; then  source "$1" ; fi }
 
+sourceIfPresent "$HOME/.environment"
+sourceIfPresent "$HOME/.aliases"
+sourceIfPresent "$HOME/.functions"   
 
 [[ $- != *i* ]] && return
 
 # }}}
 # {{{ Options
 
-for opt in cdspell dotglob extglob \
-        no_empty_cmd_completion; do
-    shopt -s $opt
-done
+shopt -s cdspell
+shopt -s extglob
 
 HISTCONTROL=ignorespace
 export HISTIGNORE="ls:passwd: "
