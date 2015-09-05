@@ -8,26 +8,26 @@
 alias :q='exit'
 alias :r="source $HOME/.$(ps -p $$ | grep -ioe '\(bash\|zsh\)')rc"
 
-edit() #{{{
-{
-    case "$1" in
-        bash|zsh)
-            vim $HOME/.$1rc ; source $HOME/.$1rc
-            ;;
-        bspwm|sxhkd)
-            vim $HOME/.config/$1/$1rc
-            ;;
-        xres)
-            vim $HOME/.Xresources ; xrdb -merge $HOME/.Xresources
-            ;;
-        aliases|envs)
-            vim $HOME/.$1 ; source $HOME/.$1
-            ;;
-        *)
-            echo "error: invalid file: $1"
-            ;;
-    esac
-} #}}}
+#edit() #{{{
+#{
+#    case "$1" in
+#        bash|zsh)
+#            vim $HOME/.$1rc ; source $HOME/.$1rc
+#            ;;
+#        bspwm|sxhkd)
+#            vim $HOME/.config/$1/$1rc
+#            ;;
+#        xres)
+#            vim $HOME/.Xresources ; xrdb -merge $HOME/.Xresources
+#            ;;
+#        aliases|envs)
+#            vim $HOME/.$1 ; source $HOME/.$1
+#            ;;
+#        *)
+#            echo "error: invalid file: $1"
+#            ;;
+#    esac
+#} #}}}
 
 mkcdir () { #{{{
     mkdir -p -- "$1" &&

@@ -5,11 +5,9 @@
 
 # {{{ Init
 
-sourceIfPresent() { if [[ -f "$1" ]] ; then  source "$1" ; fi }
-
-sourceIfPresent "$HOME/.environment"
-sourceIfPresent "$HOME/.aliases"
-sourceIfPresent "$HOME/.functions"   
+[ -f "$HOME/.environment" ] && source "$HOME/.environment"
+[ -f "$HOME/.aliases" ]     && source "$HOME/.aliases"
+[ -f "$HOME/.functions" ]   && source "$HOME/.functions"
 
 [[ $- != *i* ]] && return
 
@@ -23,21 +21,8 @@ HISTCONTROL=ignorespace
 export HISTIGNORE="ls:passwd: "
 
 # }}}
-# {{{ Color for man pages
+# Colors {{{
 
-export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
-export LESS_TERMCAP_me=$'\E[0m'           # end blinking
-export LESS_TERMCAP_md=$'\E[01;34m'       # begin bold / blue
-export LESS_TERMCAP_me=$'\E[0m'           # end mode
-export LESS_TERMCAP_so=$'\E[00;40;01;32m' # begin standout-mode (info box)
-export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
-export LESS_TERMCAP_us=$'\E[01;33m'       # begin underline
-export LESS_TERMCAP_ue=$'\E[0m'           # end underline
-
-#}}}
-# {{{ Prompt
-
-# colors
 txtblk='\e[0;30m' # Black - Regular
 txtred='\e[0;31m' # Red
 txtgrn='\e[0;32m' # Green
@@ -72,13 +57,27 @@ bakcyn='\e[46m'   # Cyan
 bakwht='\e[47m'   # White
 txtrst='\e[0m'    # Text Reset
 
+# }}}
+# {{{ Color for man pages
+
+export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
+export LESS_TERMCAP_me=$'\E[0m'           # end blinking
+export LESS_TERMCAP_md=$'\E[01;34m'       # begin bold / blue
+export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
+export LESS_TERMCAP_so=$'\E[00;40;01;32m' # begin standout-mode (info box)
+export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+export LESS_TERMCAP_us=$'\E[01;33m'       # begin underline
+
+#}}}
+# {{{ Prompt
+
 case "$TERM" in
     *term*|rxvt*|screen*)
         PS1="\[$txtblu\]\W\[$txtrst\] \[$txtred\]─\[$txtrst\] "
         #PS1="\[$txtblu\] \W \[$txtred\]»\[$txtrst\] "
         ;;
     dumb)
-        PS1="\n>>> "
+        PS1=">>> "
         ;;
 esac
 

@@ -1,5 +1,5 @@
 ---
-BasedOnStyle: Google
+#BasedOnStyle: Google
 IndentWidth: 4
 SpacesInParentheses: true
 SpaceAfterCStyleCast: true
@@ -9,6 +9,7 @@ Language: Cpp
 DerivePointerAlignment: false
 PointerAlignment: Left
 AccessModifierOffset: -4
+AllowAllParametersOfDeclarationOnNextLine: true
 ---
 Language: JavaScript
 # Use 100 columns for JS.

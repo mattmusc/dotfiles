@@ -200,6 +200,7 @@ nnoremap <Leader>hu     <Plug>GitGutterRevertHunk
 " {{{ abbreviations
 
 ab atauthor @author matteo.muscella@usi.ch
+ab sepC // ----------------------------------------------------------------------- {{{
 
 " }}}
 
