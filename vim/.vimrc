@@ -4,6 +4,8 @@
 " ---"---"--------------------------------------------------------------------
 " {{{ filetype & vundle
 
+autocmd! bufwritepost .vimrc source %
+
 set nocompatible
 hi clear
 if exists("syntax_on")
@@ -23,6 +25,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'noahfrederick/vim-hemisu'
 Plugin 'chriskempson/base16-vim'
 Plugin 'morhetz/gruvbox'
+Plugin 'bling/vim-airline'
 
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rhysd/vim-clang-format'
@@ -106,13 +109,14 @@ let g:cpp_experimental_template_highlight=1
 " }}}
 " {{{ statusline
 
-set laststatus=0                       " Set statusline: 0,1,2
+set laststatus=2                       " Set statusline: 0,1,2
+
+let g:airline_powerline_fonts = 1      " Populate airline_symbols w/ powerline
 
 " }}}
 " {{{ autocmd
 
 " Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
 autocmd filetype html,xml set listchars-=tab:>.
 autocmd filetype haskell  set tabstop=2 softtabstop=2 shiftwidth=2
 autocmd filetype c,cpp,vim,xml,html,xhtml set foldmethod=syntax
@@ -188,7 +192,7 @@ nnoremap <Leader>f      :ClangFormat<CR><CR>
 
 " Delete trailing whitespaces
 nnoremap <Leader>rtw    :%s/\s\+$//e<CR>
- 
+
 " Substitute all occurrences of the word under the cursor
 nnoremap <Leader>s      :%s/\<<C-r><C-w>\>//g<Left><Left>
 
