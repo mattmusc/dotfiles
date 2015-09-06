@@ -25,7 +25,6 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'noahfrederick/vim-hemisu'
 Plugin 'chriskempson/base16-vim'
 Plugin 'morhetz/gruvbox'
-Plugin 'bling/vim-airline'
 
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rhysd/vim-clang-format'
@@ -109,9 +108,7 @@ let g:cpp_experimental_template_highlight=1
 " }}}
 " {{{ statusline
 
-set laststatus=2                       " Set statusline: 0,1,2
-
-let g:airline_powerline_fonts = 1      " Populate airline_symbols w/ powerline
+set laststatus=0                       " Set statusline: 0,1,2
 
 " }}}
 " {{{ autocmd

@@ -17,7 +17,8 @@
 shopt -s cdspell
 shopt -s extglob
 
-HISTCONTROL=ignorespace
+export HISTSIZE=100
+HISTCONTROL=ignorespace:ignoredups
 export HISTIGNORE="ls:passwd: "
 
 # }}}
