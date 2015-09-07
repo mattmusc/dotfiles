@@ -3,7 +3,7 @@
 ! @author matteo.muscella@usi.ch
 ! ---
 
-#include "/Users/mm/.colors/hemisu_light"
+#include "/Users/mm/.colors/solarized.light"
 
 urxvt*cursorUnderline: 1
 urxvt*fading:          1
