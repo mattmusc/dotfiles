@@ -105,6 +105,12 @@ set guifont=PragmataPro:h14
 let g:cpp_class_scope_highlight=1
 let g:cpp_experimental_template_highlight=1
 
+" Sign Column made by solarized color is strange, clear it.
+highlight clear SignColumn
+
+" vim-gitgutter will use Sign Column to set its color, reload it.
+call gitgutter#highlight#define_highlights()
+
 " }}}
 " {{{ statusline
 
