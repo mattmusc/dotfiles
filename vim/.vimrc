@@ -32,6 +32,8 @@ Plugin 'terryma/vim-multiple-cursors'
 
 Plugin 'urso/haskell_syntax.vim'
 
+Plugin 'baskerville/vim-sxhkdrc'
+
 call vundle#end()
 
 filetype plugin indent on

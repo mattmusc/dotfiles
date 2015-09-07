@@ -10,13 +10,16 @@ cd $HOME
 source $HOME/.profile
 
 xrdb -merge ~/.Xresources
+
 xset +fp ~/.fonts
 xset +fp ~/.fonts/artwiz
 xset +fp ~/Library/Fonts/
 xset fp rehash
 xset -b
+
 xsetroot -cursor_name left_ptr
-xmodmap ~/.Xmodmap
+
+xmodmap ~/.Xmodmap &
 
 export LANG="en_US.UTF-8"
 
