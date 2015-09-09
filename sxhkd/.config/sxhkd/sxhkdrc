@@ -23,6 +23,10 @@ mod1 + {_,shift +} t
 mod1 + {_,shift + }{h,j,k,l}
 	bspc window -{f,s} {left,down,up,right} || bspc window -f {prev, prev, next, next}
 
+# Presel window for splitting
+mod1 + ctrl + {h,j,k,l}
+    bspc window -p {left,down,up,right}
+
  Move current window to largest space
 mod1 + Return
 	bspc window -s biggest
