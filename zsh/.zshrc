@@ -4,6 +4,10 @@
 # -----------------------------------------------------------------------
 
 # Init {{{
+
+# Path for completion
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 autoload -Uz compinit colors
 compinit
 colors
@@ -95,19 +99,22 @@ esac
 setopt append_history
 setopt extended_history
 setopt hist_expire_dups_first
-setopt hist_ignore_dups # ignore duplication command history list
+setopt hist_ignore_dups            # ignore duplication command history list
 setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
-setopt share_history # share command history data
+setopt share_history               # share command history data
 
 # }}}
 # Prompt {{{
 
+# syntax highlighting
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
 case "$TERM" in
     *term*|rxvt*|screen*)
-        PS1="%{$fg[blue]%}%~ %{$fg[red]%}─%{$reset_color%} "
-        #PS1="\[$txtblu\] \W \[$txtred\]»\[$txtrst\] "
+        PROMPT=" %{$fg[magenta]%}»%{$reset_color%} "
+        #RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
         ;;
     dumb)
         PS1="\n>>> "
@@ -118,7 +125,7 @@ esac
 # Keys {{{
 bindkey -e
 
-WORDCHARS=${WORDCHARS//[&.;\/]}
+WORDCHARS=${WORDCHARS//[&.;\/-]}
 
 [[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
 [[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line

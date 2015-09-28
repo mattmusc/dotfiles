@@ -66,6 +66,9 @@ alias iamhome='[ \"$(extip)\" = \"2.235.177.223\" ] ; echo $?'
 
 alias timecmd='/usr/bin/time $1 -l'
 
+alias ymp3='youtube-dl --extract-audio'
+alias toMp3='ffmpeg -i $1 -q:a 0 $1.mp3'
+
 # }}}
 # {{{ working directories
 

@@ -11,7 +11,7 @@
 # use of xelatex, but also to turn on production of pdf files and to
 # turn off the production of dvi and ps files, as in the following
 # code:
-$pdflatex = 'xelatex -interaction=nonstopmode %S';
+$pdflatex = 'pdflatex -interaction=nonstopmode %S';
 $clean_ext = 'aux lox pdfsync out log';
 $pdf_mode = 1;
 $postscript_mode = $dvi_mode = 0;
