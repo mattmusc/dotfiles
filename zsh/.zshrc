@@ -5,6 +5,10 @@
 
 # Init {{{
 
+[[ -f "$HOME/.environment" ]] && source "$HOME/.environment"
+
+[[ $- != *i* ]] && return
+
 # Path for completion
 fpath=(/usr/local/share/zsh-completions $fpath)
 
@@ -17,7 +21,6 @@ setopt nocheckjobs correct completealiases autocd \
 
 unsetopt BG_NICE menu_complete
 
-[[ -f "$HOME/.environment" ]] && source "$HOME/.environment"
 [[ -f "$HOME/.aliases"     ]] && source "$HOME/.aliases"
 [[ -f "$HOME/.custom"      ]] && source "$HOME/.custom"
 # }}}

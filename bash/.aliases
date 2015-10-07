@@ -109,6 +109,7 @@ alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;\
 alias gst='git status'
 alias gss='git status -s'
 alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
+alias gct='git commit'
 
 # }}}
 

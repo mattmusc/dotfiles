@@ -6,10 +6,11 @@
 # {{{ Init
 
 [ -f "$HOME/.environment" ] && source "$HOME/.environment"
-[ -f "$HOME/.aliases" ]     && source "$HOME/.aliases"
-[ -f "$HOME/.functions" ]   && source "$HOME/.functions"
 
 [[ $- != *i* ]] && return
+
+[ -f "$HOME/.aliases" ]     && source "$HOME/.aliases"
+[ -f "$HOME/.functions" ]   && source "$HOME/.functions"
 
 # }}}
 # {{{ Options

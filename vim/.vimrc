@@ -33,6 +33,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'urso/haskell_syntax.vim'
 
 Plugin 'baskerville/vim-sxhkdrc'
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 
@@ -121,7 +122,6 @@ set laststatus=0                       " Set statusline: 0,1,2
 " }}}
 " {{{ autocmd
 
-" Automatic reloading of .vimrc
 autocmd filetype html,xml set listchars-=tab:>.
 autocmd filetype haskell  set tabstop=2 softtabstop=2 shiftwidth=2
 autocmd filetype c,cpp,vim,xml,html,xhtml set foldmethod=syntax
@@ -204,6 +204,9 @@ nnoremap <Leader>s      :%s/\<<C-r><C-w>\>//g<Left><Left>
 " Git gutter
 nnoremap <Leader>ha     <Plug>GitGutterStageHunk
 nnoremap <Leader>hu     <Plug>GitGutterRevertHunk
+
+" Nerdtree
+map <C-b> :NERDTreeToggle<CR>
 
 " }}}
 " {{{ abbreviations

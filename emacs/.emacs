@@ -156,7 +156,7 @@ to the Emacs load path."
               linum-format "%d  "
               transient-mark-mode 0
               inhibit-startup-message t
-              line-spacing 4)
+              line-spacing 2)
 
 (setq default-font-list-index 7)
 (setq font-list-index default-font-list-index)
@@ -167,9 +167,9 @@ to the Emacs load path."
             "-*-Anonymous Pro for Powerline-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-Consolas-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-Droid Sans Mono for Powerline-*-*-*-*-*-120-*-*-*-*-*-*"
-            "-*-Fira Mono Medium for Powerline-*-*-*-*-*-140-*-*-*-*-*-*"
+            "-*-Fira Mono Medium for Powerline-*-*-*-*-11-110-*-*-*-*-*-*"
             "-*-GohuFont-*-*-*-*-*-140-*-*-*-*-*-*"
-            "-*-Inconsolata for Powerline-*-*-*-*-*-150-*-*-*-*-*-*"
+            "-*-Inconsolata for Powerline-*-*-*-*-*-120-*-*-*-*-*-*"
             "-*-M+ 1m-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-Monaco-*-*-*-*-*-120-*-*-*-*-*-*"
             "-*-PragmataPro-*-*-*-*-*-140-*-*-*-*-*-*"
