@@ -77,8 +77,8 @@ case "$TERM" in
     *term*|rxvt*|screen*)
         #PS1="$txtblu\W$txtrst$txtred ─$txtrst "
         #PS1="$txtblu\W$txtrst$txtred »$txtrst "
-        PS1="$txtpur »$txtrst "
-        #source ~/.bash-powerline.sh
+        #PS1="$txtpur »$txtrst "
+        source ~/.bash-powerline.sh
         ;;
     dumb)
         PS1=">>> "

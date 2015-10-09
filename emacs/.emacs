@@ -85,10 +85,10 @@ to the Emacs load path."
     clang-format
     color-theme-sanityinc-tomorrow
     color-theme-sanityinc-solarized
-    gnuplot gnuplot-mode haskell-mode
-    magit multiple-cursors php-mode
-    rainbow-mode rainbow-delimiters
-    yasnippet)
+    gnuplot gnuplot-mode gruvbox-theme
+    haskell-mode magit multiple-cursors
+    php-mode rainbow-mode
+    rainbow-delimiters yasnippet)
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
@@ -158,7 +158,7 @@ to the Emacs load path."
               inhibit-startup-message t
               line-spacing 2)
 
-(setq default-font-list-index 7)
+(setq default-font-list-index 5)
 (setq font-list-index default-font-list-index)
 
 (setq font-list
@@ -167,9 +167,9 @@ to the Emacs load path."
             "-*-Anonymous Pro for Powerline-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-Consolas-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-Droid Sans Mono for Powerline-*-*-*-*-*-120-*-*-*-*-*-*"
-            "-*-Fira Mono Medium for Powerline-*-*-*-*-11-110-*-*-*-*-*-*"
+            "-*-Fira Mono Medium for Powerline-*-*-*-*-12-120-*-*-*-*-*-*"
             "-*-GohuFont-*-*-*-*-*-140-*-*-*-*-*-*"
-            "-*-Inconsolata for Powerline-*-*-*-*-*-120-*-*-*-*-*-*"
+            "-*-Inconsolata for Powerline-*-*-*-*-*-130-*-*-*-*-*-*"
             "-*-M+ 1m-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-Monaco-*-*-*-*-*-120-*-*-*-*-*-*"
             "-*-PragmataPro-*-*-*-*-*-140-*-*-*-*-*-*"
