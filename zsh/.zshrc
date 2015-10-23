@@ -117,7 +117,7 @@ source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 case "$TERM" in
     *term*|rxvt*|screen*)
         PROMPT=" %{$fg[magenta]%}»%{$reset_color%} "
-        #RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
+        RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
         ;;
     dumb)
         PS1="\n>>> "
