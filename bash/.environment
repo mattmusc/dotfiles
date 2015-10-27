@@ -5,7 +5,7 @@
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
-export JAVA_HOME=`$(dirname $(readlink $(which javac)))/java_home`
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home"
 export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/Library/Haskell/bin:$PATH
 export PATH=/usr/texbin:$PATH

@@ -73,17 +73,9 @@ export LESS_TERMCAP_us=$'\E[01;33m'       # begin underline
 #}}}
 # {{{ Prompt
 
-case "$TERM" in
-    *term*|rxvt*|screen*)
-        #PS1="$txtblu\W$txtrst$txtred ─$txtrst "
-        #PS1="$txtblu\W$txtrst$txtred »$txtrst "
-        #PS1="$txtpur »$txtrst "
-        source ~/.bash-powerline.sh
-        ;;
-    dumb)
-        PS1=">>> "
-        ;;
-esac
+# »─
+prompt='─'
+PS1="$txtblu $prompt$txtrst "
 
 # }}}
 

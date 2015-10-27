@@ -34,14 +34,7 @@ mkcdir () { #{{{
         cd -P -- "$1"
 } #}}}
 
-case `uname -s` in # {{{
-    "Darwin")
-        COLORFLAG=' -G'
-        ;;
-    "Linux")
-        COLORFLAG=' --color=auto'
-        ;;
-esac #}}}
+COLORFLAG=' -G'
 
 alias l='ls -h'$COLORFLAG
 alias la='ls -lha'$COLORFLAG
