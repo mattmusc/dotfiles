@@ -73,8 +73,8 @@ export LESS_TERMCAP_us=$'\E[01;33m'       # begin underline
 #}}}
 # {{{ Prompt
 
-# »─
-prompt='─'
+# » Թ ─ ╼ ⶈ
+prompt='╼'
 PS1="$txtblu $prompt$txtrst "
 
 # }}}
