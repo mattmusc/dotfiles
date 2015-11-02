@@ -73,9 +73,15 @@ export LESS_TERMCAP_us=$'\E[01;33m'       # begin underline
 #}}}
 # {{{ Prompt
 
+source /usr/local/etc/bash_completion.d/git-completion.bash
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+
+GIT_PS1_SHOWCOLORHINTS=true
+GIT_PS1_SHOWDIRTYSTATE=true
+
 # » Թ ─ ╼ ⶈ
 prompt='╼'
-PS1="$txtblu $prompt$txtrst "
+PROMPT_COMMAND='__git_ps1 "" "$txtblu ╼$txtrst " " %s"'
 
 # }}}
 

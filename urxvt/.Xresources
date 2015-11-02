@@ -34,10 +34,10 @@ URxvt*colorIT:             #87af5f
 URxvt*colorBD:             #dc322f
 URxvt*colorUL:             #87afd7
 
-URxvt*font:                -*-smoothansi-*-*-*-*-*-*-*-*-*-*-*-*
-URxvt*boldFont:            -*-smoothansi-*-*-*-*-*-*-*-*-*-*-*-*
-URxvt*italicFont:          -*-smoothansi-*-*-*-*-*-*-*-*-*-*-*-*
-URxvt*bolditalicFont:      -*-smoothansi-*-*-*-*-*-*-*-*-*-*-*-*
+URxvt*font:                -*-uushi-*-*-*-*-*-*-*-*-*-*-*-*
+URxvt*boldFont:            -*-uushi-*-*-*-*-*-*-*-*-*-*-*-*
+URxvt*italicFont:          -*-uushi-*-*-*-*-*-*-*-*-*-*-*-*
+URxvt*bolditalicFont:      -*-uushi-*-*-*-*-*-*-*-*-*-*-*-*
 
 Xcursor.theme:             Vanilla-DMZ-AA
 Xcursor.size:              22
