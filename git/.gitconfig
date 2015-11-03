@@ -1,7 +1,13 @@
 [user]
 	name = Matteo Muscella
 	email = matteo.muscella@usi.ch
-[push]
-	default = simple
+[alias]
+	last = log -1 HEAD
+	unstage = reset HEAD --
+[color]
+	ui = false
 [core]
 	excludesfile = /Users/mm/.gitignore_global
+	autocrlf = input
+[push]
+	default = simple
