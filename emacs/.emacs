@@ -156,9 +156,9 @@ to the Emacs load path."
               linum-format "%d  "
               transient-mark-mode 0
               inhibit-startup-message t
-              line-spacing 2)
+              line-spacing 1)
 
-(setq default-font-list-index 5)
+(setq default-font-list-index 7)
 (setq font-list-index default-font-list-index)
 
 (setq font-list
@@ -169,7 +169,7 @@ to the Emacs load path."
             "-*-Droid Sans Mono for Powerline-*-*-*-*-*-120-*-*-*-*-*-*"
             "-*-Fira Mono Medium for Powerline-*-*-*-*-12-120-*-*-*-*-*-*"
             "-*-GohuFont-*-*-*-*-*-140-*-*-*-*-*-*"
-            "-*-Inconsolata for Powerline-*-*-*-*-*-130-*-*-*-*-*-*"
+            "-*-Inconsolata dz for Powerline-*-*-*-*-*-130-*-*-*-*-*-*"
             "-*-M+ 1m-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-Monaco-*-*-*-*-*-120-*-*-*-*-*-*"
             "-*-PragmataPro-*-*-*-*-*-140-*-*-*-*-*-*"
@@ -180,7 +180,8 @@ to the Emacs load path."
          (progn
            (menu-bar-mode 1)
            (set-frame-font (nth default-font-list-index font-list) nil t)
-           (load-theme 'sanityinc-solarized-light t)
+           (load-theme 'gruvbox t)
+           ;; (load-theme 'sanityinc-solarized-light t)
            ))
         ((or (string-equal system-type "gnu")
              (string-equal system-type "gnu/linux"))

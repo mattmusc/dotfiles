@@ -100,8 +100,8 @@ set guifont=Menlo:h13           " Set GUI font for my MacVim
 " {{{ colors
 
 syntax enable                          " Enable syntax highlighting
-set background=dark                    " Set the colorscheme background
-colorscheme gruvbox                    " Set the colorscheme
+set background=dark
+colorscheme gruvbox
 set guifont=PragmataPro:h14
 
 " Additional cpp highlighting

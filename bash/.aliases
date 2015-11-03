@@ -5,23 +5,26 @@
 
 # {{{ useful commands
 
+# faster shortcuts
 alias :q='exit'
+alias :w='exit'
+alias :x='exit'
 alias :r="source $HOME/.$(ps -p $$ | grep -ioe '\(bash\|zsh\)')rc"
 
-edit() #{{{
-{
+# easily edit my dotfiles
+edit() { #{{{
     case "$1" in
-        bash|zsh)
-            vim $HOME/.$1rc ; source $HOME/.$1rc
-            ;;
+        .bashrc|.zshrc)
+            vim $HOME/$1 ; source $HOME/$1
+            ;; 
         bspwm|sxhkd)
             vim $HOME/.config/$1/$1rc
             ;;
         xres)
             vim $HOME/.Xresources ; xrdb -merge $HOME/.Xresources
             ;;
-        aliases|envs)
-            vim $HOME/.$1 ; source $HOME/.$1
+        .aliases|.environment)
+            vim $HOME/$1 ; source $HOME/$1
             ;;
         *)
             echo "error: invalid file: $1"
@@ -29,13 +32,14 @@ edit() #{{{
     esac
 } #}}}
 
+# make new and cd into it
 mkcdir () { #{{{
     mkdir -p -- "$1" &&
         cd -P -- "$1"
 } #}}}
 
+# never missing ls
 COLORFLAG=' -G'
-
 alias l='ls -h'$COLORFLAG
 alias la='ls -lha'$COLORFLAG
 alias ls='ls'$COLORFLAG
@@ -49,18 +53,21 @@ alias lk='ls -l `find . -maxdepth 1 -type l -print`'
 alias ..='cd ..'
 
 # list top ten largest files/directories in current directory
-alias ducks='du -cks *|sort -rn|head -11'
+alias ducks='du -cks * | sort -rn | head -11'
 
 alias ghclean='rm -f *.hi *.o $1'
 
-alias ip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
+alias ip="ifconfig |\
+          grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' |\
+          grep -Eo '([0-9]*\.){3}[0-9]*' |\
+          grep -v '127.0.0.1'"
 alias extip='curl -s http://myexternalip.com/raw'
 alias iamhome='[ \"$(extip)\" = \"2.235.177.223\" ] ; echo $?'
 
 alias timecmd='/usr/bin/time $1 -l'
 
-alias ymp3='youtube-dl --extract-audio'
-alias toMp3='ffmpeg -i $1 -q:a 0 $1.mp3'
+alias y2mp3='youtube-dl --extract-audio'
+alias f2mp3='ffmpeg -i $1 -q:a 0 $1.mp3'
 
 # }}}
 # {{{ working directories
@@ -83,18 +90,30 @@ alias mv="mv -i"
 alias rm="rm -i"
 
 # }}}
-# {{{ mac os specific
+# {{{ mac os specific commands
 
-alias update='brew cleanup && brew update && brew upgrade &&\
-    brew cleanup && brew doctor'
-alias addSpacer="defaults write com.apple.dock persistent-apps -array-add \
-    '{tile-data={}; tile-type=\"spacer-tile\";}' ; killall Dock"
+# cleanup and update my system. needs Homebrew
+alias update='brew cleanup && brew update && brew upgrade && brew cleanup && brew doctor'
+
+# add empty icon on the dock as a spacer
+alias addSpacer="\
+    defaults write com.apple.dock\
+        persistent-apps\
+        -array-add '{tile-data={};\
+        tile-type=\"spacer-tile\";}';\
+    killall Dock"
 
 # show/hide hidden files in the finder
-alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall\
-Finder /System/Library/CoreServices/Finder.app'
-alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;\
-    killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='\
+    defaults write com.apple.finder 
+             AppleShowAllFiles NO;\
+    killall\
+             Finder /System/Library/CoreServices/Finder.app'
+
+alias showFiles='\
+    defaults write com.apple.finder AppleShowAllFiles YES;\
+    killall\
+            Finder /System/Library/CoreServices/Finder.app'
 
 # }}}
 # {{{ git
@@ -102,6 +121,7 @@ alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;\
 alias gst='git status'
 alias gss='git status -s'
 alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
+alias gad='git add .'
 alias gct='git commit'
 
 # }}}

@@ -79,9 +79,14 @@ source /usr/local/etc/bash_completion.d/git-prompt.sh
 GIT_PS1_SHOWCOLORHINTS=true
 GIT_PS1_SHOWDIRTYSTATE=true
 
+__stat() {
+    local _last_status="$?"
+    [[ $_last_status -gt 0 ]] && echo "$txtred$_last_status$txtrst " ||echo ""
+}
+
 # » Թ ─ ╼ ⶈ
-prompt='╼'
-PROMPT_COMMAND='__git_ps1 "" "$txtblu ╼$txtrst " " %s"'
+prompt='»'
+PROMPT_COMMAND='__git_ps1 "" " $(__stat)$txtblu$prompt$txtrst " " %s"'
 
 # }}}
 

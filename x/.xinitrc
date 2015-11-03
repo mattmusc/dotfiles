@@ -25,5 +25,13 @@ export LANG="en_US.UTF-8"
 
 exec >>~/.xsession-errors 2>&1
 urxvtd &
-sxhkd -c $HOME/.config/sxhkd/sxhkdrc -f 20 &
-exec bspwm -c $HOME/.config/bspwm/bspwmrc
+#sxhkd -c $HOME/.config/sxhkd/sxhkdrc -f 20 &
+#exec bspwm -c $HOME/.config/bspwm/bspwmrc
+
+while true; do
+   xsetroot -name "$( $(echo -e "\E015") date +"%F %R" )"
+   sleep 1m    # Update time every minute
+done &
+
+exec dwm
+
