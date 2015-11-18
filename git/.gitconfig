@@ -2,10 +2,15 @@
 	name = Matteo Muscella
 	email = matteo.muscella@usi.ch
 [alias]
-	last = log -1 HEAD
-	unstage = reset HEAD --
+	last = log -1 HEAD  # see last commit
+	unstage = reset HEAD --  # unstage all changed filed
+    lc = log ORIG_HEAD.. --stat --no-merges  # list all new commits after fetch
+    new = !sh -c 'git log $1@{1}..$1@{0} "$@"'  # see new commits created
+    untrack = rm --cache --  # untrack a particular file
+    # checking out a repo and it's submodules
+    co-recurse = !sh -c 'git checkout $1 && git submodule update --recursive' -
 [color]
-	ui = false
+	ui = auto
 [core]
 	excludesfile = /Users/mm/.gitignore_global
 	autocrlf = input

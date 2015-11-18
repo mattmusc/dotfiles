@@ -5,7 +5,7 @@ PointerAlignment:                           Left
 AccessModifierOffset:                       -4
 AllowShortIfStatementsOnASingleLine:        true
 AllowAllParametersOfDeclarationOnNextLine:  true
-BreakBeforeBraces:                          Linux
+BreakBeforeBraces:                          Attach
 Cpp11BracedListStyle:                       false
 IndentWidth:                                4
 NamespaceIndentation:                       All

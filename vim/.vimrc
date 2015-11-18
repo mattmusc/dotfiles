@@ -19,21 +19,42 @@ call vundle#begin('~/.vim/bundle/')
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim', {'pinned' : 1}
 
-Plugin 'airblade/vim-gitgutter'
-
+" Colors
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'noahfrederick/vim-hemisu'
 Plugin 'chriskempson/base16-vim'
 Plugin 'morhetz/gruvbox'
 
-Plugin 'octol/vim-cpp-enhanced-highlight'
+" Editor features
+Plugin 'airblade/vim-gitgutter'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'terryma/vim-multiple-cursors'
 
+" Syntax
+Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'urso/haskell_syntax.vim'
-
 Plugin 'baskerville/vim-sxhkdrc'
+
+" File browser
 Plugin 'scrooloose/nerdtree'
+
+" Highlight colors
+Plugin 'lilydjwg/colorizer'
+
+" Distraction free writing
+Plugin 'junegunn/goyo.vim'
+
+" Snippets
+Plugin 'mattn/emmet-vim'
+
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+
+Plugin 'honza/vim-snippets'
+
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()
 
@@ -100,8 +121,8 @@ set guifont=Menlo:h13           " Set GUI font for my MacVim
 " {{{ colors
 
 syntax enable                          " Enable syntax highlighting
-set background=dark
-colorscheme gruvbox
+set background=light
+colorscheme hemisu
 set guifont=PragmataPro:h14
 
 " Additional cpp highlighting
@@ -211,8 +232,8 @@ map <C-b> :NERDTreeToggle<CR>
 " }}}
 " {{{ abbreviations
 
-ab atauthor @author matteo.muscella@usi.ch
-ab sepC // ----------------------------------------------------------------------- {{{
+ab ata   @author matteo.muscella@usi.ch
+ab pcode <pre><code class="php"><CR><TAB><CR></pre></code>
 
 " }}}
 

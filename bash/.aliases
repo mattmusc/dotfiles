@@ -69,6 +69,8 @@ alias timecmd='/usr/bin/time $1 -l'
 alias y2mp3='youtube-dl --extract-audio'
 alias f2mp3='ffmpeg -i $1 -q:a 0 $1.mp3'
 
+alias exe='chmod u+x $1'
+
 # }}}
 # {{{ working directories
 
@@ -81,6 +83,7 @@ alias configs="cd $XDG_CONFIG_HOME"
 # {{{ servers
 
 alias atelier="ssh muscellm@atelier.inf.usi.ch"
+alias qnap="ssh admin@192.168.2.10"
 
 # }}}
 # {{{ guards

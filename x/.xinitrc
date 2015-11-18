@@ -9,15 +9,15 @@ cd $HOME
 
 source $HOME/.profile
 
-xrdb -merge ~/.Xresources
+xrdb -merge $HOME/.Xresources &
 
-xset +fp ~/.fonts
-xset +fp ~/.fonts/artwiz
-xset +fp ~/Library/Fonts/
-xset fp rehash
-xset -b
+xset +fp $HOME/.fonts &
+xset +fp $HOME/Library/Fonts/ &
+xset fp rehash &
 
 xsetroot -cursor_name left_ptr
+
+sh ~/.fehbg &
 
 xmodmap ~/.Xmodmap &
 
@@ -25,13 +25,15 @@ export LANG="en_US.UTF-8"
 
 exec >>~/.xsession-errors 2>&1
 urxvtd &
-#sxhkd -c $HOME/.config/sxhkd/sxhkdrc -f 20 &
-#exec bspwm -c $HOME/.config/bspwm/bspwmrc
 
 while true; do
-   xsetroot -name "$( $(echo -e "\E015") date +"%F %R" )"
+   xsetroot -name "$( date +"%A %d // %I:%M %p" )    "
    sleep 1m    # Update time every minute
 done &
 
-exec dwm
+: "${wm:="monsterwm"}"
+: "${ff:="/tmp/monsterwm.fifo"}"
+
+
+while :; do "$wm" || break; done | tee -a "$ff"
 
