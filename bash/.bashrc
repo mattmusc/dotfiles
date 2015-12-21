@@ -88,8 +88,8 @@ __stat() {
 }
 
 # » Թ ─ ╼ ⶈ
-prompt='»'
-PROMPT_COMMAND='__git_ps1 "" " $(__stat)$txtblu$prompt$txtrst " " %s"'
+prompt='╼'
+PROMPT_COMMAND='__git_ps1 "" " $(__stat)$txtgrn$prompt$txtrst " " %s"'
 
 # }}}
 

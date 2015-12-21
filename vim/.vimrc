@@ -20,15 +20,14 @@ call vundle#begin('~/.vim/bundle/')
 Plugin 'gmarik/Vundle.vim', {'pinned' : 1}
 
 " Colors
+Plugin 'chriskempson/base16-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'noahfrederick/vim-hemisu'
-Plugin 'chriskempson/base16-vim'
 Plugin 'morhetz/gruvbox'
 
 " Editor features
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rhysd/vim-clang-format'
-Plugin 'terryma/vim-multiple-cursors'
 
 " Syntax
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -37,6 +36,7 @@ Plugin 'baskerville/vim-sxhkdrc'
 
 " File browser
 Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
 
 " Highlight colors
 Plugin 'lilydjwg/colorizer'
@@ -47,13 +47,7 @@ Plugin 'junegunn/goyo.vim'
 " Snippets
 Plugin 'mattn/emmet-vim'
 
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-
-Plugin 'honza/vim-snippets'
-
-Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-surround'
 Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()
@@ -93,7 +87,7 @@ set nowrap                      " No wrapping of text
 set colorcolumn=80              " Highlight entire column
 set cursorline                  " Highlight current line
 set fillchars+=stl:\ ,stlnc:\   " Characters to fill the statuslines
-set linespace=6                 " Set line height
+set linespace=1                 " Set line height
 
 " Command line
 set showmode                    " Show the current mode we are in
@@ -115,22 +109,25 @@ set wildmode=longest,full,list  " Till longest, Next full, list all matches
 set wildchar=<Tab>              " Character to start wildcard expansion
 
 " GUI Font
-set guifont=Menlo:h13           " Set GUI font for my MacVim
+set guifont=InputMono:h11       " Set GUI font for my MacVim
 
 " }}}
 " {{{ colors
 
 syntax enable                          " Enable syntax highlighting
-set background=light
-colorscheme hemisu
-set guifont=PragmataPro:h14
+set background=dark
+colorscheme base16-ocean
 
 " Additional cpp highlighting
 let g:cpp_class_scope_highlight=1
 let g:cpp_experimental_template_highlight=1
 
-" Sign Column made by solarized color is strange, clear it.
+" GitGutter custom colors
 highlight clear SignColumn
+highlight GitGutterAdd          ctermfg=green   guifg=#7aab7d
+highlight GitGutterChange       ctermfg=yellow  guifg=#e0a82a
+highlight GitGutterDelete       ctermfg=red     guifg=#d83925
+highlight GitGutterChangeDelete ctermfg=magenta guifg=#c07998
 
 " vim-gitgutter will use Sign Column to set its color, reload it.
 call gitgutter#highlight#define_highlights()

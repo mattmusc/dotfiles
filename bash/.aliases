@@ -11,6 +11,8 @@ alias :w='exit'
 alias :x='exit'
 alias :r="source $HOME/.$(ps -p $$ | grep -ioe '\(bash\|zsh\)')rc"
 
+alias timeit="gtime --format='%e' $1"
+
 # easily edit my dotfiles
 edit() { #{{{
     case "$1" in

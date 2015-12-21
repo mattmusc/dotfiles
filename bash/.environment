@@ -27,4 +27,6 @@ export TEXMFDIR="$HOME/.texmf"
 
 export USER="mm"
 
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
+
 # vim: ft=sh fdm=marker
