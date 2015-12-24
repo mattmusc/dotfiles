@@ -5,12 +5,13 @@
 
 #
 # Rename files matching wildcards with sequential
-# numbers starting from 0001
+# numbers starting from 0001 or a specified number with $1
 function rseq() #{{{
 {
+    start=${1:-1}
     find -E . -regex '.*\.(jpg|png)' | # find files
-    awk 'BEGIN{ a=1 }{ printf "mv \"%s\" %04d.jpg\n", $0, a++ }' | # build cmd
-    bash
+    awk -v s="$start" 'BEGIN{ a=s }{ printf "mv \"%s\" %04d.jpg\n", $0, a++ }' | # build cmd
+    bash # run that command
 } #}}}
 
 # vim: ft=sh
