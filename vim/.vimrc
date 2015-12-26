@@ -115,8 +115,8 @@ set guifont=InputMono:h11       " Set GUI font for my MacVim
 " {{{ colors
 
 syntax enable                          " Enable syntax highlighting
-set background=dark
-colorscheme base16-ocean
+set background=light
+colorscheme hemisu
 
 " Additional cpp highlighting
 let g:cpp_class_scope_highlight=1
