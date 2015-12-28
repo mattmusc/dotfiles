@@ -81,16 +81,16 @@ export LESS_TERMCAP_us=$'\E[01;33m'       # begin underline
 #}}}
 # {{{ Prompt
 
-source /usr/local/etc/bash_completion.d/git-completion.bash
-source /usr/local/etc/bash_completion.d/git-prompt.sh
+#source /usr/local/etc/bash_completion.d/git-completion.bash
+#source /usr/local/etc/bash_completion.d/git-prompt.sh
 
-GIT_PS1_SHOWCOLORHINTS=true
-GIT_PS1_SHOWDIRTYSTATE=true
+#GIT_PS1_SHOWCOLORHINTS=true
+#GIT_PS1_SHOWDIRTYSTATE=true
 
-__stat() {
-    local _last_status="$?"
-    [[ $_last_status -gt 0 ]] && echo "$txtred$_last_status$txtrst " ||echo ""
-}
+#__stat() {
+#    local _last_status="$?"
+#    [[ $_last_status -gt 0 ]] && echo "$txtred$_last_status$txtrst " ||echo ""
+#}
 
 # » Թ ─ ╼ ⶈ
 prompt='»'
