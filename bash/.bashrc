@@ -12,6 +12,8 @@
 [ -f "$HOME/.aliases" ]     && source "$HOME/.aliases"
 [ -f "$HOME/.functions" ]   && source "$HOME/.functions"
 
+[ -f "$HOME/.custom" ]      && source "$HOME/.custom"
+
 # }}}
 # {{{ Options
 
@@ -92,7 +94,7 @@ __stat() {
 
 # » Թ ─ ╼ ⶈ
 prompt='»'
-PROMPT_COMMAND='__git_ps1 "" " $(__stat)$txtgrn$prompt$txtrst " " %s"'
+#PROMPT_COMMAND='__git_ps1 "" " $(__stat)$txtgrn$prompt$txtrst " " %s"'
 
 # }}}
 

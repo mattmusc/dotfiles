@@ -11,10 +11,21 @@ alias :w='exit'
 alias :x='exit'
 alias :r="source $HOME/.$(ps -p $$ | grep -ioe '\(bash\|zsh\)')rc"
 
+# mac only: using homebrew gtime 
 alias timeit="gtime --format='%e' $1"
 
+# copy public on current machine on a server specified as first param
+copy_rsa() {
+    [ $# -eq 0 ] && echo "No input args" && return -1
+    cat ~/.ssh/id_rsa.pub | # cat the public key
+    ssh $1 'umask 0077; mkdir -p .ssh;
+            cat >> .ssh/authorized_keys'
+    echo "Key copied"
+}
+alias cprsa=copy_rsa
+
 # easily edit my dotfiles
-edit() { #{{{
+edit() {
     case "$1" in
         .bashrc|.zshrc)
             vim $HOME/$1 ; source $HOME/$1
@@ -32,7 +43,8 @@ edit() { #{{{
             echo "error: invalid file: $1"
             ;;
     esac
-} #}}}
+}
+
 
 # make new and cd into it
 mkcdir () { #{{{
@@ -42,13 +54,14 @@ mkcdir () { #{{{
 
 # never missing ls
 COLORFLAG=' -G'
+[ $(uname) = "Linux" ] && COLORFLAG=' --color=auto'
 alias l='ls -h'$COLORFLAG
 alias la='ls -lha'$COLORFLAG
 alias ls='ls'$COLORFLAG
 alias ll='ls -lh'$COLORFLAG
-alias lt='ls -ltr '$COLORFLAG         #  Sort by date, asc
-alias lc='ls -ltcr '$COLORFLAG        #  Sort by/show change time, asc.
-alias lu='ls -ltur '$COLORFLAG        #  Sort by/show access time, asc.
+alias lt='ls -ltr'$COLORFLAG         #  Sort by date, asc
+alias lc='ls -ltcr'$COLORFLAG        #  Sort by/show change time, asc.
+alias lu='ls -ltur'$COLORFLAG        #  Sort by/show access time, asc.
 # Find all the symbolic links in a directory
 alias lk='ls -l `find . -maxdepth 1 -type l -print`'
 

@@ -168,8 +168,8 @@ to the Emacs load path."
             "-*-Consolas-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-Droid Sans Mono for Powerline-*-*-*-*-*-120-*-*-*-*-*-*"
             "-*-Fira Mono Medium for Powerline-*-*-*-*-12-120-*-*-*-*-*-*"
-            "-*-GohuFont-*-*-*-*-*-140-*-*-*-*-*-*"
-            "-*-Inconsolata dz for Powerline-*-*-*-*-*-130-*-*-*-*-*-*"
+            "-*-GohuFont-*-*-*-*-*-130-*-*-*-*-*-*"
+            "-*-Inconsolata dz for Powerline-*-*-*-*-*-120-*-*-*-*-*-*"
             "-*-M+ 1m-*-*-*-*-*-140-*-*-*-*-*-*"
             "-*-Monaco-*-*-*-*-*-120-*-*-*-*-*-*"
             "-*-PragmataPro-*-*-*-*-*-140-*-*-*-*-*-*"
@@ -180,7 +180,8 @@ to the Emacs load path."
          (progn
            (menu-bar-mode 1)
            (set-frame-font (nth default-font-list-index font-list) nil t)
-           (load-theme 'gruvbox t)
+           (load-theme 'tango t)
+           ;; (load-theme 'gruvbox t)
            ;; (load-theme 'sanityinc-solarized-light t)
            ))
         ((or (string-equal system-type "gnu")
@@ -191,10 +192,10 @@ to the Emacs load path."
            (load-theme 'sanityinc-tomorrow-night t)
            ))))
 
-(add-hook 'linum-mode-hook
-          (lambda()
-            (set-face-attribute 'fringe nil :background "#fdf6e3")
-            (set-face-attribute 'linum nil :background "#fdf6e3")))
+;; (add-hook 'linum-mode-hook
+;;           (lambda()
+;;             (set-face-attribute 'fringe nil :background "#fdf6e3")
+;;             (set-face-attribute 'linum nil :background "#fdf6e3")))
 
 
 (tool-bar-mode 0)
@@ -388,3 +389,15 @@ to the Emacs load path."
 
 ;;;; }}}
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (tango))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
