@@ -69,6 +69,11 @@ to the Emacs load path."
 (add-to-list 'load-path vendor-dir)
 (add-to-list 'load-path personal-dir)
 
+(if (string-equal "darwin" (symbol-name system-type))
+    (setenv "PATH"
+            (concat "/usr/local/bin:/usr/local/sbin:/Library/TeX/texbin/:"
+                    (getenv "PATH"))))
+
 ;;;; }}}
 ;;;; Package Manager {{{
 
@@ -88,7 +93,8 @@ to the Emacs load path."
     gnuplot gnuplot-mode gruvbox-theme
     haskell-mode magit multiple-cursors
     php-mode rainbow-mode
-    rainbow-delimiters yasnippet)
+    rainbow-delimiters vimish-fold
+    yasnippet)
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
@@ -146,7 +152,6 @@ to the Emacs load path."
             (lambda ()
               (set (make-local-variable 'compile-command) command))))
 
-
 ;;;; }}}
 ;;;; Appearance {{{
 
@@ -197,7 +202,6 @@ to the Emacs load path."
 ;;             (set-face-attribute 'fringe nil :background "#fdf6e3")
 ;;             (set-face-attribute 'linum nil :background "#fdf6e3")))
 
-
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 (blink-cursor-mode 0)
@@ -212,7 +216,6 @@ to the Emacs load path."
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
-
 
 ;;;; }}}
 ;;;; Interactively Do Things {{{
@@ -287,11 +290,8 @@ to the Emacs load path."
    "\\(def\\|do\\|{\\)" "\\(end\\|end\\|}\\)" "#"
    (lambda (arg) (ruby-end-of-block)) nil))
 
-(add-to-list
- 'hs-special-modes-alist
- '(lisp-mode
-   "{" "}" ";" nil nil))
-
+(add-to-list 'hs-special-modes-alist
+             '(lisp-mode "{{{" "}}}" "" nil nil))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -304,21 +304,31 @@ to the Emacs load path."
 (setq-default buffer-file-coding-system 'utf-8)
 
 (setq-default indent-tabs-mode nil)  ; don't use tabs to indent
-(setq-default tab-width 8)           ; but maintain correct appearance
+(setq-default tab-width 4)           ; but maintain correct appearance
 
 (setq x-select-enable-clipboard t
       save-interprogram-paste-before-kill nil
       apropos-do-all t
       mouse-yank-at-point t)
 
+;; Git
 (setq magit-auto-revert-mode nil)
 (setq magit-last-seen-setup-instructions "1.4.0")
+
+(require 'git-gutter)
+;; If you enable global minor mode
+(global-git-gutter-mode t)
+
+(set-face-foreground 'git-gutter:modified "darkblue")
+(set-face-foreground 'git-gutter:added "darkgreen")
+(set-face-foreground 'git-gutter:deleted "darkred")
 
 (setq-default c-basic-offset 4
               c-default-style "ellemtel")
 
 (add-hook 'emacs-lisp-mode-hook 'imenu-elisp-sections)
 
+;; Compilation
 (require 'compile)
 
 (add-hook 'c-mode-hook                  ; set default compile command
@@ -336,7 +346,8 @@ to the Emacs load path."
                          (file-name-nondirectory buffer-file-name)))))
 
 (add-hook 'c-mode-common-hook 
-          (lambda () (define-key c-mode-base-map (kbd "C-c C-c") 'compile)))
+          (lambda ()
+            (define-key c-mode-base-map (kbd "C-c C-c") 'compile)))
 
 
 ;; Haskell
@@ -373,7 +384,7 @@ to the Emacs load path."
 (global-set-key   (kbd "C->")          'mc/mark-next-like-this)
 (global-set-key   (kbd "C-<")          'mc/mark-previous-like-this)
 (global-set-key   (kbd "C-c C-<")      'mc/mark-all-like-this)
-                                   
+
 (eval-after-load "hideshow"
   '(progn
      (message "Hs minor mode customizations")

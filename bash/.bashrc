@@ -81,7 +81,7 @@ export LESS_TERMCAP_us=$'\E[01;33m'       # begin underline
 #}}}
 # {{{ Prompt
 
-#source /usr/local/etc/bash_completion.d/git-completion.bash
+source /usr/local/etc/bash_completion.d/git-completion.bash
 #source /usr/local/etc/bash_completion.d/git-prompt.sh
 
 #GIT_PS1_SHOWCOLORHINTS=true
@@ -93,7 +93,7 @@ export LESS_TERMCAP_us=$'\E[01;33m'       # begin underline
 #}
 
 # » Թ ─ ╼ ⶈ
-prompt='»'
+#prompt='»'
 #PROMPT_COMMAND='__git_ps1 "" " $(__stat)$txtgrn$prompt$txtrst " " %s"'
 
 # }}}

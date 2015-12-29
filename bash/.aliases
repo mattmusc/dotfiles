@@ -111,7 +111,13 @@ alias rm="rm -i"
 # {{{ mac os specific commands
 
 # cleanup and update my system. needs Homebrew
-alias update='brew cleanup && brew update && brew upgrade && brew cleanup && brew doctor'
+__do_update() {
+    brew update
+    brew upgrade
+    brew cleanup
+    brew doctor
+}
+alias update=__do_update
 
 # add empty icon on the dock as a spacer
 alias addSpacer="\
