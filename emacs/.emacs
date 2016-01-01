@@ -160,7 +160,7 @@ to the Emacs load path."
               custom-theme-directory "~/.emacs.d/themes"
               linum-format "%d  "
               transient-mark-mode 0
-              inhibit-startup-message t
+              inhibit-startup-message nil
               line-spacing 1)
 
 (setq default-font-list-index 7)
@@ -289,9 +289,6 @@ to the Emacs load path."
  '(ruby-mode
    "\\(def\\|do\\|{\\)" "\\(end\\|end\\|}\\)" "#"
    (lambda (arg) (ruby-end-of-block)) nil))
-
-(add-to-list 'hs-special-modes-alist
-             '(lisp-mode "{{{" "}}}" "" nil nil))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 

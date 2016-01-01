@@ -80,7 +80,7 @@ set encoding=utf8               " Set character encoding
 set autoread                    " Read again a file if changed outside of Vim
 
 " Show line numbers and length
-set number                      " Show line numbers
+set relativenumber              " Show line numbers
 set ruler                       " Show line,column number
 set textwidth=79                " Set max width of text
 set nowrap                      " No wrapping of text
@@ -191,7 +191,8 @@ endif
 " }}}
 " {{{ keys
 
-let mapleader=","                      " Set the leader key
+" Set the leader key
+let mapleader=","
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -199,7 +200,8 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nmap <silent> ,/ :nohlsearch<CR>
 set pastetoggle=<leader>p
 
-if has("gui_running")                  " Remap Ctrl-Space to completion
+" Remap Ctrl-Space to completion
+if has("gui_running")
     " C-Space seems to work under gVim on both Linux and win32
     inoremap <C-Space> <C-n>
 else " no gui
@@ -225,6 +227,19 @@ nnoremap <Leader>hu     <Plug>GitGutterRevertHunk
 
 " Nerdtree
 map <C-b> :NERDTreeToggle<CR>
+
+" Toggle background color between light and dark
+map <Leader>bg :let &background=(&background == "dark"? "light" : "dark")<CR>
+
+" Toggle syntax highlighting with a key
+function! ToggleSyntax()
+    if exists("g:syntax_on")
+        syntax off
+    else
+        syntax enable
+    endif
+endfunction
+nmap <silent> <Leader>s :call ToggleSyntax()<CR>
 
 " }}}
 " {{{ abbreviations
