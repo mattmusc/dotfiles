@@ -47,6 +47,15 @@ setopt auto_param_keys
 # # for block device
 setopt list_types
 
+# do not append a command in history if starts with space
+setopt hist_ignore_space
+
+# do not append duplicate commands in history
+setopt hist_ignore_dups
+
+# do not save duplicate commands
+setopt hist_save_no_dups
+
 # do not consider / - slash - part of a word
 WORDCHARS=${WORDCHARS//[&.;\/\{\}\[\]]}
 
@@ -66,32 +75,30 @@ autoload -U compinit && compinit
 zmodload -i zsh/complist
 
 # start menu selection if at least 4 ambiguous completions are produced
-zstyle ':completion:*::::'          completer _expand \
-    _complete _ignored _approximate
-zstyle ':completion:*'              menu select=1 \
-    _complete _ignored _approximate
+zstyle ':completion:*'              menu select=1 _complete _correct
 
 # for all completions: grouping / headline / ...
 zstyle ':completion:*'              verbose yes
 zstyle ':completion:*:messages'     format $'%B\e[01;35m -- %d -- \e[00;00m%b'
 zstyle ':completion:*:warnings'     format \
-    $'%B\e[01;31m -- no matches for: %d -- \e[00;00m%b'
+    $'%B\e[01;31m -- no matches -- \e[00;00m%b'
 zstyle ':completion:*:descriptions' format $'%B\e[01;34m -- %d -- \e[00;00m%b'
 zstyle ':completion:*:corrections'  format $'%B\e[01;33m -- %d -- \e[00;00m%b'
 
-# group completions according to tags
-zstyle ':completion:*'              group-name ''
-
 # set the order of completion groups
 zstyle ':completion:*:-command-'    group-order builtins functions commands
+
+# set string to show when complete options
 zstyle ':completion:*'              auto-description 'specify: %d'
 
-#zstyle ':completion:*'              list-prompt %SAt \
-#                          %p: Hit TAB for more, or the character to insert%s
+# Make the selection prompt friendly when there are a lot of choices
+zstyle ':completion:*'              select-prompt \
+    '%SScrolling active: current selection at %p%s'
+
+# set the style of completion
 zstyle ':completion:*'              matcher-list '' \
-                                                 'm:{a-z}={A-Z}' \
-                                                 'm:{a-zA-Z}={A-Za-z}' \
-                                                 'r:|[._-]=* r:|=* l:|=*'
+    'm:{a-z}={A-Z}' \
+    'm:{a-zA-Z}={A-Za-z}' \
 
 # display lists of matches in different colours
 zstyle ':completion:*' list-colors ${(s.:.)LSCOLORS}
@@ -102,6 +109,18 @@ zstyle ':completion:*:*:kill:*:processes' list-colors \
 zstyle ':completion:*:files' ignored-patterns '*?.o' '*?~' '*?.dvi'
 zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*:functions' ignored-patterns '_*'
+
+# group completions according to tags
+zstyle ':completion:*'                         group-name ''
+zstyle ':completion:*:*:-command-:*:commands'  group-name commands
+zstyle ':completion:*:*:-command-:*:functions' group-name functions
+
+# }}}
+# History {{{
+
+export HISTSIZE=10000
+export SAVEHIST=9000
+export HISTFILE=~/.zsh_history
 
 # }}}
 # Keys {{{

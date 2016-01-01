@@ -21,4 +21,6 @@ export TEXMFDIR=$HOME/.texmf
 
 export USER="mm"
 
+export LS_COLORS=exfxcxdxbxegedabagacad
+
 # vim: ft=sh fdm=marker
