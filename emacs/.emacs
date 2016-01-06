@@ -356,6 +356,8 @@ to the Emacs load path."
 (eval-after-load "haskell-cabal"
   '(define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-compile))
 
+;; Python
+
 ;;;; }}}
 ;;;; Keys {{{
 

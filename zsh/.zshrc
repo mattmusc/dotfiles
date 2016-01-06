@@ -11,6 +11,13 @@
 
 [[ -f "$HOME/.aliases"     ]] && source "$HOME/.aliases"
 [[ -f "$HOME/.custom"      ]] && source "$HOME/.custom"
+
+# load the advanced completion system
+autoload -U compinit && compinit
+
+# load colors
+autoload -U colors && colors
+
 # }}}
 # Options {{{
 
@@ -67,9 +74,6 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # }}}
 # Completion {{{
 
-# load the advanced completion system
-autoload -U compinit && compinit
-
 # make sure the module complist is loaded
 # this module allows to move the cursor around candidates
 zmodload -i zsh/complist
@@ -91,7 +95,7 @@ zstyle ':completion:*:-command-'    group-order builtins functions commands
 # set string to show when complete options
 zstyle ':completion:*'              auto-description 'specify: %d'
 
-# Make the selection prompt friendly when there are a lot of choices
+# make the selection prompt friendly when there are a lot of choices
 zstyle ':completion:*'              select-prompt \
     '%SScrolling active: current selection at %p%s'
 
@@ -101,17 +105,19 @@ zstyle ':completion:*'              matcher-list '' \
     'm:{a-zA-Z}={A-Za-z}' \
 
 # display lists of matches in different colours
-zstyle ':completion:*' list-colors ${(s.:.)LSCOLORS}
+zstyle ':completion:*'              list-colors ${(s.:.)LSCOLORS}
 zstyle ':completion:*:*:kill:*:processes' list-colors \
     '=(#b) #([0-9]#)*=0=01;31'
 
 # ignore this file patterns in completion
-zstyle ':completion:*:files' ignored-patterns '*?.o' '*?~' '*?.dvi'
-zstyle ':completion:*' completer _complete _ignored
-zstyle ':completion:*:functions' ignored-patterns '_*'
+zstyle ':completion:*:files'        ignored-patterns '*?.o' '*?~' '*?.dvi'
+zstyle ':completion:*'              completer _complete _ignored
+zstyle ':completion:*:functions'    ignored-patterns '_*'
 
 # group completions according to tags
-zstyle ':completion:*'                         group-name ''
+zstyle ':completion:*'              group-name ''
+
+# specify group name
 zstyle ':completion:*:*:-command-:*:commands'  group-name commands
 zstyle ':completion:*:*:-command-:*:functions' group-name functions
 
@@ -135,9 +141,28 @@ bindkey -M menuselect '^o' accept-and-infer-next-history
 # Prompt {{{
 
 # set terminal title bar
+__set_term_title() {
+    print -Pn "\e]0;%~\a"
+}
+
 case $TERM in
-    xterm*)
-        precmd () {print -Pn "\e]0;%~\a"}
+    *rxvt*|xterm*)
+
+        ZSHFG=`expr $RANDOM / 15`
+        precmd () {
+            __set_term_title
+
+            if [ $ZSHFG -ge 15 ]
+            then
+                ZSHFG=0
+            fi
+
+            ZSHFG=`expr $ZSHFG + 1`
+
+            # » Թ ─ ╼ ⶈ ▬ —i ▬ 
+            PROMPT="%{%B%F{$ZSHFG}%} ▬ %b%f"
+            RPS1="%B%F{$ZSHFG}%2~/%b%f"
+        }
         ;;
 esac
 
