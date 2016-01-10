@@ -18,6 +18,9 @@ autoload -U compinit && compinit
 # load colors
 autoload -U colors && colors
 
+# load vcs info module
+autoload -U vcs_info
+
 # }}}
 # Options {{{
 
@@ -71,6 +74,11 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 [[ -d "/usr/local/share/zsh-syntax-highlighting" ]] && \
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# enable git and svn info
+zstyle ':vcs_info:*' enable git svn
+
+zstyle ':vcs_info:git*' actionformats "(%b) %m%u%c "
+
 # }}}
 # Completion {{{
 
@@ -121,6 +129,9 @@ zstyle ':completion:*'              group-name ''
 zstyle ':completion:*:*:-command-:*:commands'  group-name commands
 zstyle ':completion:*:*:-command-:*:functions' group-name functions
 
+# use normal file completion
+compdef -d npm
+
 # }}}
 # History {{{
 
@@ -152,6 +163,9 @@ case $TERM in
         precmd () {
             __set_term_title
 
+            # get vcs information
+            vcs_info
+
             if [ $ZSHFG -ge 15 ]
             then
                 ZSHFG=0
@@ -160,7 +174,7 @@ case $TERM in
             ZSHFG=`expr $ZSHFG + 1`
 
             # » Թ ─ ╼ ⶈ ▬ —i ▬ 
-            PROMPT="%{%B%F{$ZSHFG}%} ▬ %b%f"
+            PROMPT="%{%B%F{$ZSHFG}%}${vcs_info_msg_0_} ▬ %b%f"
             RPS1="%B%F{$ZSHFG}%2~/%b%f"
         }
         ;;
