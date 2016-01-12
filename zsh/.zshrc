@@ -13,13 +13,13 @@
 [[ -f "$HOME/.custom"      ]] && source "$HOME/.custom"
 
 # load the advanced completion system
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 
 # load colors
-autoload -U colors && colors
+autoload -Uz colors && colors
 
 # load vcs info module
-autoload -U vcs_info
+autoload -Uz vcs_info
 
 # }}}
 # Options {{{
@@ -74,10 +74,25 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 [[ -d "/usr/local/share/zsh-syntax-highlighting" ]] && \
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# enable git and svn info
-zstyle ':vcs_info:*' enable git svn
+# create symbols
+ZSH_VCS_PROMPT_REPO=''
+ZSH_VCS_PROMPT_AHEAD_='↑'
+ZSH_VCS_PROMPT_BEHIND='↓'
+ZSH_VCS_PROMPT_STAGED='✚'
+ZSH_VCS_PROMPT_CONFLICTS='✖'
+ZSH_VCS_PROMPT_UNSTAGED='●'
+ZSH_VCS_PROMPT_UNTRACKED='…'
+ZSH_VCS_PROMPT_STASHED='⚑'
+ZSH_VCS_PROMPT_CLEAN='✔'
 
-zstyle ':vcs_info:git*' actionformats "(%b) %m%u%c "
+# enable git and svn info
+zstyle ':vcs_info:*' enable             git svn
+zstyle ':vcs_info:*' get-revision       true
+zstyle ':vcs_info:*' check-for-changes  true
+zstyle ':vcs_info:*' stagedstr          $ZSH_VCS_PROMPT_STAGED
+zstyle ':vcs_info:*' unstagedstr        $ZSH_VCS_PROMPT_UNSTAGED
+zstyle ':vcs_info:*' untrackedstr       $ZSH_VCS_PROMPT_UNTRACKED
+zstyle ':vcs_info:*' formats            '%b%u%c'
 
 # }}}
 # Completion {{{
@@ -174,7 +189,7 @@ case $TERM in
             ZSHFG=`expr $ZSHFG + 1`
 
             # » Թ ─ ╼ ⶈ ▬ —i ▬ 
-            PROMPT="%{%B%F{$ZSHFG}%}${vcs_info_msg_0_} ▬ %b%f"
+            PROMPT="%{%B%F{$ZSHFG}%}${vcs_info_msg_0_%% } ▬ %b%f"
             RPS1="%B%F{$ZSHFG}%2~/%b%f"
         }
         ;;
