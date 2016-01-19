@@ -30,6 +30,9 @@ unsetopt menu_complete
 # disable flow control of the terminal
 unsetopt flowcontrol
 
+# interpret directory name as cd to that dir
+setopt autocd
+
 # show completion menu on succesive tab press
 setopt auto_menu
 
@@ -92,7 +95,7 @@ zstyle ':vcs_info:*' check-for-changes  true
 zstyle ':vcs_info:*' stagedstr          $ZSH_VCS_PROMPT_STAGED
 zstyle ':vcs_info:*' unstagedstr        $ZSH_VCS_PROMPT_UNSTAGED
 zstyle ':vcs_info:*' untrackedstr       $ZSH_VCS_PROMPT_UNTRACKED
-zstyle ':vcs_info:*' formats            '%b%u%c'
+zstyle ':vcs_info:*' formats            $ZSH_VCS_PROMPT_REPO' %b %u%c'
 
 # }}}
 # Completion {{{

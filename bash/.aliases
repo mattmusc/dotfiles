@@ -86,6 +86,8 @@ alias f2mp3='ffmpeg -i $1 -q:a 0 $1.mp3'
 
 alias exe='chmod u+x $1'
 
+alias serve='python -m SimpleHTTPServer'
+
 # }}}
 # {{{ working directories
 
