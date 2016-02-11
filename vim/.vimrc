@@ -24,8 +24,10 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'noahfrederick/vim-hemisu'
 Plugin 'morhetz/gruvbox'
+Plugin 'petelewis/vim-evolution'
 
 " Editor features
+Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rhysd/vim-clang-format'
 
@@ -241,6 +243,9 @@ function! ToggleSyntax()
     endif
 endfunction
 nmap <silent> <Leader>s :call ToggleSyntax()<CR>
+
+" Remap Esc
+inoremap jk <esc>
 
 " }}}
 " {{{ abbreviations

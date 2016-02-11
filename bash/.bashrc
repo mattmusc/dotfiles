@@ -17,8 +17,7 @@
 # }}}
 # {{{ Options
 
-shopt -s cdspell
-shopt -s extglob
+shopt -s cdspell extglob
 
 export HISTSIZE=100
 HISTCONTROL=ignorespace:ignoredups
@@ -95,6 +94,8 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 # » Թ ─ ╼ ⶈ
 #prompt='»'
 #PROMPT_COMMAND='__git_ps1 "" " $(__stat)$txtgrn$prompt$txtrst " " %s"'
+
+export PS1=" \W ─ "
 
 # }}}
 

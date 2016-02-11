@@ -5,12 +5,17 @@
 
 # Init {{{
 
-[[ -f "$HOME/.environment" ]] && source "$HOME/.environment"
+sourceIfPresent() {
+    [[ -z "$1" ]] && return
+    [[ -f "$1" ]] && source "$1"
+}
+
+sourceIfPresent "$HOME/.environment"
 
 [[ $- != *i* ]] && return
 
-[[ -f "$HOME/.aliases"     ]] && source "$HOME/.aliases"
-[[ -f "$HOME/.custom"      ]] && source "$HOME/.custom"
+sourceIfPresent "$HOME/.aliases"
+sourceIfPresent "$HOME/.custom"
 
 # load the advanced completion system
 autoload -Uz compinit && compinit
@@ -74,8 +79,7 @@ WORDCHARS=${WORDCHARS//[&.;\/\{\}\[\]]}
 
 # add syntax zsh highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-[[ -d "/usr/local/share/zsh-syntax-highlighting" ]] && \
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+sourceIfPresent "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # create symbols
 ZSH_VCS_PROMPT_REPO=''
@@ -109,9 +113,10 @@ zstyle ':completion:*'              menu select=1 _complete _correct
 
 # for all completions: grouping / headline / ...
 zstyle ':completion:*'              verbose yes
-zstyle ':completion:*:messages'     format $'%B\e[01;35m -- %d -- \e[00;00m%b'
+zstyle ':completion:*:messages'     format \
+                                    $'%B\e[01;35m -- %d -- \e[00;00m%b'
 zstyle ':completion:*:warnings'     format \
-    $'%B\e[01;31m -- no matches -- \e[00;00m%b'
+                                    $'%B\e[01;31m -- no matches -- \e[00;00m%b'
 zstyle ':completion:*:descriptions' format $'%B\e[01;34m -- %d -- \e[00;00m%b'
 zstyle ':completion:*:corrections'  format $'%B\e[01;33m -- %d -- \e[00;00m%b'
 
@@ -127,13 +132,13 @@ zstyle ':completion:*'              select-prompt \
 
 # set the style of completion
 zstyle ':completion:*'              matcher-list '' \
-    'm:{a-z}={A-Z}' \
-    'm:{a-zA-Z}={A-Za-z}' \
+                                                 'm:{a-z}={A-Z}' \
+                                                 'm:{a-zA-Z}={A-Za-z}'
 
 # display lists of matches in different colours
-zstyle ':completion:*'              list-colors ${(s.:.)LSCOLORS}
+zstyle ':completion:*'                    list-colors ${(s.:.)LSCOLORS}
 zstyle ':completion:*:*:kill:*:processes' list-colors \
-    '=(#b) #([0-9]#)*=0=01;31'
+                                          '=(#b) #([0-9]#)*=0=01;31'
 
 # ignore this file patterns in completion
 zstyle ':completion:*:files'        ignored-patterns '*?.o' '*?~' '*?.dvi'
@@ -147,7 +152,7 @@ zstyle ':completion:*'              group-name ''
 zstyle ':completion:*:*:-command-:*:commands'  group-name commands
 zstyle ':completion:*:*:-command-:*:functions' group-name functions
 
-# use normal file completion
+# use normal file completion for specified commands
 compdef -d npm
 
 # }}}
@@ -165,6 +170,9 @@ bindkey -e
 
 # accepts completion and tries co complete again
 bindkey -M menuselect '^o' accept-and-infer-next-history
+
+# perform history expansion and insert a space into the buffer.
+bindkey " " magic-space
 
 # }}}
 # Prompt {{{
@@ -191,9 +199,9 @@ case $TERM in
 
             ZSHFG=`expr $ZSHFG + 1`
 
-            # » Թ ─ ╼ ⶈ ▬ —i ▬ 
-            PROMPT="%{%B%F{$ZSHFG}%}${vcs_info_msg_0_%% } ▬ %b%f"
-            RPS1="%B%F{$ZSHFG}%2~/%b%f"
+            # » Թ ─ ╼ ⶈ ▬ — ▬
+            PROMPT="%{%F{$ZSHFG}%}${vcs_info_msg_0_%% } ▬ %f"
+            RPS1="%F{$ZSHFG}%2~/%f"
         }
         ;;
 esac
