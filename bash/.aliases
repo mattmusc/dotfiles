@@ -144,6 +144,8 @@ alias showFiles='\
     killall\
             Finder /System/Library/CoreServices/Finder.app'
 
+alias rmdstore="find .. -name '.DS_Store' -print0 | xargs -0 rm"
+
 # }}}
 # {{{ git
 
