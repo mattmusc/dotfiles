@@ -48,6 +48,7 @@ Plugin 'junegunn/goyo.vim'
 
 " Snippets
 Plugin 'mattn/emmet-vim'
+Plugin 'msanders/snipmate.vim'
 
 Plugin 'tpope/vim-surround'
 Plugin 'plasticboy/vim-markdown'
@@ -90,6 +91,7 @@ set colorcolumn=80              " Highlight entire column
 set cursorline                  " Highlight current line
 set fillchars+=stl:\ ,stlnc:\   " Characters to fill the statuslines
 set linespace=1                 " Set line height
+set guicursor+=a:blinkon0       " Disable all blinking cursor
 
 " Command line
 set showmode                    " Show the current mode we are in
