@@ -24,17 +24,19 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'noahfrederick/vim-hemisu'
 Plugin 'morhetz/gruvbox'
-Plugin 'petelewis/vim-evolution'
 
 " Editor features
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'terryma/vim-multiple-cursors'
 
 " Syntax
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'urso/haskell_syntax.vim'
 Plugin 'baskerville/vim-sxhkdrc'
+Plugin 'neo4j-contrib/cypher-vim-syntax'
+Plugin 'chrisbra/csv.vim'
 
 " File browser
 Plugin 'scrooloose/nerdtree'
@@ -67,7 +69,7 @@ set shiftwidth=4                " Set the size of autoindent
 set shiftround                  " Indent relative to beginning of line
 set expandtab                   " Make sure our tabs are spaces
 set preserveindent              " Preserve as much of the indent structure
-set modelines=1                 " Number of lines of modeline
+set modelines=3                 " Number of lines of modeline
 set backspace=2                 " Set backspace to 'indent,eol,start'
 
 " Help with search
@@ -113,7 +115,7 @@ set wildmode=longest,full,list  " Till longest, Next full, list all matches
 set wildchar=<Tab>              " Character to start wildcard expansion
 
 " GUI Font
-set guifont=InputMono:h11       " Set GUI font for my MacVim
+set guifont=Fira\ Code:h11
 
 " }}}
 " {{{ colors
@@ -149,6 +151,8 @@ autocmd filetype html,xml set listchars-=tab:>.
 autocmd filetype haskell  set tabstop=2 softtabstop=2 shiftwidth=2
 autocmd filetype c,cpp,vim,xml,html,xhtml set foldmethod=syntax
 autocmd filetype vim,sh set foldmethod=marker
+
+autocmd BufEnter * lcd %:p:h
 
 " }}}
 " {{{ backup files
@@ -197,7 +201,7 @@ endif
 " {{{ keys
 
 " Set the leader key
-let mapleader=","
+let mapleader="/"
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -248,6 +252,9 @@ nmap <silent> <Leader>s :call ToggleSyntax()<CR>
 
 " Remap Esc
 inoremap jk <esc>
+
+" Cd to current file wd
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 " }}}
 " {{{ abbreviations

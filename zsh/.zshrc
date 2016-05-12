@@ -44,9 +44,6 @@ setopt auto_menu
 # start completion at the cursor position
 setopt complete_in_word
 
-# move the cursor to end of word if completion is started
-setopt always_to_end
-
 # expand aliases
 setopt complete_aliases
 
@@ -75,7 +72,7 @@ setopt hist_ignore_dups
 setopt hist_save_no_dups
 
 # do not consider / - slash - part of a word
-WORDCHARS=${WORDCHARS//[&.;\/\{\}\[\]]}
+WORDCHARS=${WORDCHARS//[&.;\/\{\}\[\]-_]}
 
 # add syntax zsh highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
@@ -109,7 +106,9 @@ zstyle ':vcs_info:*' formats            $ZSH_VCS_PROMPT_REPO' %b %u%c'
 zmodload -i zsh/complist
 
 # start menu selection if at least 4 ambiguous completions are produced
-zstyle ':completion:*'              menu select=1 _complete _correct
+zstyle ':completion:*'              max-errors 1
+zstyle ':completion:*'              completer _complete _approximate
+zstyle ':completion:*'              menu select=1
 
 # for all completions: grouping / headline / ...
 zstyle ':completion:*'              verbose yes
@@ -142,7 +141,6 @@ zstyle ':completion:*:*:kill:*:processes' list-colors \
 
 # ignore this file patterns in completion
 zstyle ':completion:*:files'        ignored-patterns '*?.o' '*?~' '*?.dvi'
-zstyle ':completion:*'              completer _complete _ignored
 zstyle ':completion:*:functions'    ignored-patterns '_*'
 
 # group completions according to tags

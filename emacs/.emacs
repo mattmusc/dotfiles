@@ -358,6 +358,24 @@ to the Emacs load path."
 
 ;; Python
 
+;; Erlang
+
+(setq load-path (cons  "/usr/local/Cellar/erlang/18.3/lib/erlang/lib/tools-2.8.3/emacs"
+                       load-path))
+(setq erlang-root-dir "/usr/local/Cellar/erlang/18.3/")
+(setq exec-path (cons "/usr/local/Cellar/erlang/18.3/bin" exec-path))
+(require 'erlang-start)
+
+(defun eshell-clear-buffer ()
+  "Clear terminal"
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)
+    (eshell-send-input)))
+(add-hook 'eshell-mode-hook
+      '(lambda()
+          (local-set-key (kbd "C-l") 'eshell-clear-buffer)))
+
 ;;;; }}}
 ;;;; Keys {{{
 

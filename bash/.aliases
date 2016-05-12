@@ -91,6 +91,9 @@ alias serve='python -m SimpleHTTPServer'
 alias cmcompile='mkdir -p bin && cd bin && cmake .. \
     -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt5/5.5.1_2/'
 
+alias tm='tmux'
+alias ta='tmux attach'
+
 # }}}
 # {{{ working directories
 
