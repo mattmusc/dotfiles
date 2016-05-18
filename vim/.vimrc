@@ -115,7 +115,7 @@ set wildmode=longest,full,list  " Till longest, Next full, list all matches
 set wildchar=<Tab>              " Character to start wildcard expansion
 
 " GUI Font
-set guifont=Fira\ Code:h11
+set guifont=Inconsolata:h13
 
 " }}}
 " {{{ colors
@@ -201,7 +201,7 @@ endif
 " {{{ keys
 
 " Set the leader key
-let mapleader="/"
+let mapleader=","
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
