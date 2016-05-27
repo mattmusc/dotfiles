@@ -30,6 +30,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'vim-airline/vim-airline'
 
 " Syntax
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -96,7 +97,7 @@ set linespace=1                 " Set line height
 set guicursor+=a:blinkon0       " Disable all blinking cursor
 
 " Command line
-set showmode                    " Show the current mode we are in
+set noshowmode                  " Show the current mode we are in
 set showcmd                     " Show command in the last line of the screen
 set cmdheight=1                 " Set number of screen lines for command-line
 
@@ -115,7 +116,7 @@ set wildmode=longest,full,list  " Till longest, Next full, list all matches
 set wildchar=<Tab>              " Character to start wildcard expansion
 
 " GUI Font
-set guifont=Inconsolata:h13
+set guifont=Inconsolata\ for\ Powerline:h13
 
 " }}}
 " {{{ colors
@@ -142,17 +143,38 @@ call gitgutter#highlight#define_highlights()
 " }}}
 " {{{ statusline
 
-set laststatus=0                       " Set statusline: 0,1,2
+set laststatus=2                       " Set statusline: 0,1,2
 
-" }}}
-" {{{ autocmd
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 
-autocmd filetype html,xml set listchars-=tab:>.
-autocmd filetype haskell  set tabstop=2 softtabstop=2 shiftwidth=2
-autocmd filetype c,cpp,vim,xml,html,xhtml set foldmethod=syntax
-autocmd filetype vim,sh set foldmethod=marker
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
-autocmd BufEnter * lcd %:p:h
+let g:airline_exclude_preview = 0
+
+let g:airline_mode_map = {
+            \ '__' : '-',
+            \ 'n'  : 'N',
+            \ 'i'  : 'I',
+            \ 'r'  : 'R',
+            \ 'R'  : 'R',
+            \ 'c'  : 'C',
+            \ 'v'  : 'V',
+            \ 'V'  : 'V',
+            \ '' : 'V',
+            \ 's'  : 'S',
+            \ 'S'  : 'S',
+            \ '' : 'S',
+            \ }
 
 " }}}
 " {{{ backup files

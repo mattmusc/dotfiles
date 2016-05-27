@@ -94,6 +94,11 @@ alias cmcompile='mkdir -p bin && cd bin && cmake .. \
 alias tm='tmux'
 alias ta='tmux attach'
 
+alias vu='vagrant up'
+alias vh='vagrant halt'
+alias vs='vagrant ssh'
+alias vp='vagrant provision'
+
 # }}}
 # {{{ working directories
 
@@ -155,6 +160,8 @@ alias gss='git status -s'
 alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
 alias gad='git add .'
 alias gct='git commit'
+
+alias noc='git rev-list --branches --all | wc -l'
 
 # }}}
 

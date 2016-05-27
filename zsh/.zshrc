@@ -62,17 +62,8 @@ setopt auto_param_keys
 # # for block device
 setopt list_types
 
-# do not append a command in history if starts with space
-setopt hist_ignore_space
-
-# do not append duplicate commands in history
-setopt hist_ignore_dups
-
-# do not save duplicate commands
-setopt hist_save_no_dups
-
 # do not consider / - slash - part of a word
-WORDCHARS=${WORDCHARS//[&.;\/\{\}\[\]-_]}
+WORDCHARS=${WORDCHARS//[&.;\/\{\}\[\]-_=]}
 
 # add syntax zsh highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
@@ -159,6 +150,24 @@ compdef -d npm
 export HISTSIZE=10000
 export SAVEHIST=9000
 export HISTFILE=~/.zsh_history
+
+# do not append a command in history if starts with space
+setopt hist_ignore_space
+
+# do not append duplicate commands in history
+setopt hist_ignore_dups
+
+# do not save duplicate commands
+setopt hist_save_no_dups
+
+setopt append_history
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_verify
+setopt inc_append_history
+
+# share command history data
+setopt share_history 
 
 # }}}
 # Keys {{{
