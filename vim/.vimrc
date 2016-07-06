@@ -1,62 +1,62 @@
-" ---"---"--------------------------------------------------------------------
-" VIM RC
+" ViM Config
 " @author matteo.muscella@usi.ch
-" ---"---"--------------------------------------------------------------------
-" {{{ filetype & vundle
+"
+" {{{ init
 
-autocmd! bufwritepost .vimrc source %
+" reload .vimrc file every time gets saved
+autocmd! bufwritepost .vimrc source % | AirlineRefresh | AirlineRefresh
 
 set nocompatible
-hi clear
-if exists("syntax_on")
-    syntax reset
+
+" install ViM Plug if necessary
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
-filetype off
 
-set rtp+=~/.vim/vundle/Vundle.vim
-call vundle#begin('~/.vim/bundle/')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim', {'pinned' : 1}
+call plug#begin('~/.vim/plugged')
+" Make sure you use single quotes
 
 " Colors
-Plugin 'chriskempson/base16-vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'noahfrederick/vim-hemisu'
-Plugin 'morhetz/gruvbox'
+Plug 'chriskempson/base16-vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'noahfrederick/vim-hemisu'
+Plug 'morhetz/gruvbox'
 
 " Editor features
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'rhysd/vim-clang-format'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'rhysd/vim-clang-format'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdcommenter'
 
 " Syntax
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'urso/haskell_syntax.vim'
-Plugin 'baskerville/vim-sxhkdrc'
-Plugin 'neo4j-contrib/cypher-vim-syntax'
-Plugin 'chrisbra/csv.vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'urso/haskell_syntax.vim'
+Plug 'baskerville/vim-sxhkdrc'
+Plug 'neo4j-contrib/cypher-vim-syntax'
+Plug 'chrisbra/csv.vim'
 
 " File browser
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
 
 " Highlight colors
-Plugin 'lilydjwg/colorizer'
+Plug 'lilydjwg/colorizer'
 
 " Distraction free writing
-Plugin 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim'
 
 " Snippets
-Plugin 'mattn/emmet-vim'
-Plugin 'msanders/snipmate.vim'
+Plug 'mattn/emmet-vim'
+Plug 'msanders/snipmate.vim'
 
-Plugin 'tpope/vim-surround'
-Plugin 'plasticboy/vim-markdown'
+Plug 'tpope/vim-surround'
+Plug 'plasticboy/vim-markdown'
 
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on
 
@@ -116,29 +116,8 @@ set wildmode=longest,full,list  " Till longest, Next full, list all matches
 set wildchar=<Tab>              " Character to start wildcard expansion
 
 " GUI Font
-set guifont=Inconsolata\ for\ Powerline:h13
-
-" }}}
-" {{{ colors
-
-syntax enable                          " Enable syntax highlighting
-if !empty(glob("~/.custom.vim"))
-    so ~/.custom.vim
-endif
-
-" Additional cpp highlighting
-let g:cpp_class_scope_highlight=1
-let g:cpp_experimental_template_highlight=1
-
-" GitGutter custom colors
-highlight clear SignColumn
-highlight GitGutterAdd          ctermfg=green   guifg=#7aab7d
-highlight GitGutterChange       ctermfg=yellow  guifg=#e0a82a
-highlight GitGutterDelete       ctermfg=red     guifg=#d83925
-highlight GitGutterChangeDelete ctermfg=magenta guifg=#c07998
-
-" vim-gitgutter will use Sign Column to set its color, reload it.
-call gitgutter#highlight#define_highlights()
+"set guifont=Inconsolata\ for\ Powerline:h12
+set guifont=Fira\ Code:h12
 
 " }}}
 " {{{ statusline
@@ -149,6 +128,14 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 " powerline symbols
 let g:airline_left_sep = ''
@@ -175,6 +162,32 @@ let g:airline_mode_map = {
             \ 'S'  : 'S',
             \ '' : 'S',
             \ }
+"let g:airline_section_x = ''
+"let g:airline_section_y = ''
+
+let g:airline#extensions#hunks#enabled = 0
+
+" }}}
+" {{{ colors
+
+syntax enable                          " Enable syntax highlighting
+if !empty(glob("~/.custom.vim"))
+    source ~/.custom.vim
+endif
+
+" Additional cpp highlighting
+let g:cpp_class_scope_highlight=1
+let g:cpp_experimental_template_highlight=1
+
+" GitGutter custom colors
+highlight clear SignColumn
+highlight GitGutterAdd          ctermfg=green   guifg=#7aab7d
+highlight GitGutterChange       ctermfg=yellow  guifg=#e0a82a
+highlight GitGutterDelete       ctermfg=red     guifg=#d83925
+highlight GitGutterChangeDelete ctermfg=magenta guifg=#c07998
+
+" vim-gitgutter will use Sign Column to set its color, reload it.
+call gitgutter#highlight#define_highlights()
 
 " }}}
 " {{{ backup files

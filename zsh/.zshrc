@@ -207,7 +207,7 @@ case $TERM in
             ZSHFG=`expr $ZSHFG + 1`
 
             # » Թ ─ ╼ ⶈ ▬ — ▬
-            PROMPT="%{%F{$ZSHFG}%}${vcs_info_msg_0_%% } ▬ %f"
+            PROMPT="%F{$ZSHFG}%}${vcs_info_msg_0_} `basename \"$VIRTUAL_ENV\"`▬ %f"
             RPS1="%F{$ZSHFG}%2~/%f"
         }
         ;;

@@ -11,6 +11,8 @@ alias :w='exit'
 alias :x='exit'
 alias :r="source $HOME/.$(ps -p $$ | grep -ioe '\(bash\|zsh\)')rc"
 
+alias rot13="tr a-zA-Z n-za-mN-ZA-M"
+
 # mac only: using homebrew gtime 
 alias timeit="gtime --format='%e' $1"
 

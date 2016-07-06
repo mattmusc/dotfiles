@@ -9,5 +9,7 @@ vim/.vim/swap/
 vim/.vim/undo/
 vim/.vim/viminfo
 vim/.vim/.netrwhist
+vim/.vim/autoload
+vim/.vim/plugged
 *~
 ls-R
