@@ -38,6 +38,9 @@ Plug 'urso/haskell_syntax.vim'
 Plug 'baskerville/vim-sxhkdrc'
 Plug 'neo4j-contrib/cypher-vim-syntax'
 Plug 'chrisbra/csv.vim'
+Plug 'vim-scripts/phtml.vim/'
+Plug 'derekwyatt/vim-scala'
+Plug 'tikhomirov/vim-glsl'
 
 " File browser
 Plug 'scrooloose/nerdtree'
@@ -117,7 +120,7 @@ set wildchar=<Tab>              " Character to start wildcard expansion
 
 " GUI Font
 "set guifont=Inconsolata\ for\ Powerline:h12
-set guifont=Fira\ Code:h12
+set guifont=agave:h14
 
 " }}}
 " {{{ statusline
@@ -138,13 +141,13 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 " powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = ''
 
 let g:airline_exclude_preview = 0
 

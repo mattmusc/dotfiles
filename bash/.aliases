@@ -13,7 +13,7 @@ alias :r="source $HOME/.$(ps -p $$ | grep -ioe '\(bash\|zsh\)')rc"
 
 alias rot13="tr a-zA-Z n-za-mN-ZA-M"
 
-# mac only: using homebrew gtime 
+# mac only: using homebrew gtime
 alias timeit="gtime --format='%e' $1"
 
 # copy public on current machine on a server specified as first param
@@ -31,7 +31,7 @@ edit() {
     case "$1" in
         .bashrc|.zshrc)
             vim $HOME/$1 ; source $HOME/$1
-            ;; 
+            ;;
         bspwm|sxhkd)
             vim $HOME/.config/$1/$1rc
             ;;
@@ -101,6 +101,8 @@ alias vh='vagrant halt'
 alias vs='vagrant ssh'
 alias vp='vagrant provision'
 
+alias findf="find . -type f -iname \"*$**\""
+
 # }}}
 # {{{ working directories
 
@@ -114,6 +116,9 @@ alias configs="cd $XDG_CONFIG_HOME"
 
 alias atelier="ssh muscellm@atelier.inf.usi.ch"
 alias qnap="ssh admin@192.168.2.10"
+
+# ssh -CnNT -p 6003 -D 8080 admin@2.235.177.223
+# ssh -nNT -p 6003 -L 6009:127.0.0.1:6009 admin@2.235.177.223
 
 # }}}
 # {{{ guards
@@ -132,7 +137,7 @@ __do_update() {
     brew cleanup
     brew doctor
 }
-alias update=__do_update
+alias macupdate=__do_update
 
 # add empty icon on the dock as a spacer
 alias addSpacer="\
@@ -144,7 +149,7 @@ alias addSpacer="\
 
 # show/hide hidden files in the finder
 alias hideFiles='\
-    defaults write com.apple.finder 
+    defaults write com.apple.finder \
              AppleShowAllFiles NO;\
     killall\
              Finder /System/Library/CoreServices/Finder.app'
@@ -161,7 +166,7 @@ alias gst='git status'
 alias gss='git status -s'
 alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
 alias gad='git add .'
-alias gct='git commit'
+alias gcm='git commit'
 
 alias noc='git rev-list --branches --all | wc -l'
 
