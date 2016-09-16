@@ -93,7 +93,7 @@ __stat() {
 
 # » Թ ─ ╼ ⶈ
 prompt='» '
-PROMPT_COMMAND='__git_ps1 "" " $txtred$prompt$txtrst " " $txtgrn$(echo ) %s $txtrst"'
+PROMPT_COMMAND='__git_ps1 "" " $txtred$prompt$txtrst" "$txtgrn$(echo ) %s$txtrst"'
 
 #export PS1=" \W ─ "
 
