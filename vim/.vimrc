@@ -125,7 +125,7 @@ set guifont=agave:h14
 " }}}
 " {{{ statusline
 
-set laststatus=2                       " Set statusline: 0,1,2
+set laststatus=0                       " Set statusline: 0,1,2
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}

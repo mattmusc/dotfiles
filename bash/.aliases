@@ -137,7 +137,7 @@ __do_update() {
     brew cleanup
     brew doctor
 }
-alias macupdate=__do_update
+alias brewupdate=__do_update
 
 # add empty icon on the dock as a spacer
 alias addSpacer="\

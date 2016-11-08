@@ -217,3 +217,9 @@ esac
 
 # vim: ft=sh fdm=marker
 
+
+###-tns-completion-start-###
+if [ -f /Users/muscellm/.tnsrc ]; then 
+    source /Users/muscellm/.tnsrc 
+fi
+###-tns-completion-end-###
