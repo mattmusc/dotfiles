@@ -35,9 +35,9 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 ###-tns-completion-start-###
-if [ -f /Users/muscellm/.tnsrc ]; then 
-    source /Users/muscellm/.tnsrc 
-fi
+#if [ -f /Users/muscellm/.tnsrc ]; then 
+#    source /Users/muscellm/.tnsrc 
+#fi
 ###-tns-completion-end-###
 
 # }}}

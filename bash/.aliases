@@ -103,6 +103,8 @@ alias vp='vagrant provision'
 
 alias findf="find . -type f -iname \"*$**\""
 
+alias svim="sudo vim"
+
 # }}}
 # {{{ working directories
 
