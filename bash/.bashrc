@@ -17,8 +17,7 @@
 # }}}
 # {{{ Options
 
-shopt -s cdspell
-shopt -s extglob
+shopt -s cdspell extglob
 
 export HISTSIZE=100
 HISTCONTROL=ignorespace:ignoredups
@@ -29,6 +28,17 @@ export HISTIGNORE="ls:passwd: "
     "$(grep "^Host" ~/.ssh/config | \
     grep -v "[?*]" | \
     cut -d " " -f2)" scp sftp ssh
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+    . $(brew --prefix)/etc/bash_completion.d/git-flow-completion.bash
+fi
+
+###-tns-completion-start-###
+#if [ -f /Users/muscellm/.tnsrc ]; then 
+#    source /Users/muscellm/.tnsrc 
+#fi
+###-tns-completion-end-###
 
 # }}}
 # Colors {{{
@@ -82,19 +92,21 @@ export LESS_TERMCAP_us=$'\E[01;33m'       # begin underline
 # {{{ Prompt
 
 source /usr/local/etc/bash_completion.d/git-completion.bash
-#source /usr/local/etc/bash_completion.d/git-prompt.sh
+source /usr/local/etc/bash_completion.d/git-prompt.sh
 
-#GIT_PS1_SHOWCOLORHINTS=true
-#GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWCOLORHINTS=true
+GIT_PS1_SHOWDIRTYSTATE=true
 
-#__stat() {
-#    local _last_status="$?"
-#    [[ $_last_status -gt 0 ]] && echo "$txtred$_last_status$txtrst " ||echo ""
-#}
+__stat() {
+    local _last_status="$?"
+    [[ $_last_status -gt 0 ]] && echo "$txtred$_last_status$txtrst " ||echo ""
+}
 
 # » Թ ─ ╼ ⶈ
-#prompt='»'
-#PROMPT_COMMAND='__git_ps1 "" " $(__stat)$txtgrn$prompt$txtrst " " %s"'
+prompt="$txtgrn\u$txtblu:$txtgrn\w$txtblu> "
+PROMPT_COMMAND='__git_ps1 "" "$prompt$txtrst" "$txtgrn$(echo ) %s$txtrst "'
+
+#export PS1=" \W ─ "
 
 # }}}
 
