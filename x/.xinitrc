@@ -1,39 +1,38 @@
+#!/bin/bash
 # -------------------------------------------------
 # file:     ~/.xinitrc
 # author:   Matteo Muscella 
 # -------------------------------------------------
 
-#!/bin/sh
-
 cd $HOME
 
-source $HOME/.profile
+exec >> ~/.xsession-errors 2>&1
 
-xrdb -merge $HOME/.Xresources &
-
-xset +fp $HOME/.fonts &
-xset +fp $HOME/Library/Fonts/ &
-xset fp rehash &
+. ~/.environment
 
 xsetroot -cursor_name left_ptr
 
-sh ~/.fehbg &
+xset +fp /usr/share/fonts/X11/100dpi/
+xset +fp /home/matteo/.fonts/
+xset +fp /home/matteo/.fonts/bitmap/envypn-font/
+xset +fp /home/matteo/.fonts/bitmap/haxor/
+xset +fp /home/matteo/.fonts/bitmap/phallus/
+xset +fp /home/matteo/.fonts/bitmap/proggy/
+xset +fp /home/matteo/.fonts/bitmap/progsole/
+xset +fp /home/matteo/.fonts/bitmap/siji/
+xset +fp /home/matteo/.fonts/bitmap/stlarch/
+xset fp rehash &
 
-xmodmap ~/.Xmodmap &
+xrdb -merge ~/.Xresources &
 
-export LANG="en_US.UTF-8"
+xrandr --output DVI-I-1 --primary \
+       --output DP-1 --left-of DVI-I-1 --rotate right &
 
-exec >>~/.xsession-errors 2>&1
-urxvtd &
+wal -i /home/matteo/pic/11.jpg &
 
-while true; do
-   xsetroot -name "$( date +"%A %d // %I:%M %p" )    "
-   sleep 1m    # Update time every minute
-done &
+urxvtd -q -f &
 
-: "${wm:="monsterwm"}"
-: "${ff:="/tmp/monsterwm.fifo"}"
+sxhkd &
 
-
-while :; do "$wm" || break; done | tee -a "$ff"
+exec bspwm -c ~/.config/bspwm/bspwmrc
 

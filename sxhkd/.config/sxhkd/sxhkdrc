@@ -114,3 +114,4 @@ Print
 # make sxhkd reload its configuration files:
 mod1 + shift + Escape
 	pkill -USR1 -x sxhkd
+

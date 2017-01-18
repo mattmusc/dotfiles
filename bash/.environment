@@ -5,8 +5,6 @@
 
 export XDG_CONFIG_HOME=$HOME/.config
 
-export PATH=$PATH:$HOME/Bin
-
 export EDITOR="vim"
 export PAGER=less
 
@@ -27,6 +25,6 @@ export LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
 export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
 export M2=$M2_HOME/bin
 export GOPATH=$HOME/Developer/Go
-export PATH=$PATH:$GOPATH/bin:$M2
+export PATH=$PATH:$GOPATH/bin:$M2:$HOME/usr/bin
 
 # vim: ft=sh fdm=marker

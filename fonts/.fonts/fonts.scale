@@ -1,22 +1,4 @@
 4946
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-ascii-0
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-ibm-cp850
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-ibm-cp852
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-ibm-cp866
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso10646-1
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-1
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-10
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-13
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-2
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-3
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-4
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-5
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-9
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-koi8-e
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-koi8-r
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-koi8-ru
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-koi8-u
-Agave-for-Powerline.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-koi8-uni
 Amatic-Bold.ttf -misc-amatic-bold-r-condensed--0-0-0-0-p-0-ascii-0
 Amatic-Bold.ttf -misc-amatic-bold-r-condensed--0-0-0-0-p-0-iso10646-1
 Amatic-Bold.ttf -misc-amatic-bold-r-condensed--0-0-0-0-p-0-iso8859-1
@@ -4918,6 +4900,24 @@ agave-r.ttf -misc-agave-medium-r-normal--0-0-0-0-m-0-koi8-r
 agave-r.ttf -misc-agave-medium-r-normal--0-0-0-0-m-0-koi8-ru
 agave-r.ttf -misc-agave-medium-r-normal--0-0-0-0-m-0-koi8-u
 agave-r.ttf -misc-agave-medium-r-normal--0-0-0-0-m-0-koi8-uni
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-ascii-0
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-ibm-cp850
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-ibm-cp852
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-ibm-cp866
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso10646-1
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-1
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-10
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-13
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-2
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-3
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-4
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-5
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-9
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-koi8-e
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-koi8-r
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-koi8-ru
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-koi8-u
+agave.ttf -misc-agave for powerline-medium-r-normal--0-0-0-0-p-0-koi8-uni
 dina10px.ttf -misc-dina ttf 10px-medium-r-normal--0-0-0-0-c-0-ascii-0
 dina10px.ttf -misc-dina ttf 10px-medium-r-normal--0-0-0-0-c-0-iso10646-1
 dina10px.ttf -misc-dina ttf 10px-medium-r-normal--0-0-0-0-c-0-iso8859-1

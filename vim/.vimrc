@@ -23,6 +23,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'noahfrederick/vim-hemisu'
 Plug 'morhetz/gruvbox'
+Plug 'dylanaraps/wal'
 
 " Editor features
 Plug 'tpope/vim-fugitive'
@@ -47,7 +48,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 
 " Highlight colors
-Plug 'lilydjwg/colorizer'
+Plug 'ap/vim-css-color'
 
 " Distraction free writing
 Plug 'junegunn/goyo.vim'

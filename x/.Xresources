@@ -2,7 +2,7 @@
 ! ~/.Xresources
 ! @author matteo.muscella@usi.ch
 ! ---
-#include "/Users/mm/.colors/hemisu-light"
+! {{{ Main
 
 URxvt.cursorUnderline:     1
 URxvt.fading:              1
@@ -11,35 +11,42 @@ URxvt.imLocale:            en_US.UTF-8
 URxvt.scrollBar:           false
 URxvt.internalBorder:      10
 URxvt.visualBell:          false
-URxvt.lineSpace:           2
+URxvt.lineSpace:           1
 URxvt.letterSpace:         0
-
-URxvt.perl-ext-common:     clipboard,keyboard-select,font-size
-URxvt.perl-matcher:        1
-URxvt.matcher-button:      3
 URxvt.url-launcher:        /usr/local/bin/firefox
 
-URxvt*colorIT:             #87af5f
-URxvt*colorBD:             #dc322f
-URxvt*colorUL:             #87afd7
+URxvt.dpi:                 96
+URxvt.antialias:           true
+URxvt.hinting:             true
+URxvt.rgba:                rgb
+URxvt.autohint:            true
+URxvt.hintstyle:           hintslight
+URxvt.lcdfilter:           lcddefault
 
-URxvt*dpi:                 96
-URxvt*antialias:           true
-URxvt*hinting:             true
-URxvt*rgba:                rgb
-URxvt*autohint:            true
-URxvt*hintstyle:           hintslight
-URxvt*lcdfilter:           lcddefault
+Xcursor.size:              12
 
-URxvt*font:                 xft:Input Mono:pixelsize=11:style=regular
-URxvt*boldFont:             xft:Input Mono:pixelsize=11:style=bold:weight=medium
-URxvt*italicFont:           xft:Input Mono:pixelsize=11:style=italic:weight=medium
-URxvt*bolditalicFont:       xft:Input Mono:pixelsize=11:style=italic:weight=medium
+! }}}
+! {{{ Fonts
+
+URxvt*font:                 -windows-proggycleansz-medium-r-normal--13-80-96-96-c-70-iso8859-1
+URxvt*boldFont:             -windows-proggycleansz-medium-r-normal--13-80-96-96-c-70-iso8859-1
+URxvt*italicFont:           -windows-proggycleansz-medium-r-normal--13-80-96-96-c-70-iso8859-1
+URxvt*bolditalicFont:       -windows-proggycleansz-medium-r-normal--13-80-96-96-c-70-iso8859-1
+
+!URxvt*font:                 xft:Input Mono:pixelsize=11:style=regular
+!URxvt*boldFont:             xft:Input Mono:pixelsize=11:style=bold:weight=medium
+!URxvt*italicFont:           xft:Input Mono:pixelsize=11:style=italic:weight=medium
+!URxvt*bolditalicFont:       xft:Input Mono:pixelsize=11:style=italic:weight=medium
 
 !URxvt*font:                 xft:Inconsolata-dz for Powerline:pixelsize=14
 !URxvt*boldFont:             xft:Inconsolata-dz for Powerline:pixelsize=14,style=bold
 !URxvt*italicFont:           xft:Inconsolata-dz for Powerline:pixelsize=14,style=italic
 !URxvt*bolditalicFont:       xft:Inconsolata-dz for Powerline:pixelsize=14,style=italic
+
+!URxvt*font:                 -ypn-envypn-Medium-R-Normal--13-130-75-75-C-90-ISO8859-1
+!URxvt*boldFont:             -ypn-envypn-Medium-R-Normal--13-130-75-75-C-90-ISO8859-1
+!URxvt*italicFont:           -ypn-envypn-Medium-R-Normal--13-130-75-75-C-90-ISO8859-1
+!URxvt*bolditalicFont:       -ypn-envypn-Medium-R-Normal--13-130-75-75-C-90-ISO8859-1
 
 !URxvt*font:                -*-uushi-*-*-*-*-*-*-*-*-*-*-*-*
 !URxvt*boldFont:            -*-uushi-*-*-*-*-*-*-*-*-*-*-*-*
@@ -48,13 +55,22 @@ URxvt*bolditalicFont:       xft:Input Mono:pixelsize=11:style=italic:weight=medi
 
 !URxvt*font:                -misc-tamsyn-medium-r-normal--16-116-100-100-c-80-iso8859-1
 
-URxvt.clipboard.autocopy:  true
+!URxvt*font:                9x15
 
-URxvt.keysym.M-s:          perl:keyboard-select:activate
-URxvt.keysym.M-c:          perl:clipboard:copy
-URxvt.keysym.M-v:          perl:clipboard:paste
-URxvt.keysym.M-C-v:        perl:clipboard:paste_escaped
-URxvt.keysym.C-equal:      perl:font-size:increase
+!URxvt*font:                -ucw.cz-haxor-medium-r-normal--12-120-72-72-c-72-iso8859-2
+!URxvt*boldFont:            -ucw.cz-haxor-medium-r-normal--12-120-72-72-c-72-iso8859-2
+!URxvt*italicFont:          -ucw.cz-haxor-medium-r-normal--12-120-72-72-c-72-iso8859-2
+!URxvt*bolditalicFont:      -ucw.cz-haxor-medium-r-normal--12-120-72-72-c-72-iso8859-2
 
-Xcursor.size:              14
+! }}}
+! {{{ Key bindings
 
+
+! }}}
+! {{{ Colors
+
+!URxvt*colorIT:             #87af5f
+!URxvt*colorBD:             #dc322f
+!URxvt*colorUL:             #87afd7
+
+! }}}
