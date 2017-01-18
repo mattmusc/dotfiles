@@ -32,6 +32,8 @@ export HISTIGNORE="ls:passwd: "
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
     . $(brew --prefix)/etc/bash_completion.d/git-flow-completion.bash
+    . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+    . $(brew --prefix)/etc/bash_completion.d/npm
 fi
 
 ###-tns-completion-start-###
