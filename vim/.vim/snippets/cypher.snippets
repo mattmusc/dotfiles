@@ -1,0 +1,12 @@
+snippet create
+	CREATE (${1:name}:${2:label} {
+	${3:property}: "${4:value}"
+	})
+
+snippet pub
+	CREATE (${1:marvel}:Publisher {
+	name:    ${2:"Marvel Comics"},
+	country: ${3:"US"},
+	founded: ${4:1939},
+	defunct: ${5:NULL}
+	}) - [a:ACTIVE { active: ${6:true} }]${7}

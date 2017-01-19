@@ -1,9 +1,12 @@
 ---
 Language:                                   Cpp
+BasedOnStyle:                               Google
 DerivePointerAlignment:                     false
 PointerAlignment:                           Left
 AccessModifierOffset:                       -4
-AllowShortIfStatementsOnASingleLine:        true
+AllowShortBlocksOnASingleLine:              false
+AllowShortFunctionsOnASingleLine:           Empty
+AllowShortIfStatementsOnASingleLine:        false
 AllowAllParametersOfDeclarationOnNextLine:  true
 BreakBeforeBraces:                          Attach
 Cpp11BracedListStyle:                       false

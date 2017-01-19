@@ -1,56 +1,65 @@
-" ---"---"--------------------------------------------------------------------
-" VIM RC
+" ViM Config
 " @author matteo.muscella@usi.ch
-" ---"---"--------------------------------------------------------------------
-" {{{ filetype & vundle
+"
+" {{{ init
 
-autocmd! bufwritepost .vimrc source %
+" reload .vimrc file every time gets saved
+autocmd! bufwritepost .vimrc source % | AirlineRefresh | AirlineRefresh
 
 set nocompatible
-hi clear
-if exists("syntax_on")
-    syntax reset
+
+" install ViM Plug if necessary
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
-filetype off
 
-set rtp+=~/.vim/vundle/Vundle.vim
-call vundle#begin('~/.vim/bundle/')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim', {'pinned' : 1}
+call plug#begin('~/.vim/plugged')
+" Make sure you use single quotes
 
 " Colors
-Plugin 'chriskempson/base16-vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'noahfrederick/vim-hemisu'
-Plugin 'morhetz/gruvbox'
+Plug 'chriskempson/base16-vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'noahfrederick/vim-hemisu'
+Plug 'morhetz/gruvbox'
 
 " Editor features
-Plugin 'airblade/vim-gitgutter'
-Plugin 'rhysd/vim-clang-format'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'rhysd/vim-clang-format'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdcommenter'
 
 " Syntax
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'urso/haskell_syntax.vim'
-Plugin 'baskerville/vim-sxhkdrc'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'urso/haskell_syntax.vim'
+Plug 'baskerville/vim-sxhkdrc'
+Plug 'neo4j-contrib/cypher-vim-syntax'
+Plug 'chrisbra/csv.vim'
+Plug 'vim-scripts/phtml.vim/'
+Plug 'derekwyatt/vim-scala'
+Plug 'tikhomirov/vim-glsl'
 
 " File browser
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
 
 " Highlight colors
-Plugin 'lilydjwg/colorizer'
+Plug 'lilydjwg/colorizer'
 
 " Distraction free writing
-Plugin 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim'
 
 " Snippets
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
+Plug 'msanders/snipmate.vim'
 
-Plugin 'tpope/vim-surround'
-Plugin 'plasticboy/vim-markdown'
+Plug 'tpope/vim-surround'
+Plug 'plasticboy/vim-markdown'
 
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on
 
@@ -64,7 +73,7 @@ set shiftwidth=4                " Set the size of autoindent
 set shiftround                  " Indent relative to beginning of line
 set expandtab                   " Make sure our tabs are spaces
 set preserveindent              " Preserve as much of the indent structure
-set modelines=1                 " Number of lines of modeline
+set modelines=3                 " Number of lines of modeline
 set backspace=2                 " Set backspace to 'indent,eol,start'
 
 " Help with search
@@ -80,7 +89,7 @@ set encoding=utf8               " Set character encoding
 set autoread                    " Read again a file if changed outside of Vim
 
 " Show line numbers and length
-set number                      " Show line numbers
+set relativenumber              " Show line numbers
 set ruler                       " Show line,column number
 set textwidth=79                " Set max width of text
 set nowrap                      " No wrapping of text
@@ -88,9 +97,10 @@ set colorcolumn=80              " Highlight entire column
 set cursorline                  " Highlight current line
 set fillchars+=stl:\ ,stlnc:\   " Characters to fill the statuslines
 set linespace=1                 " Set line height
+set guicursor+=a:blinkon0       " Disable all blinking cursor
 
 " Command line
-set showmode                    " Show the current mode we are in
+set noshowmode                  " Show the current mode we are in
 set showcmd                     " Show command in the last line of the screen
 set cmdheight=1                 " Set number of screen lines for command-line
 
@@ -109,14 +119,64 @@ set wildmode=longest,full,list  " Till longest, Next full, list all matches
 set wildchar=<Tab>              " Character to start wildcard expansion
 
 " GUI Font
-set guifont=InputMono:h11       " Set GUI font for my MacVim
+"set guifont=Inconsolata\ for\ Powerline:h12
+set guifont=agave:h14
+
+" }}}
+" {{{ statusline
+
+set laststatus=0                       " Set statusline: 0,1,2
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+" powerline symbols
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = ''
+
+let g:airline_exclude_preview = 0
+
+let g:airline_mode_map = {
+            \ '__' : '-',
+            \ 'n'  : 'N',
+            \ 'i'  : 'I',
+            \ 'r'  : 'R',
+            \ 'R'  : 'R',
+            \ 'c'  : 'C',
+            \ 'v'  : 'V',
+            \ 'V'  : 'V',
+            \ '' : 'V',
+            \ 's'  : 'S',
+            \ 'S'  : 'S',
+            \ '' : 'S',
+            \ }
+"let g:airline_section_x = ''
+"let g:airline_section_y = ''
+
+let g:airline#extensions#hunks#enabled = 0
 
 " }}}
 " {{{ colors
 
 syntax enable                          " Enable syntax highlighting
-set background=light
-colorscheme hemisu
+if !empty(glob("~/.custom.vim"))
+    source ~/.custom.vim
+endif
 
 " Additional cpp highlighting
 let g:cpp_class_scope_highlight=1
@@ -131,19 +191,6 @@ highlight GitGutterChangeDelete ctermfg=magenta guifg=#c07998
 
 " vim-gitgutter will use Sign Column to set its color, reload it.
 call gitgutter#highlight#define_highlights()
-
-" }}}
-" {{{ statusline
-
-set laststatus=0                       " Set statusline: 0,1,2
-
-" }}}
-" {{{ autocmd
-
-autocmd filetype html,xml set listchars-=tab:>.
-autocmd filetype haskell  set tabstop=2 softtabstop=2 shiftwidth=2
-autocmd filetype c,cpp,vim,xml,html,xhtml set foldmethod=syntax
-autocmd filetype vim,sh set foldmethod=marker
 
 " }}}
 " {{{ backup files
@@ -191,7 +238,8 @@ endif
 " }}}
 " {{{ keys
 
-let mapleader=","                      " Set the leader key
+" Set the leader key
+let mapleader=","
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -199,7 +247,8 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nmap <silent> ,/ :nohlsearch<CR>
 set pastetoggle=<leader>p
 
-if has("gui_running")                  " Remap Ctrl-Space to completion
+" Remap Ctrl-Space to completion
+if has("gui_running")
     " C-Space seems to work under gVim on both Linux and win32
     inoremap <C-Space> <C-n>
 else " no gui
@@ -225,6 +274,25 @@ nnoremap <Leader>hu     <Plug>GitGutterRevertHunk
 
 " Nerdtree
 map <C-b> :NERDTreeToggle<CR>
+
+" Toggle background color between light and dark
+map <Leader>bg :let &background=(&background == "dark"? "light" : "dark")<CR>
+
+" Toggle syntax highlighting with a key
+function! ToggleSyntax()
+    if exists("g:syntax_on")
+        syntax off
+    else
+        syntax enable
+    endif
+endfunction
+nmap <silent> <Leader>s :call ToggleSyntax()<CR>
+
+" Remap Esc
+inoremap jk <esc>
+
+" Cd to current file wd
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 " }}}
 " {{{ abbreviations

@@ -160,7 +160,7 @@ to the Emacs load path."
               custom-theme-directory "~/.emacs.d/themes"
               linum-format "%d  "
               transient-mark-mode 0
-              inhibit-startup-message t
+              inhibit-startup-message nil
               line-spacing 1)
 
 (setq default-font-list-index 7)
@@ -290,9 +290,6 @@ to the Emacs load path."
    "\\(def\\|do\\|{\\)" "\\(end\\|end\\|}\\)" "#"
    (lambda (arg) (ruby-end-of-block)) nil))
 
-(add-to-list 'hs-special-modes-alist
-             '(lisp-mode "{{{" "}}}" "" nil nil))
-
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (setq locale-coding-system   'utf-8)    ; pretty
@@ -358,6 +355,26 @@ to the Emacs load path."
 
 (eval-after-load "haskell-cabal"
   '(define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-compile))
+
+;; Python
+
+;; Erlang
+
+(setq load-path (cons  "/usr/local/Cellar/erlang/18.3/lib/erlang/lib/tools-2.8.3/emacs"
+                       load-path))
+(setq erlang-root-dir "/usr/local/Cellar/erlang/18.3/")
+(setq exec-path (cons "/usr/local/Cellar/erlang/18.3/bin" exec-path))
+(require 'erlang-start)
+
+(defun eshell-clear-buffer ()
+  "Clear terminal"
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)
+    (eshell-send-input)))
+(add-hook 'eshell-mode-hook
+      '(lambda()
+          (local-set-key (kbd "C-l") 'eshell-clear-buffer)))
 
 ;;;; }}}
 ;;;; Keys {{{
