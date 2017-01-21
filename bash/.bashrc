@@ -35,6 +35,18 @@ if ! shopt -oq posix; then
   if [ -d /home/matteo/usr/share/bash-completion/ ]; then
       . /home/matteo/usr/share/bash-completion/completions/bspc
   fi
+
+# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
+[ -e "$HOME/.ssh/config" ] && complete -o default -o nospace -W \
+    "$(grep "^Host" ~/.ssh/config | \
+    grep -v "[?*]" | \
+    cut -d " " -f2)" scp sftp ssh
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+    . $(brew --prefix)/etc/bash_completion.d/git-flow-completion.bash
+    . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+    . $(brew --prefix)/etc/bash_completion.d/npm
 fi
 
 # }}}
