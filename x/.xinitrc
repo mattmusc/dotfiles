@@ -8,31 +8,36 @@ cd $HOME
 
 exec >> ~/.xsession-errors 2>&1
 
-. ~/.environment
-
-xsetroot -cursor_name left_ptr
-
-xset +fp /usr/share/fonts/X11/100dpi/
-xset +fp /home/matteo/.fonts/
-xset +fp /home/matteo/.fonts/bitmap/envypn-font/
-xset +fp /home/matteo/.fonts/bitmap/haxor/
-xset +fp /home/matteo/.fonts/bitmap/phallus/
-xset +fp /home/matteo/.fonts/bitmap/proggy/
-xset +fp /home/matteo/.fonts/bitmap/progsole/
-xset +fp /home/matteo/.fonts/bitmap/siji/
-xset +fp /home/matteo/.fonts/bitmap/stlarch/
-xset fp rehash &
-
-xrdb -merge ~/.Xresources &
+. $HOME/.environment
 
 xrandr --output DVI-I-1 --primary \
        --output DP-1 --left-of DVI-I-1 --rotate right &
 
-wal -i /home/matteo/pic/11.jpg &
+xrdb -merge ~/.Xresources &
 
-urxvtd -q -f &
+xset +fp /home/musci/.fonts/
+xset +fp /home/musci/.fonts/bitmap/ctrld-font/
+xset +fp /home/musci/.fonts/bitmap/envypn-font/
+xset +fp /home/musci/.fonts/bitmap/haxor/
+xset +fp /home/musci/.fonts/bitmap/phallus/
+xset +fp /home/musci/.fonts/bitmap/proggy/
+xset +fp /home/musci/.fonts/bitmap/siji/
 
-sxhkd &
+xset fp rehash &
 
-exec bspwm -c ~/.config/bspwm/bspwmrc
+xsetroot -cursor_name left_ptr &
 
+wal -i "$(< "${HOME}/.cache/wal/wal")" &
+dropbox &
+urxvtd -q -o -f &
+
+#while true
+#do
+#    xsetroot -name " $( date +'%a, %d %b // %H:%M' )"
+#    sleep 1m # Update every minute
+#done &
+#
+#exec dwm >> ~/.dwm-errors 2>&1
+
+2bwm >> ~/.2bwm-errors 2>&1 &
+exec xwait

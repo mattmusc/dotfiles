@@ -1,0 +1,64 @@
+#!/bin/bash
+
+. $HOME/.cache/wal/colors.sh
+
+geometry="250x27+2670+1026"
+
+#mainfont="-windows-proggycleansz-medium-r-normal--13-80-96-96-c-70-iso8859-1"
+mainfont="-benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1"
+iconfont="-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
+fonts="-f ${mainfont} -f ${iconfont}"
+
+bgcolor="$color5"
+fgcolor="$color0"
+colors="-B ${bgcolor} -F ${fgcolor}"
+
+options="-g ${geometry} ${fonts} ${colors} -u 3"
+echo $options
+
+
+function _invert_colors(){
+    echo -n "%{F${bgcolor} B${fgcolor}}"
+}
+
+function _reset_colors(){
+    echo -n "%{F${fgcolor} B${bgcolor}}"
+}
+
+function _date(){
+    echo -n "$(date +'%A, %d %B')"
+}
+
+function _clock(){
+    echo -n "$(date +'%H:%M')"
+}
+
+function _clock_icon(){
+    echo -n "\ue015"
+}
+
+function _date_icon(){
+    echo -n "\ue225" # 1d0, 1cd
+}
+
+declare -a wksIcon
+wksIcon=( "69" "6a" "6b" "6c" "6d" "6e" "6f" "70" "71" "72" )
+function workspace() {
+    cur=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')
+    tot=$(xprop -root _NET_NUMBER_OF_DESKTOPS | awk '{print $3}') 
+    echo -n "\ue1d7 $((cur + 1)/$tot" # echo -n "\ue1${wksIcon[cur]}"
+}
+
+
+while true
+do
+    buf="%{c}$(workspace)"
+
+    buf+="  $(_date_icon)"
+    buf+="  $(_date)  $(_clock_icon)  $(_clock)"
+
+    echo -e $buf
+    sleep 0.3
+
+done | lemonbar $options
+

@@ -11,7 +11,7 @@ URxvt.imLocale:            en_US.UTF-8
 URxvt.scrollBar:           false
 URxvt.internalBorder:      10
 URxvt.visualBell:          false
-URxvt.lineSpace:           1
+URxvt.lineSpace:           1.3
 URxvt.letterSpace:         0
 URxvt.url-launcher:        /usr/local/bin/firefox
 
@@ -22,8 +22,12 @@ URxvt.rgba:                rgb
 URxvt.autohint:            true
 URxvt.hintstyle:           hintslight
 URxvt.lcdfilter:           lcddefault
+URxvt.depth:               24
 
 Xcursor.size:              12
+
+xterm*cursorUnderline:     true
+xterm*scaleHeight:         1.04
 
 ! }}}
 ! {{{ Fonts
@@ -61,6 +65,16 @@ URxvt*bolditalicFont:       -windows-proggycleansz-medium-r-normal--13-80-96-96-
 !URxvt*boldFont:            -ucw.cz-haxor-medium-r-normal--12-120-72-72-c-72-iso8859-2
 !URxvt*italicFont:          -ucw.cz-haxor-medium-r-normal--12-120-72-72-c-72-iso8859-2
 !URxvt*bolditalicFont:      -ucw.cz-haxor-medium-r-normal--12-120-72-72-c-72-iso8859-2
+
+!URxvt*font:                -ctrld-fixed-medium-r-normal--13-80-96-96-c-80-iso10646-1
+!URxvt*boldFont:            -ctrld-fixed-bold-r-normal--13-80-96-96-c-70-iso10646-1
+!URxvt*italicFont:          -ctrld-fixed-medium-i-normal--13-80-96-96-c-70-iso10646-1
+!URxvt*bolditalicFont:      -ctrld-fixed-bold-r-normal--13-80-96-96-c-70-iso10646-1
+
+!URxvt*font:                -benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1
+!URxvt*boldFont:            -benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1
+!URxvt*italicFont:          -benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1
+!URxvt*bolditalicFont:      -benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1
 
 ! }}}
 ! {{{ Key bindings

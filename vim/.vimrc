@@ -4,7 +4,7 @@
 " {{{ init
 
 " reload .vimrc file every time gets saved
-autocmd! bufwritepost .vimrc source % | AirlineRefresh | AirlineRefresh
+autocmd! bufwritepost .vimrc source %
 
 set nocompatible
 
@@ -23,13 +23,13 @@ Plug 'chriskempson/base16-vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'noahfrederick/vim-hemisu'
 Plug 'morhetz/gruvbox'
+Plug 'dylanaraps/wal'
 
 " Editor features
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/vim-clang-format'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
 
 " Syntax
@@ -293,6 +293,9 @@ inoremap jk <esc>
 
 " Cd to current file wd
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+
+" Toogle highlighting of the current line
+nnoremap H :set cursorline! cursorcolumn!<CR>
 
 " }}}
 " {{{ abbreviations

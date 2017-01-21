@@ -74,8 +74,6 @@ bakcyn='\[\e[46m\]'   # Cyan
 bakwht='\[\e[47m\]'   # White
 txtrst='\[\e[0m\]'    # Text Reset
 
-wal -r
-
 # }}}
 # {{{ Color for man pages
 
@@ -90,7 +88,7 @@ export LESS_TERMCAP_us=$'\E[01;33m'       # begin underline
 #}}}
 # {{{ Prompt
 
-
+export PS1="\w ${txtblu}-${txtrst} "
 
 # }}}
 
