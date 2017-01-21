@@ -31,13 +31,9 @@ wal -i "$(< "${HOME}/.cache/wal/wal")" &
 dropbox &
 urxvtd -q -o -f &
 
-#while true
-#do
-#    xsetroot -name " $( date +'%a, %d %b // %H:%M' )"
-#    sleep 1m # Update every minute
-#done &
-#
-#exec dwm >> ~/.dwm-errors 2>&1
+xautolock -time 5 -locker lock &
 
-2bwm >> ~/.2bwm-errors 2>&1 &
+test -e "$HOME/usr/bin/panel" && panel >> $HOME/.panel-errors 2>&1 &
+
+2bwm >> $HOME/.2bwm-errors 2>&1 &
 exec xwait

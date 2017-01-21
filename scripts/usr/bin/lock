@@ -1,0 +1,9 @@
+#!/bin/bash
+
+scrot /tmp/shot.png
+
+convert /tmp/shot.png -blur 0x7 /tmp/lock.png
+rm -f /tmp/shot.png
+composite -geometry +1760+290 $HOME/pic/tina.png /tmp/lock.png /tmp/lock.png
+
+i3lock -i /tmp/lock.png

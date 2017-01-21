@@ -46,7 +46,7 @@ wksIcon=( "69" "6a" "6b" "6c" "6d" "6e" "6f" "70" "71" "72" )
 function workspace() {
     cur=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')
     tot=$(xprop -root _NET_NUMBER_OF_DESKTOPS | awk '{print $3}') 
-    echo -n "\ue1d7 $((cur + 1)/$tot" # echo -n "\ue1${wksIcon[cur]}"
+    echo -n "\ue1d7 $((cur + 1))/$tot" # echo -n "\ue1${wksIcon[cur]}"
 }
 
 
