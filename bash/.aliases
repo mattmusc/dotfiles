@@ -178,11 +178,15 @@ alias noc='git rev-list --branches --all | wc -l'
 #
 # Resize an image with the help of Imagemagick
 function resize {
-    size=${2-125}
+if [ -z "$2" ]; then
+    echo "Usage: resize <path/file_name> <desired_geometry>"
+    echo ""
+    return 1
+else
     root="${1%.*}"
     ext="${1#"$root"}"
-    #echo "$root-$size$ext"
-    convert -density 400 "$1" -resize ${size} "$root-$size$ext"
+    echo "convert -density 400 "$1" -resize $2 "$root-$size$ext""
+fi
 }
 
 # credits to:
