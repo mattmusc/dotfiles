@@ -2,6 +2,7 @@
 # BashRC
 # @author matteo.muscella@usi.ch
 # ---------------------------------------------------------------------------
+#set -x
 
 # {{{ Init
 
@@ -22,6 +23,9 @@ shopt -s cdspell extglob
 export HISTSIZE=100
 HISTCONTROL=ignorespace:ignoredups
 export HISTIGNORE="ls:passwd: "
+
+# }}}
+# {{{ Completion
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -97,7 +101,11 @@ export LESS_TERMCAP_us=$'\E[01;33m'       # begin underline
 #}}}
 # {{{ Prompt
 
-export PS1="\w ${txtblu}-${txtrst} "
+# » Թ ─ ╼ ⶈ
+prompt='»'
+
+#export PS1=" \W ─ "
+export PS1=" ${txtpur}\W ${txtblu}${prompt}${txtrst} "
 
 # }}}
 

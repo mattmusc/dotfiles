@@ -94,7 +94,7 @@ alias cmcompile='mkdir -p bin && cd bin && cmake .. \
     -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt5/5.5.1_2/'
 
 alias tm='tmux'
-alias ta='tmux attach'
+alias ta='tmux attach || tmux'
 
 alias vu='vagrant up'
 alias vh='vagrant halt'
@@ -174,6 +174,16 @@ alias noc='git rev-list --branches --all | wc -l'
 
 # }}}
 # {{{ useful functions
+
+#
+# Resize an image with the help of Imagemagick
+function resize {
+    size=${2-125}
+    root="${1%.*}"
+    ext="${1#"$root"}"
+    #echo "$root-$size$ext"
+    convert -density 400 "$1" -resize ${size} "$root-$size$ext"
+}
 
 # credits to:
 # https://github.com/xvoland/Extract/blob/master/extract.sh

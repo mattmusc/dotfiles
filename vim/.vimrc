@@ -31,6 +31,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/vim-clang-format'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
+Plug 'lervag/vimtex'
 
 " Syntax
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -120,7 +121,7 @@ set wildchar=<Tab>              " Character to start wildcard expansion
 
 " GUI Font
 "set guifont=Inconsolata\ for\ Powerline:h12
-set guifont=agave:h14
+"set guifont=agave:h14
 
 " }}}
 " {{{ statusline
