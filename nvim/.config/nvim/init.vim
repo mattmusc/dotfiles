@@ -1,7 +1,5 @@
 " ViM Config
 " @author matteo.muscella@usi.ch
-" Credits: ego
-"
 "
 " {{{ init
 
@@ -26,9 +24,9 @@ Plug 'chriskempson/base16-vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'noahfrederick/vim-hemisu'
 Plug 'morhetz/gruvbox'
-Plug 'dylanaraps/wal'
 
 " Editor features
+Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/vim-clang-format'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
@@ -205,7 +203,7 @@ let g:airline#extensions#hunks#enabled = 0
 " }}}
 " {{{ colors
 
-syntax enable                          " Enable syntax highlighting
+syntax enable                                                       " Enable syntax highlighting
 if !empty(glob("~/.custom.vim"))
     source ~/.custom.vim
 endif
@@ -213,6 +211,8 @@ endif
 " Additional cpp highlighting
 let g:cpp_class_scope_highlight=1
 let g:cpp_experimental_template_highlight=1
+
+set background=dark                                                 " We're using a dark bg
 
 " }}}
 " {{{ backup files
@@ -290,6 +290,10 @@ nnoremap <Leader>rtw    :%s/\s\+$//e<CR>
 " Substitute all occurrences of the word under the cursor
 nnoremap <Leader>s      :%s/\<<C-r><C-w>\>//g<Left><Left>
 
+" Git gutter
+nnoremap <Leader>ha     <Plug>GitGutterStageHunk
+nnoremap <Leader>hu     <Plug>GitGutterRevertHunk
+
 " Nerdtree
 map <C-b> :NERDTreeToggle<CR>
 
@@ -333,7 +337,7 @@ map <C-l> <C-W>l
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
+map <leader>tw :tabclose<cr>
 map <leader>tm :tabmove 
 map <leader>t<leader> :tabnext 
 

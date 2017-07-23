@@ -4,4 +4,4 @@ source! /home/archie/.vimperatorrc.local
 
 " vim: set ft=vimperator:
 
-set gui=none
+set gui=tabs

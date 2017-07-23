@@ -88,7 +88,8 @@ export LESS_TERMCAP_us=$'\E[01;33m'       # begin underline
 #}}}
 # {{{ Prompt
 
-export PS1="\w ${txtblu}-${txtrst} "
+# » Թ ─ ╼ ⶈ ▬ — ▬ ─╼
+export PS1=" ${txtblu}▬${txtrst} "
 
 # }}}
 

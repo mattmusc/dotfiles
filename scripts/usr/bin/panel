@@ -13,17 +13,11 @@ bgcolor="$color5"
 fgcolor="$color0"
 colors="-B ${bgcolor} -F ${fgcolor}"
 
-options="-g ${geometry} ${fonts} ${colors} -u 3"
+underline=3
+
+options="-g ${geometry} ${fonts} ${colors} -u ${underline}"
 echo $options
 
-
-function _invert_colors(){
-    echo -n "%{F${bgcolor} B${fgcolor}}"
-}
-
-function _reset_colors(){
-    echo -n "%{F${fgcolor} B${bgcolor}}"
-}
 
 function _date(){
     echo -n "$(date +'%A, %d %B')"
@@ -58,7 +52,7 @@ do
     buf+="  $(_date)  $(_clock_icon)  $(_clock)"
 
     echo -e $buf
-    sleep 0.3
+    sleep 0.2
 
 done | lemonbar $options
 

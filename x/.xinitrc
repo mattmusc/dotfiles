@@ -6,34 +6,36 @@
 
 cd $HOME
 
+[[ -f ~/.environment ]] && source  $HOME/.environment
+
+# Load a resource file, and merge with the current settings.
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+
 exec >> ~/.xsession-errors 2>&1
 
-. $HOME/.environment
+# Ensure that the scripts in /etc/X11/xinit/xinitrc.d are sourced
+if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+ for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+  [ -x "$f" ] && . "$f"
+ done
+ unset f
+fi
 
-xrandr --output DVI-I-1 --primary \
-       --output DP-1 --left-of DVI-I-1 --rotate right &
+# Set my displays
+xrandr --output DP-1 --rotate right --left-of DVI-I-1
 
-xrdb -merge ~/.Xresources &
-
-xset +fp /home/musci/.fonts/
-xset +fp /home/musci/.fonts/bitmap/ctrld-font/
-xset +fp /home/musci/.fonts/bitmap/envypn-font/
-xset +fp /home/musci/.fonts/bitmap/haxor/
-xset +fp /home/musci/.fonts/bitmap/phallus/
-xset +fp /home/musci/.fonts/bitmap/proggy/
-xset +fp /home/musci/.fonts/bitmap/siji/
+# Update fonts
+xset fp+ /home/matt/.fonts/bitmap/ctrld-font/
+xset fp+ /home/matt/.fonts/bitmap/haxor/
+xset fp+ /home/matt/.fonts/bitmap/tamzen-font/
+xset fp+ /home/matt/.fonts/bitmap/gohufont/
+xset fp+ /home/matt/.fonts/bitmap/siji/
 
 xset fp rehash &
+fc-cache -f &
 
-xsetroot -cursor_name left_ptr &
+#dropbox &
+#xautolock -time 5 -locker lock &
 
-wal -i "$(< "${HOME}/.cache/wal/wal")" &
-dropbox &
-urxvtd -q -o -f &
+exec awesome
 
-xautolock -time 5 -locker lock &
-
-test -e "$HOME/usr/bin/panel" && panel >> $HOME/.panel-errors 2>&1 &
-
-2bwm >> $HOME/.2bwm-errors 2>&1 &
-exec xwait

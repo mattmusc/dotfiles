@@ -11,6 +11,8 @@ alias :w='exit'
 alias :x='exit'
 alias :r="source $HOME/.$(ps -p $$ | grep -ioe '\(bash\|zsh\)')rc"
 
+alias vim='nvim'
+
 alias rot13="tr a-zA-Z n-za-mN-ZA-M"
 
 # mac only: using homebrew gtime
@@ -104,6 +106,8 @@ alias vp='vagrant provision'
 alias findf="find . -type f -iname \"*$**\""
 
 alias svim="sudo vim"
+
+alias killx="kill -9 $(pgrep -i xorg)"
 
 # }}}
 # {{{ working directories
