@@ -1,6 +1,6 @@
 [user]
 	name = Matteo Muscella
-	email = matteo.muscella@usi.ch
+	email = matteo.muscella@mail.com
 [alias]
 	last = log -1 HEAD  # see last commit
 	unstage = reset HEAD --  # unstage all changed filed
@@ -12,7 +12,7 @@
 [color]
 	ui = auto
 [core]
-	excludesfile = /Users/mm/.gitignore_global
+	excludesfile = /home/matt/.gitignore_global
 	autocrlf = input
 [push]
 	default = simple
