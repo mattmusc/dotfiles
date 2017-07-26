@@ -114,7 +114,7 @@ alias killx="kill -9 $(pgrep -i xorg)"
 
 alias sem="cd ~/SpringSemester2015"
 alias P="cd ~/Dropbox/Programming"
-alias dots="cd ~/.dotfiles"
+alias dots="cd ~/.dots"
 alias configs="cd $XDG_CONFIG_HOME"
 
 # }}}
@@ -192,7 +192,7 @@ function extract {
     do
       if [ -f "$n" ] ; then
           case "${n%,}" in
-            *.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar) 
+            *.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
                          tar xvf "$n"       ;;
             *.lzma)      unlzma ./"$n"      ;;
             *.bz2)       bunzip2 ./"$n"     ;;
