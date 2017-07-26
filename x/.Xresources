@@ -97,6 +97,6 @@ URxvt*bolditalicFont:      -ctrld-fixed-bold-r-normal--13-80-96-96-c-70-iso10646
 !URxvt*colorBD:             #dc322f
 !URxvt*colorUL:             #87afd7
 
-#include </home/matt/.colors/base16-grayscale-dark>
+#include </home/matt/.colors/gruvbox-dark>
 
 ! }}}

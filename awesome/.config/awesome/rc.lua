@@ -59,8 +59,8 @@ run_once({ "urxvtd" })
 
 -- {{{ Variable definitions
 local chosen_theme = "mattmusc"
-local modkey       = "Mod1"
-local altkey       = "Mod4"
+local modkey       = "Mod4"
+local altkey       = "Mod1"
 local terminal     = "urxvtc" or "urxvt" or "xterm"
 local editor       = os.getenv("EDITOR") or "vi"
 local gui_editor   = "gvim"

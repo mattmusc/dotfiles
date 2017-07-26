@@ -1,7 +1,7 @@
 #!/bin/bash
 # -------------------------------------------------
 # file:     ~/.xinitrc
-# author:   Matteo Muscella 
+# author:   Matteo Muscella
 # -------------------------------------------------
 
 cd $HOME
@@ -33,6 +33,12 @@ xset fp+ /home/matt/.fonts/bitmap/siji/
 
 xset fp rehash &
 fc-cache -f &
+
+# Restore the Nitrogen set wallpapers
+#nitrogen --restore
+
+# Add this to your .xinitrc or whatever file starts programs on startup.
+wal -i "$(< "${HOME}/.cache/wal/wal")"
 
 #dropbox &
 #xautolock -time 5 -locker lock &

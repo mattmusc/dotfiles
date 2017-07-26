@@ -1,6 +1,8 @@
 *.pyc
 *.DS_Store
 *-cache
+awesome/.config/awesome/lain/
+colors/.colors/base16-xresources/
 fonts/.fonts/bitmap/
 history*
 viminfo
@@ -14,4 +16,3 @@ vim/.vim/autoload
 vim/.vim/plugged
 *~
 ls-R
-awesome/.config/awesome/lain/

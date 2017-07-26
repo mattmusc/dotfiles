@@ -24,9 +24,11 @@ Plug 'chriskempson/base16-vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'noahfrederick/vim-hemisu'
 Plug 'morhetz/gruvbox'
+Plug 'dylanaraps/wal.vim'
 
 " Editor features
-Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'rhysd/vim-clang-format'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
@@ -113,7 +115,8 @@ set encoding=utf8                         " Set character encoding
 set autoread                              " Read again a file if changed outside of Vim
 
 " Show line numbers and length
-set relativenumber                        " Show line numbers
+set relativenumber                        " Show line numbers in relative
+set number                                " But for current line
 set ruler                                 " Show line,column number
 set textwidth=119                         " Set max width of text
 set nowrap                                " No wrapping of text
@@ -122,6 +125,7 @@ set cursorline                            " Highlight current line
 set fillchars+=stl:\ ,stlnc:\             " Characters to fill the statuslines
 set linespace=1                           " Set line height
 set guicursor+=a:blinkon0                 " Disable all blinking cursor
+set list                                  " Displaying listchars
 
 " Command line
 set noshowmode                            " Show the current mode we are in
@@ -155,7 +159,7 @@ set confirm                                                         " Confirm ch
 " }}}
 " {{{ statusline
 
-set laststatus=0                          " Set statusline: 0,1,2
+set laststatus=2                          " Set statusline: 0,1,2
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -166,9 +170,11 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.whitespace = 'Ξ'
 
 " powerline symbols
 "let g:airline_left_sep = ''
@@ -338,8 +344,8 @@ map <C-l> <C-W>l
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tw :tabclose<cr>
-map <leader>tm :tabmove 
-map <leader>t<leader> :tabnext 
+map <leader>tm :tabmove
+map <leader>t<leader> :tabnext
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
@@ -428,7 +434,7 @@ ab ata   @author matteo.muscella@usi.ch
 ab pcode <pre><code class="php"><CR><TAB><CR></pre></code>
 
 " }}}
-" Plugin configs {{{
+" {{{ plugin configs
 
 " NerdTree {
 let g:NERDTreeWinPos = "right"
