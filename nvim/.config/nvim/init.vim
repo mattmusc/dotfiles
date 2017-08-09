@@ -120,7 +120,7 @@ set ruler                                 " Show line,column number
 set textwidth=119                         " Set max width of text
 set nowrap                                " No wrapping of text
 set colorcolumn=120                       " Highlight entire column
-set cursorline                            " Highlight current line
+set nocursorline                          " Highlight current line
 set fillchars+=stl:\ ,stlnc:\             " Characters to fill the statuslines
 set linespace=1                           " Set line height
 set guicursor+=a:blinkon0                 " Disable all blinking cursor

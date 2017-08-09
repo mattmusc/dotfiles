@@ -5,39 +5,43 @@
 
 --]]
 
-local gears = require("gears")
-local lain  = require("lain")
-local awful = require("awful")
-local wibox = require("wibox")
-local os    = { getenv = os.getenv }
+local awful   = require("awful")
+local gears   = require("gears")
+local lain    = require("lain")
+local naughty = require("naughty")
+local os      = { getenv = os.getenv }
+local wibox   = require("wibox")
+local xres    = require("beautiful.xresources")
+
 
 local theme                                     = {}
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/mattmusc"
 theme.wallpaper                                 = theme.dir .. "/wall.jpg"
 theme.font                                      = "Misc Tamsyn 10.5"
-theme.fg_normal                                 = "#DDDDFF"
-theme.fg_focus                                  = "#DDDCFF"
-theme.fg_urgent                                 = "#DDDDFF"
-theme.bg_normal                                 = "#1A1A1A"
-theme.bg_focus                                  = "#313131"
-theme.bg_urgent                                 = "#1A1A1A"
-theme.border_width                              = 1
-theme.border_normal                             = "#3F3F3F"
-theme.border_focus                              = "#7F7F7F"
-theme.border_marked                             = "#3F3F3F"
-theme.taglist_fg_focus                          = "#A3A3A3"
-theme.taglist_bg_focus                          = "#1A1A1A"
+theme.fg_normal                                 = tostring(xres.get_current_theme().foreground)
+theme.fg_focus                                  = tostring(xres.get_current_theme().color3)
+theme.fg_urgent                                 = tostring(xres.get_current_theme().color3)
+theme.bg_normal                                 = tostring(xres.get_current_theme().background)
+theme.bg_focus                                  = tostring(xres.get_current_theme().color6)
+theme.bg_urgent                                 = tostring(xres.get_current_theme().background)
+theme.border_normal                             = tostring(xres.get_current_theme().color0)
+theme.border_focus                              = tostring(xres.get_current_theme().color8)
+theme.border_marked                             = tostring(xres.get_current_theme().color12)
+theme.taglist_fg_focus                          = tostring(xres.get_current_theme().color3)
+theme.taglist_bg_focus                          = tostring(xres.get_current_theme().background)
 theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
 theme.taglist_squares_unsel                     = theme.dir .. "/icons/square_unsel.png"
-theme.tasklist_fg_focus                         = "#A3A3A3"
-theme.tasklist_bg_focus                         = "#1A1A1A"
+theme.tasklist_fg_focus                         = tostring(xres.get_current_theme().color3)
+theme.tasklist_bg_focus                         = tostring(xres.get_current_theme().background)
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
+theme.border_width                              = 2
 theme.menu_height                               = 16
 theme.menu_width                                = 140
 theme.useless_gap                               = 15
+theme.border_width                              = 1
 theme.layout_txt_tile                           = "[t]"
 theme.layout_txt_tileleft                       = "[l]"
 theme.layout_txt_tilebottom                     = "[b]"

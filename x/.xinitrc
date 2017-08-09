@@ -35,7 +35,7 @@ xset fp rehash &
 fc-cache -f &
 
 # Restore the Nitrogen set wallpapers
-#nitrogen --restore
+nitrogen --restore
 
 # Add this to your .xinitrc or whatever file starts programs on startup.
 wal -i "$(< "${HOME}/.cache/wal/wal")"
