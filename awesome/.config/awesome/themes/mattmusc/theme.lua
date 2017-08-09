@@ -13,7 +13,7 @@ local os    = { getenv = os.getenv }
 
 local theme                                     = {}
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
-theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/ergo"
+theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/mattmusc"
 theme.wallpaper                                 = theme.dir .. "/wall.jpg"
 theme.font                                      = "Misc Tamsyn 10.5"
 theme.fg_normal                                 = "#DDDDFF"
@@ -37,7 +37,7 @@ theme.tasklist_disable_icon                     = true
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
 theme.menu_height                               = 16
 theme.menu_width                                = 140
-theme.useless_gap                               = 8
+theme.useless_gap                               = 15
 theme.layout_txt_tile                           = "[t]"
 theme.layout_txt_tileleft                       = "[l]"
 theme.layout_txt_tilebottom                     = "[b]"
@@ -205,10 +205,10 @@ function theme.at_screen_connect(s)
     s.quake = lain.util.quake({ app = awful.util.terminal })
 
     -- If wallpaper is a function, call it with the screen
-    if type(wallpaper) == "function" then
-        theme.wallpaper = theme.wallpaper(s)
-    end
-    gears.wallpaper.maximized(theme.wallpaper, s, true)
+    --if type(wallpaper) == "function" then
+    --    theme.wallpaper = theme.wallpaper(s)
+    --end
+    --gears.wallpaper.maximized(theme.wallpaper, s, true)
 
     -- Tags
     awful.tag(awful.util.tagnames, s, awful.layout.layouts)

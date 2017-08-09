@@ -54,7 +54,6 @@ Plug 'mhinz/vim-startify'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'bling/vim-bufferline'
-Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
 Plug 'jiangmiao/auto-pairs'
@@ -281,7 +280,7 @@ if has("gui_running")
     inoremap <C-Space> <C-n>
 else " no gui
     if has("unix")
-        inoremap <Nul> <C-n>
+        inoremap <C-Space> <C-n>
     else
         " I have no idea of the name of Ctrl-Space elsewhere
     endif
@@ -471,12 +470,6 @@ set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 nmap <leader>sl :SessionList<cr>
 nmap <leader>ss :SessionSave<cr>
 nmap <leader>sc :SessionClose<cr>
-" }
-
-" SuperTab {
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabLongestEnhanced = 1
-let g:SuperTabLongestHighlight = 1
 " }
 
 " TagBar {
