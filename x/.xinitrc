@@ -8,10 +8,11 @@ cd $HOME
 
 [[ -f ~/.environment ]] && source  $HOME/.environment
 
+# Execute following commands and output std output and std error to file
+exec >> ~/.xsession-errors 2>&1
+
 # Load a resource file, and merge with the current settings.
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
-
-exec >> ~/.xsession-errors 2>&1
 
 # Ensure that the scripts in /etc/X11/xinit/xinitrc.d are sourced
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
@@ -24,23 +25,21 @@ fi
 # Set my displays
 xrandr --output DP-1 --rotate right --left-of DVI-I-1
 
-# Update fonts
+# Add fonts paths
 xset fp+ /home/matt/.fonts/bitmap/ctrld-font/
 xset fp+ /home/matt/.fonts/bitmap/haxor/
 xset fp+ /home/matt/.fonts/bitmap/tamzen-font/
 xset fp+ /home/matt/.fonts/bitmap/gohufont/
 xset fp+ /home/matt/.fonts/bitmap/siji/
 
+# Update fonts
 xset fp rehash &
 fc-cache -f &
 
-# Restore the Nitrogen set wallpapers
-nitrogen --restore
-
-# Add this to your .xinitrc or whatever file starts programs on startup.
+# Use wal to set my wallpaper and color scheme
 wal -i "$(< "${HOME}/.cache/wal/wal")"
 
-#dropbox &
+dropbox &
 #xautolock -time 5 -locker lock &
 
 exec awesome

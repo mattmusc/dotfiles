@@ -1,9 +1,11 @@
 --[[
 
-     Ergo Awesome WM theme 1.0
-     github.com/papungag
+     Mattmusc Awesome WM theme 1.0
+     github.com/mattmusc
 
 --]]
+
+--{{{ Required libraries
 
 local awful   = require("awful")
 local gears   = require("gears")
@@ -13,15 +15,19 @@ local os      = { getenv = os.getenv }
 local wibox   = require("wibox")
 local xres    = require("beautiful.xresources")
 
+--}}}
+
+-- {{{ Theme definition
 
 local theme                                     = {}
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/mattmusc"
+-- wallpaper is set via pywal by Dylan Araps
 theme.wallpaper                                 = theme.dir .. "/wall.jpg"
 theme.font                                      = "Misc Tamsyn 10.5"
 theme.fg_normal                                 = tostring(xres.get_current_theme().foreground)
 theme.fg_focus                                  = tostring(xres.get_current_theme().color3)
-theme.fg_urgent                                 = tostring(xres.get_current_theme().color3)
+theme.fg_urgent                                 = tostring(xres.get_current_theme().color1)
 theme.bg_normal                                 = tostring(xres.get_current_theme().background)
 theme.bg_focus                                  = tostring(xres.get_current_theme().color6)
 theme.bg_urgent                                 = tostring(xres.get_current_theme().background)
@@ -30,14 +36,13 @@ theme.border_focus                              = tostring(xres.get_current_them
 theme.border_marked                             = tostring(xres.get_current_theme().color12)
 theme.taglist_fg_focus                          = tostring(xres.get_current_theme().color3)
 theme.taglist_bg_focus                          = tostring(xres.get_current_theme().background)
-theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
-theme.taglist_squares_unsel                     = theme.dir .. "/icons/square_unsel.png"
 theme.tasklist_fg_focus                         = tostring(xres.get_current_theme().color3)
 theme.tasklist_bg_focus                         = tostring(xres.get_current_theme().background)
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
+theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
+theme.taglist_squares_unsel                     = theme.dir .. "/icons/square_unsel.png"
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
-theme.border_width                              = 2
 theme.menu_height                               = 16
 theme.menu_width                                = 140
 theme.useless_gap                               = 15
@@ -64,9 +69,15 @@ theme.layout_txt_centerwork                     = "[centerwork]"
 theme.layout_txt_termfair                       = "[termfair]"
 theme.layout_txt_centerfair                     = "[centerfair]"
 
+-- }}}
+
+--{{{ Widget definition
+
 local markup = lain.util.markup
 local white  = theme.fg_normal
 local gray   = theme.taglist_fg_focus
+local red    = "#EA6F81"
+local brown  = "#333333"
 
 -- Textclock
 local mytextclock = wibox.widget.textclock(" %H:%M ")
@@ -128,7 +139,7 @@ theme.mpd = lain.widgets.mpd({
             title  = ""
         end
 
-        widget:set_markup(markup.font(theme.font, markup("#EA6F81", artist) .. markup(white, title)))
+        widget:set_markup(markup.font(theme.font, markup(red, artist) .. markup(white, title)))
     end
 })
 
@@ -193,10 +204,15 @@ theme.weather = lain.widgets.weather({
     notification_preset = { font = theme.font, fg = white }
 })
 
+--}}}
+
+--{{{ Assemble bar
+
 -- Separators
 local spr       = wibox.widget.textbox(' ')
 local small_spr = wibox.widget.textbox(markup.font("Tamsyn 4", " "))
-local bar_spr   = wibox.widget.textbox(markup.font("Tamsyn 3", " ") .. markup.fontfg(theme.font, "#333333", "|") .. markup.font("Tamsyn 5", " "))
+local bar_spr   = wibox.widget.textbox(markup.font("Tamsyn 3", " ")
+    .. markup.fontfg(theme.font, brown, "|") .. markup.font("Tamsyn 5", " "))
 
 local function update_txt_layoutbox(s)
     -- Writes a string representation of the current layout in a textbox widget
@@ -207,12 +223,6 @@ end
 function theme.at_screen_connect(s)
     -- Quake application
     s.quake = lain.util.quake({ app = awful.util.terminal })
-
-    -- If wallpaper is a function, call it with the screen
-    --if type(wallpaper) == "function" then
-    --    theme.wallpaper = theme.wallpaper(s)
-    --end
-    --gears.wallpaper.maximized(theme.wallpaper, s, true)
 
     -- Tags
     awful.tag(awful.util.tagnames, s, awful.layout.layouts)
@@ -237,7 +247,8 @@ function theme.at_screen_connect(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 18, bg = theme.bg_normal, fg = theme.fg_normal })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 18,
+                              bg = theme.bg_normal, fg = theme.fg_normal })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -274,3 +285,5 @@ function theme.at_screen_connect(s)
 end
 
 return theme
+
+--}}}

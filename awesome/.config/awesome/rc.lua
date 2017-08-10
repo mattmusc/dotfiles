@@ -179,9 +179,8 @@ awful.util.mymainmenu = awful.menu({
 -- }}}
 
 -- {{{ Screen
--- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-screen.connect_signal("property::geometry", function(s)
-    -- Wallpaper
+-- Set wallpaper function
+function set_wallpaper()
     if beautiful.wallpaper then
         local wallpaper = beautiful.wallpaper
         -- If wallpaper is a function, call it with the screen
@@ -190,6 +189,12 @@ screen.connect_signal("property::geometry", function(s)
         end
         gears.wallpaper.maximized(wallpaper, s, true)
     end
+end
+
+-- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
+screen.connect_signal("property::geometry", function(s)
+    -- Wallpaper
+    --set_wallpaper()
 end)
 -- Create a wibox for each screen and add it
 awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)

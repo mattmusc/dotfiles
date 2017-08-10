@@ -11,6 +11,8 @@ alias :w='exit'
 alias :x='exit'
 alias :r="source $HOME/.$(ps -p $$ | grep -ioe '\(bash\|zsh\)')rc"
 
+alias poweroff='sudo poweroff'
+
 alias vim='nvim'
 
 alias rot13="tr a-zA-Z n-za-mN-ZA-M"
@@ -104,8 +106,6 @@ alias vs='vagrant ssh'
 alias vp='vagrant provision'
 
 alias findf="find . -type f -iname \"*$**\""
-
-alias svim="sudo vim"
 
 alias killx="kill -9 $(pgrep -i xorg)"
 
