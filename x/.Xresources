@@ -25,6 +25,12 @@ URxvt.hintstyle:           hintslight
 URxvt.lcdfilter:           lcddefault
 URxvt.depth:               24
 
+! Source: https://wilmer.gaa.st/blog/archives/36-rxvt-unicode-and-ISO-14755-mode.html
+URxvt.iso14755:            false
+URxvt.iso14755_52:         false
+
+URxvt.perl-ext-common:     font-size
+
 Xcursor.size:              12
 
 xterm*cursorUnderline:     true
@@ -67,29 +73,32 @@ xterm*scaleHeight:         1.04
 !URxvt*italicFont:          -ucw.cz-haxor-medium-r-normal--12-120-72-72-c-72-iso8859-2
 !URxvt*bolditalicFont:      -ucw.cz-haxor-medium-r-normal--12-120-72-72-c-72-iso8859-2
 
-URxvt*font:                -ctrld-fixed-medium-r-normal--13-80-96-96-c-80-iso10646-1
-URxvt*boldFont:            -ctrld-fixed-bold-r-normal--13-80-96-96-c-70-iso10646-1
-URxvt*italicFont:          -ctrld-fixed-medium-i-normal--13-80-96-96-c-70-iso10646-1
-URxvt*bolditalicFont:      -ctrld-fixed-bold-r-normal--13-80-96-96-c-70-iso10646-1
+!URxvt*font:                -ctrld-fixed-medium-r-normal--13-80-96-96-c-80-iso10646-1
+!URxvt*boldFont:            -ctrld-fixed-bold-r-normal--13-80-96-96-c-70-iso10646-1
+!URxvt*italicFont:          -ctrld-fixed-medium-i-normal--13-80-96-96-c-70-iso10646-1
+!URxvt*bolditalicFont:      -ctrld-fixed-bold-r-normal--13-80-96-96-c-70-iso10646-1
 
 !URxvt*font:                -benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1
 !URxvt*boldFont:            -benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1
 !URxvt*italicFont:          -benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1
 !URxvt*bolditalicFont:      -benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1
 
-!URxvt*font:                 -misc-tamzenforpowerline-medium-r-normal--15-*-*-*-*-*-*-*
-!URxvt*boldFont:             -misc-tamzenforpowerline-bold-r-normal--15-*-*-*-*-*-*-*
-!URxvt*italicfont:           -misc-tamzenforpowerline-medium-r-normal--15-*-*-*-*-*-*-*
-!URxvt*bolditalicFont:       -misc-tamzenforpowerline-bold-r-normal--15-*-*-*-*-*-*-*
-
-!URxvt*boldFont:             -misc-tamzenforpowerline-bold-r-normal--14-145-100-100-c-100-iso10646-1
-!URxvt*italicFont:           -misc-tamzenforpowerline-medium-r-normal--14-145-100-100-c-100-iso10646-1
-!URxvt*bolditalicFont:       -misc-tamzenforpowerline-bold-r-normal--14-145-100-100-c-100-iso10646-1
+URxvt*font:                 -misc-tamzenforpowerline-medium-r-normal-*-15-*-*-*-*-*-*-*
+URxvt*boldFont:             -misc-tamzenforpowerline-bold-r-normal-*-15-*-*-*-*-*-*-*
+URxvt*italicfont:           -misc-tamzenforpowerline-medium-r-normal-*-15-*-*-*-*-*-*-*
+URxvt*bolditalicFont:       -misc-tamzenforpowerline-bold-r-normal-*-15-*-*-*-*-*-*-*
 
 ! }}}
 ! {{{ Key bindings
 
-URxvt.keysym.C-Space: \033[33~
+URxvt.keysym.C-Space:  \033[33~
+
+URxvt.keysym.M-Up:     font-size:increase
+URxvt.keysym.M-Down:   font-size:decrease
+URxvt.keysym.M-S-Up:   font-size:incglobal
+URxvt.keysym.M-S-Down: font-size:decglobal
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
 
 ! }}}
 ! {{{ Colors

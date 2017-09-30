@@ -50,6 +50,7 @@ edit() {
             ;;
     esac
 }
+alias mergexres='xrdb -merge ~/.Xresources ; xrdb -load ~/.Xresources'
 
 
 # make new and cd into it
@@ -58,7 +59,6 @@ mkcdir () { #{{{
         cd -P -- "$1"
 } #}}}
 
-# never missing ls
 COLORFLAG=' -G'
 [ $(uname) = "Linux" ] && COLORFLAG=' --color=auto'
 alias l='ls -h'$COLORFLAG
@@ -68,22 +68,36 @@ alias ll='ls -lh'$COLORFLAG
 alias lt='ls -ltr'$COLORFLAG         #  Sort by date, asc
 alias lc='ls -ltcr'$COLORFLAG        #  Sort by/show change time, asc.
 alias lu='ls -ltur'$COLORFLAG        #  Sort by/show access time, asc.
-# Find all the symbolic links in a directory
-alias lk='ls -l `find . -maxdepth 1 -type l -print`'
 
 alias ..='cd ..'
 
 # list top ten largest files/directories in current directory
 alias ducks='du -cks * | sort -rn | head -11'
+# Find all the symbolic links in a directory
+alias lk='ls -l `find . -maxdepth 1 -type l -print`'
 
 alias ghclean='rm -f *.hi *.o $1'
 
-alias ip="ifconfig |\
-          grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' |\
-          grep -Eo '([0-9]*\.){3}[0-9]*' |\
-          grep -v '127.0.0.1'"
-alias extip='curl -s http://myexternalip.com/raw'
-alias iamhome='[ \"$(extip)\" = \"2.235.177.223\" ] ; echo $?'
+# get public ip
+function myip {
+    local api
+    case "$1" in
+        "-4")
+            api="http://v4.ipv6-test.com/api/myip.php"
+            ;;
+        "-6")
+            api="http://v6.ipv6-test.com/api/myip.php"
+            ;;
+        *)
+            api="http://ipv6-test.com/api/myip.php"
+            ;;
+    esac
+    curl -s "$api"
+    echo # Newline.
+}
+alias p8="ping 8.8.8.8"
+
+alias iamhome='[ \"$(myip)\" = \"2.235.177.223\" ] ; echo $?'
 
 alias timecmd='/usr/bin/time $1 -l'
 
@@ -94,11 +108,9 @@ alias exe='chmod u+x $1'
 
 alias serve='python -m SimpleHTTPServer'
 
-alias cmcompile='mkdir -p bin && cd bin && cmake .. \
-    -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt5/5.5.1_2/'
+alias cmcompile='mkdir -p bin && cd bin && cmake ..'
 
-alias tm='tmux'
-alias ta='tmux attach'
+alias tm='tmux -2u a || tmux -2u'
 
 alias vu='vagrant up'
 alias vh='vagrant halt'

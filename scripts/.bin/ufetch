@@ -13,8 +13,9 @@ KERNEL="$(uname -r)"
 UPTIME="$(uptime -p | sed s:"up "::)"
 PACKAGES="$(pacman -Q | wc -l)"
 # shell is already defined
+wms="awesome|dwm|fvwm|xmonad|openbox"
 if [ -z "$WM" ]; then
-	WM="$(grep -v "^#" "${HOME}/.xinitrc" | tail -n 1 | cut -d " " -f2)"
+	WM="$(grep -v "^#" "${HOME}/.xinitrc" | grep -owEe "$wms")"
 fi
 
 ## DEFINE COLORS

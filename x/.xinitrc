@@ -27,9 +27,8 @@ xrandr --output DP-1 --rotate right --left-of DVI-I-1
 
 # Add fonts paths
 xset fp+ /home/matt/.fonts/bitmap/ctrld-font/
-xset fp+ /home/matt/.fonts/bitmap/haxor/
+xset fp+ /home/matt/.fonts/bitmap/envypn-font/
 xset fp+ /home/matt/.fonts/bitmap/tamzen-font/
-xset fp+ /home/matt/.fonts/bitmap/gohufont/
 xset fp+ /home/matt/.fonts/bitmap/siji/
 
 # Update fonts
@@ -39,7 +38,7 @@ fc-cache -f &
 # Use wal to set my wallpaper and color scheme
 wal -i "$(< "${HOME}/.cache/wal/wal")"
 
-dropbox &
+#dropbox &
 #xautolock -time 5 -locker lock &
 
 exec awesome

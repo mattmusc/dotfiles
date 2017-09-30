@@ -268,6 +268,8 @@ endif
 " Set the leader key
 let mapleader=","
 
+" Disable some unnecessary commands
+
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -321,9 +323,6 @@ inoremap jk <esc>
 " Cd to current file wd
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
-" Toogle highlighting of the current line
-nnoremap H :set cursorline! cursorcolumn!<CR>
-
 " Buffers, preferred over tabs now with bufferline.
 nnoremap gn :bnext<cr>
 nnoremap gp :bprevious<cr>
@@ -350,6 +349,12 @@ map <leader>t<leader> :tabnext
 let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<cr>
 au TabLeave * let g:lasttab = tabpagenr()
+
+" Useful mappings for copy paste
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <leader>v c<ESC>"+p
+imap <leader>v <C-r><C-o>+
 
 "" Helper functions
 

@@ -5,6 +5,7 @@ awesome/.config/awesome/lain/
 colors/.colors/base16-xresources/
 fonts/.fonts/bitmap/
 history*
+scripts/.bin/
 viminfo
 vim/.vim/backup/
 vim/.vim/bundle/

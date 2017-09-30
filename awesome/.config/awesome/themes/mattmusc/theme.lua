@@ -185,7 +185,8 @@ local net = lain.widgets.net({
     settings = function()
         widget:set_markup(markup.font(theme.font, markup(gray, " net ") .. net_now.received)
                           .. " " ..
-                          markup.font(theme.font, markup(gray, " " ) .. net_now.sent .. " "))
+                          markup.font(theme.font, markup(gray, " " ) .. net_now.sent .. " ")
+                          )
     end
 })
 
@@ -200,7 +201,7 @@ local bat = lain.widgets.bat({
 
 -- Weather
 theme.weather = lain.widgets.weather({
-    city_id = 611717, -- placeholder (London)
+    city_id = 3173435, -- placeholder (London)
     notification_preset = { font = theme.font, fg = white }
 })
 
