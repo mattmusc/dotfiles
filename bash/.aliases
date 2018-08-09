@@ -93,6 +93,7 @@ alias serve='python -m SimpleHTTPServer'
 alias cmcompile='mkdir -p bin && cd bin && cmake .. \
     -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt5/5.5.1_2/'
 
+alias tmux='tmux -2'
 alias tm='tmux'
 alias ta='tmux attach || tmux'
 
@@ -105,6 +106,8 @@ alias findf="find . -type f -iname \"*$**\""
 
 alias svim="sudo vim"
 
+alias vim='nvim'
+
 # }}}
 # {{{ working directories
 
@@ -112,6 +115,7 @@ alias sem="cd ~/SpringSemester2015"
 alias P="cd ~/Dropbox/Programming"
 alias dots="cd ~/.dotfiles"
 alias configs="cd $XDG_CONFIG_HOME"
+alias uli="cd ~/Dev/web/GMaps"
 
 # }}}
 # {{{ servers
@@ -185,7 +189,20 @@ if [ -z "$2" ]; then
 else
     root="${1%.*}"
     ext="${1#"$root"}"
-    echo "convert -density 400 "$1" -resize $2 "$root-$size$ext""
+    convert -density 400 "$1" -resize $2 "$root-$size$ext"
+fi
+}
+
+#
+# Convert some files to mp3
+function tomp3 {
+if [ -z "$1" ]; then
+    echo "Usage: tomp3 <filenames>"
+    echo ""
+    return 1
+else
+    echo "$1"
+    find . -iname "$1"
 fi
 }
 
@@ -202,7 +219,7 @@ function extract {
     do
       if [ -f "$n" ] ; then
           case "${n%,}" in
-            *.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar) 
+            *.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
                          tar xvf "$n"       ;;
             *.lzma)      unlzma ./"$n"      ;;
             *.bz2)       bunzip2 ./"$n"     ;;
@@ -225,6 +242,12 @@ function extract {
     done
 fi
 }
+
+# }}}
+# {{{ programs
+
+#alias antlr4='/usr/local/opt/antlr/bin/antlr4'
+#alias grun='/usr/local/opt/antlr/bin/grun'
 
 # }}}
 

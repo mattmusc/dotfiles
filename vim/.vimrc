@@ -24,6 +24,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'noahfrederick/vim-hemisu'
 Plug 'morhetz/gruvbox'
 Plug 'dylanaraps/wal'
+Plug 'kaicataldo/material.vim'
 
 " Editor features
 Plug 'tpope/vim-fugitive'
@@ -32,16 +33,20 @@ Plug 'rhysd/vim-clang-format'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'lervag/vimtex'
+Plug 'Chiel92/vim-autoformat'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Syntax
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'urso/haskell_syntax.vim'
 Plug 'baskerville/vim-sxhkdrc'
 Plug 'neo4j-contrib/cypher-vim-syntax'
-Plug 'chrisbra/csv.vim'
 Plug 'vim-scripts/phtml.vim/'
 Plug 'derekwyatt/vim-scala'
 Plug 'tikhomirov/vim-glsl'
+Plug 'keith/swift.vim'
+Plug 'slashmili/alchemist.vim'
 
 " File browser
 Plug 'scrooloose/nerdtree'
@@ -68,9 +73,9 @@ filetype plugin indent on
 " {{{ look
 
 " Tabs and indenting
-set tabstop=4                   " Set the size of tabs
-set softtabstop=4               " Set the number of spaces for indeting
-set shiftwidth=4                " Set the size of autoindent
+set tabstop=2                   " Set the size of tabs
+set softtabstop=2               " Set the number of spaces for indeting
+set shiftwidth=2                " Set the size of autoindent
 set shiftround                  " Indent relative to beginning of line
 set expandtab                   " Make sure our tabs are spaces
 set preserveindent              " Preserve as much of the indent structure
@@ -92,10 +97,10 @@ set autoread                    " Read again a file if changed outside of Vim
 " Show line numbers and length
 set relativenumber              " Show line numbers
 set ruler                       " Show line,column number
-set textwidth=79                " Set max width of text
+set textwidth=119               " Set max width of text
 set nowrap                      " No wrapping of text
-set colorcolumn=80              " Highlight entire column
-set cursorline                  " Highlight current line
+set colorcolumn=120             " Highlight entire column
+set nocursorline                  " Highlight current line
 set fillchars+=stl:\ ,stlnc:\   " Characters to fill the statuslines
 set linespace=1                 " Set line height
 set guicursor+=a:blinkon0       " Disable all blinking cursor
@@ -126,7 +131,7 @@ set wildchar=<Tab>              " Character to start wildcard expansion
 " }}}
 " {{{ statusline
 
-set laststatus=0                       " Set statusline: 0,1,2
+set laststatus=2                       " Set statusline: 0,1,2
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -172,6 +177,11 @@ let g:airline_mode_map = {
 let g:airline#extensions#hunks#enabled = 0
 
 " }}}
+" {{{ options
+
+set omnifunc=syntaxcomplete#Complete      " This option specifies a function to be used for Insert mode omnicompletion
+
+" }}}
 " {{{ colors
 
 syntax enable                          " Enable syntax highlighting
@@ -191,7 +201,7 @@ highlight GitGutterDelete       ctermfg=red     guifg=#d83925
 highlight GitGutterChangeDelete ctermfg=magenta guifg=#c07998
 
 " vim-gitgutter will use Sign Column to set its color, reload it.
-call gitgutter#highlight#define_highlights()
+" call gitgutter#highlight#define_highlights()
 
 " }}}
 " {{{ backup files
@@ -249,16 +259,16 @@ nmap <silent> ,/ :nohlsearch<CR>
 set pastetoggle=<leader>p
 
 " Remap Ctrl-Space to completion
-if has("gui_running")
-    " C-Space seems to work under gVim on both Linux and win32
-    inoremap <C-Space> <C-n>
-else " no gui
-    if has("unix")
-        inoremap <Nul> <C-n>
-    else
-        " I have no idea of the name of Ctrl-Space elsewhere
-    endif
-endif
+"inoremap <C-Space> <C-x><C-o>
+"imap <buffer> <Nul> <C-Space>
+"smap <buffer> <Nul> <C-Space>
+" Ctrl-Space for completions. Heck Yeah!
+inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
+            \ "\<lt>C-n>" :
+            \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+            \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+            \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+imap <C-@> <C-Space>
 
 " Invoke Clang Format for current buffer
 nnoremap <Leader>f      :ClangFormat<CR><CR>

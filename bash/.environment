@@ -5,7 +5,7 @@
 
 export XDG_CONFIG_HOME=$HOME/.config
 
-export EDITOR="vim"
+export EDITOR="nvim"
 export PAGER=less
 
 export MUTT_REALNAME="Matteo Muscella"
@@ -26,7 +26,22 @@ export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
 export M2=$M2_HOME/bin
 export GOPATH=$HOME/Developer/Go
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
-export MYPATH=$HOME/usr/bin:$HOME/usr/local/bin:$HOME/usr/bin
-export PATH=$PATH:$GOPATH/bin:$M2:$MYPATH
+export FASTLANE_PATH="$HOME/.fastlane/bin"
+export ANDROID_HOME=$HOME/Developer/Android/sdk
+export POSTGRESQL_PATH="/Applications/Postgres.app/Contents/Versions/latest/bin"
+
+MYPATH=$HOME/usr/bin:$HOME/usr/local/bin:$HOME/usr/bin
+ANDROID_HOME_PATH=$ANDROID_HOME:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+export SWIFTENV_ROOT="$HOME/.swiftenv"
+
+export PATH=$PATH:$M2:$MYPATH:$FASTLANE_PATH:$ANDROID_HOME_PATH:$SWIFTENV_ROOT/bin:${POSTGRESQL_PATH}
+
+export CPPTOOLS_DEV=1
+
+export CLASSPATH=".:/usr/local/Cellar/antlr/4.7.1/antlr-4.7.1-complete.jar:$CLASSPATH"
+
+# Heroku postgres
+export DATABASE_URL=postgres://$(whoami)
 
 # vim: ft=sh fdm=marker
