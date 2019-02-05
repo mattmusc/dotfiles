@@ -1,47 +1,31 @@
 # -----------------------------------------------------------------------
+# vim: ft=sh fdm=marker
 # Environment
 # @author matteo.muscella@usi.ch
 # -----------------------------------------------------------------------
 
-export XDG_CONFIG_HOME=$HOME/.config
-
-export EDITOR="nvim"
+export EDITOR="vim"
 export PAGER=less
-
-export MUTT_REALNAME="Matteo Muscella"
-export MUTT_EMAIL_ADDRESS="matteo.muscella@gmail.com"
 
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-
-export MONGODBPORT=27017
 
 export TEXMFDIR=$HOME/.texmf
 
 export LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
 #export LS_COLORS=exfxcxdxbxegedabagacad
 
-export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
-export M2=$M2_HOME/bin
-export GOPATH=$HOME/Developer/Go
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
-export FASTLANE_PATH="$HOME/.fastlane/bin"
-export ANDROID_HOME=$HOME/Developer/Android/sdk
-export POSTGRESQL_PATH="/Applications/Postgres.app/Contents/Versions/latest/bin"
 
-MYPATH=$HOME/usr/bin:$HOME/usr/local/bin:$HOME/usr/bin
-ANDROID_HOME_PATH=$ANDROID_HOME:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export SWIFTENV_ROOT="$HOME/.swiftenv"
+#export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+export JAVA_HOME="$(/usr/libexec/java_home)"
 
-export PATH=$PATH:$M2:$MYPATH:$FASTLANE_PATH:$ANDROID_HOME_PATH:$SWIFTENV_ROOT/bin:${POSTGRESQL_PATH}
+MYPATH=$HOME/usr/bin:$HOME/usr/local/bin
+RUBYPATH=/usr/local/lib/ruby/gems/**/bin
+export PATH=$PATH:$MYPATH:$(echo $RUBYPATH)
 
-export CPPTOOLS_DEV=1
-
-export CLASSPATH=".:/usr/local/Cellar/antlr/4.7.1/antlr-4.7.1-complete.jar:$CLASSPATH"
-
-# Heroku postgres
-export DATABASE_URL=postgres://$(whoami)
-
-# vim: ft=sh fdm=marker

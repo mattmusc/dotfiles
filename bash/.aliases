@@ -22,7 +22,7 @@ copy_rsa() {
     cat ~/.ssh/id_rsa.pub | # cat the public key
     ssh $1 'umask 0077; mkdir -p .ssh;
             cat >> .ssh/authorized_keys'
-    echo "Key copied"
+    [ $? -eq 0 ] && echo "Key copied"
 }
 alias cprsa=copy_rsa
 
@@ -104,9 +104,7 @@ alias vp='vagrant provision'
 
 alias findf="find . -type f -iname \"*$**\""
 
-alias svim="sudo vim"
-
-alias vim='nvim'
+alias crlf2lf="find ./ -type f -exec dos2unix {} \;"
 
 # }}}
 # {{{ working directories
@@ -176,6 +174,8 @@ alias gcm='git commit'
 
 alias noc='git rev-list --branches --all | wc -l'
 
+alias glo='git log --oneline'
+
 # }}}
 # {{{ useful functions
 
@@ -243,11 +243,29 @@ function extract {
 fi
 }
 
+function updangular {
+  echo "==> Uninstalling angular..."
+  npm uninstall -g angular-cli @angular/cli
+  echo "==> Clearing cache..."
+  npm cache clean --force
+  echo "==> Installing Angular..."
+  npm install -g @angular/cli
+  echo "==> All done. 🍺"
+}
+
+
 # }}}
 # {{{ programs
 
 #alias antlr4='/usr/local/opt/antlr/bin/antlr4'
 #alias grun='/usr/local/opt/antlr/bin/grun'
+
+# }}}
+# {{{ project initialization
+
+alias spie='swift package init --type executable'
+alias swbt='swift build && swift test'
+alias spgx='swift package generate-xcodeproj'
 
 # }}}
 
