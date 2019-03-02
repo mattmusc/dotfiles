@@ -14,4 +14,14 @@ function rseq() #{{{
     bash # run that command
 } #}}}
 
+#
+# Switch Java version
+# Mac OS only
+function sjv() #{{{
+{
+  test -z $1 && echo 'usage: swjv 1.8/10/11'
+  export JAVA_HOME=$(/usr/libexec/java_home -v $1)
+  test "$2" = "-q" || echo "JAVA_HOME => $JAVA_HOME"
+} #}}}
+
 # vim: ft=sh

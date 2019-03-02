@@ -23,9 +23,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
-export JAVA_HOME="$(/usr/libexec/java_home)"
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 
 MYPATH=$HOME/usr/bin:$HOME/usr/local/bin
-RUBYPATH=/usr/local/lib/ruby/gems/**/bin
-export PATH=$PATH:$MYPATH:$(echo $RUBYPATH)
+RUBYPATH=/usr/local/opt/ruby/bin
+export PATH=$MYPATH:$RUBYPATH:$PATH
+
+export ANDROID_SDK_ROOT="#{HOMEBREW_PREFIX}/share/android-sdk"
 

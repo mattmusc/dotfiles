@@ -258,4 +258,13 @@ __powerline
 
 # vim: ft=sh fdm=marker
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+###-tns-completion-start-###
+if [ -f /Users/mattmusc/.tnsrc ]; then 
+    source /Users/mattmusc/.tnsrc 
+fi
+###-tns-completion-end-###
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home
+export ANDROID_HOME=/usr/local/share/android-sdk
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home
+export ANDROID_HOME=/usr/local/share/android-sdk
