@@ -43,6 +43,8 @@ fi
 
 test -f /usr/local/etc/bash_completion && . /usr/local/etc/bash_completion
 
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
 ###-begin-npm-completion-###
 #
 # npm command completion script
@@ -105,6 +107,10 @@ fi
 ###-end-npm-completion-###
 
 #$(heroku autocomplete:script bash)
+
+if [ -f /Users/mattmusc/.tnsrc ]; then 
+    source /Users/mattmusc/.tnsrc 
+fi
 
 # }}}
 # Colors {{{
@@ -258,13 +264,3 @@ __powerline
 
 # vim: ft=sh fdm=marker
 
-
-###-tns-completion-start-###
-if [ -f /Users/mattmusc/.tnsrc ]; then 
-    source /Users/mattmusc/.tnsrc 
-fi
-###-tns-completion-end-###
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home
-export ANDROID_HOME=/usr/local/share/android-sdk
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home
-export ANDROID_HOME=/usr/local/share/android-sdk

@@ -18,16 +18,47 @@ export LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
 
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 #export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+#export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk/Contents/Home/"
 
-MYPATH=$HOME/usr/bin:$HOME/usr/local/bin
+BREWPATH=/usr/loca/bin:/usr/local/sbin
+PYTHONPATH=/usr/local/lib/python*/site-packages
+MYPATH=$HOME/usr/bin:$HOME/usr/local/bin:$HOME/.local/bin/
 RUBYPATH=/usr/local/opt/ruby/bin
-export PATH=$MYPATH:$RUBYPATH:$PATH
+MYRUBYPATH=$HOME/.gem/ruby/**/bin
+HASKELLPATH=$HOME/.cabal/bin:$HOME/.ghcup/bin
+export PATH=$BREWPATH:$MYPATH:$HASKELLPATH:$(echo $MYRUBYPATH):$RUBYPATH:$(echo $PYTHONPATH):$PATH
 
-export ANDROID_SDK_ROOT="#{HOMEBREW_PREFIX}/share/android-sdk"
+export ANDROID_SDK_ROOT="$(brew --prefix)/share/android-sdk"
+
+# lazyload nvm
+# all props goes to http://broken-by.me/lazy-load-nvm/
+# grabbed from reddit @ https://www.reddit.com/r/node/comments/4tg5jg/lazy_load_nvm_for_faster_shell_start/
+
+lazynvm() {
+  unset -f nvm node npm npx
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+}
+
+nvm() {
+  lazynvm
+  nvm $@
+}
+
+node() {
+  lazynvm
+  node $@
+}
+
+npm() {
+  lazynvm
+  npm $@
+}
+
+npx() {
+  lazynvm
+  npx $@
+}
 

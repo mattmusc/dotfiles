@@ -106,6 +106,8 @@ alias findf="find . -type f -iname \"*$**\""
 
 alias crlf2lf="find ./ -type f -exec dos2unix {} \;"
 
+alias makebackup='rsync -a --stats --exclude-from=excluded.rsync -h  ~/ /Volumes/My\ Passport/Backup/'
+
 # }}}
 # {{{ working directories
 
@@ -175,6 +177,8 @@ alias gcm='git commit'
 alias noc='git rev-list --branches --all | wc -l'
 
 alias glo='git log --oneline'
+
+alias gfeat='git-flow feature'
 
 # }}}
 # {{{ useful functions
