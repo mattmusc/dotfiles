@@ -42,23 +42,26 @@ lazynvm() {
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 }
 
-nvm() {
-  lazynvm
-  nvm $@
-}
+#nvm() {
+#  lazynvm
+#  nvm $@
+#}
+#
+#node() {
+#  lazynvm
+#  node $@
+#}
+#
+#npm() {
+#  lazynvm
+#  npm $@
+#}
+#
+#npx() {
+#  lazynvm
+#  npx $@
+#}
 
-node() {
-  lazynvm
-  node $@
-}
-
-npm() {
-  lazynvm
-  npm $@
-}
-
-npx() {
-  lazynvm
-  npx $@
-}
+export NVM_DIR=~/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
