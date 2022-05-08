@@ -54,6 +54,11 @@ mkcdir () { #{{{
         cd -P -- "$1"
 } #}}}
 
+mcd () { #{{{
+    mkdir -p -- "$1" &&
+        cd -P -- "$1"
+} #}}}
+
 # never missing ls
 COLORFLAG=' -G'
 [ $(uname) = "Linux" ] && COLORFLAG=' --color=auto'
@@ -111,11 +116,11 @@ alias makebackup='rsync -a --stats --exclude-from=excluded.rsync -h  ~/ /Volumes
 # }}}
 # {{{ working directories
 
-alias sem="cd ~/SpringSemester2015"
-alias P="cd ~/Dropbox/Programming"
 alias dots="cd ~/.dotfiles"
 alias configs="cd $XDG_CONFIG_HOME"
-alias uli="cd ~/Dev/web/GMaps"
+
+# show the dir stack of zsh
+alias dh='dirs -v'
 
 # }}}
 # {{{ servers
@@ -263,6 +268,9 @@ function updangular {
 
 #alias antlr4='/usr/local/opt/antlr/bin/antlr4'
 #alias grun='/usr/local/opt/antlr/bin/grun'
+
+alias wake-astir='wakeonlan -i 196.196.196.255 -p 9 18:DB:F2:46:5A:6E'
+alias wake-elmo='wakeonlan -i 196.196.196.255 -p 9 1C:83:41:28:FE:9A'
 
 # }}}
 # {{{ project initialization

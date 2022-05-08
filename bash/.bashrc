@@ -108,8 +108,8 @@ fi
 
 #$(heroku autocomplete:script bash)
 
-if [ -f /Users/mattmusc/.tnsrc ]; then 
-    source /Users/mattmusc/.tnsrc 
+if [ -f /Users/mattmusc/.tnsrc ]; then
+    source /Users/mattmusc/.tnsrc
 fi
 
 # }}}

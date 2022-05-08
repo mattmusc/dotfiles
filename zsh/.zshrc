@@ -13,6 +13,8 @@ zstyle ':completion:*' menu select
 
 setopt COMPLETE_ALIASES
 
+bindkey -v
+
 autoload -U promptinit; promptinit
 prompt pure
 
