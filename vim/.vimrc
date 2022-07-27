@@ -21,10 +21,9 @@ call plug#begin('~/.vim/plugged')
 " Colors
 Plug 'chriskempson/base16-vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'noahfrederick/vim-hemisu'
-Plug 'morhetz/gruvbox'
 Plug 'dylanaraps/wal'
 Plug 'kaicataldo/material.vim'
+Plug 'joshdick/onedark.vim'
 
 " Editor features
 Plug 'tpope/vim-fugitive'
