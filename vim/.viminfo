@@ -1,0 +1,710 @@
+# Questo file viminfo è stato generato da Vim 9.0.
+# File modificabile, attento a quel che fai!
+
+# Viminfo version
+|1,4
+
+# Valore di 'encoding' al momento della scrittura di questo file
+*encoding=utf-8
+
+
+# hlsearch on (H) or off (h):
+~h
+# Ult. Espressione di Ricerca:
+~MSle0~/font
+
+# Ult. Sostituzione Espressione di Ricerca:
+~MSle0&example
+
+# Ultima Stringa Sostituzione:
+$main
+
+# Riga-di-comando Storia (da più recente a meno recente):
+:x
+|2,0,1690478869,,"x"
+:q
+|2,0,1690471230,,"q"
+:w
+|2,0,1690471138,,"w"
+:set paste
+|2,0,1690470894,,"set paste"
+:%s/example/main/g
+|2,0,1690458057,,"%s/example/main/g"
+:bn
+|2,0,1690461114,,"bn"
+:e .config/rofi/config
+|2,0,1690461109,,"e .config/rofi/config"
+:!mkdir -p .config/polybar
+|2,0,1690443576,,"!mkdir -p .config/polybar"
+:set relativenumber
+|2,0,1690411874,,"set relativenumber"
+:PlugInstall
+|2,0,1690411735,,"PlugInstall"
+:q!
+|2,0,1690407627,,"q!"
+:bNext
+|2,0,1690407360,,"bNext"
+:e .xinitrc
+|2,0,1690407348,,"e .xinitrc"
+
+# Stringa di Ricerca Storia (da più recente a meno recente):
+?/font
+|2,1,1690459517,47,"font"
+?/30
+|2,1,1690459186,47,"30"
+?/pulsea
+|2,1,1690458640,47,"pulsea"
+?/batt
+|2,1,1690458485,47,"batt"
+?/bat
+|2,1,1690458479,47,"bat"
+? example
+|2,1,1690458057,,"example"
+?/example
+|2,1,1690458018,47,"example"
+? @$
+|2,1,1690450981,,"@$"
+?/batte
+|2,1,1690445611,47,"batte"
+?/battery
+|2,1,1690445309,47,"battery"
+
+# Espressione Storia (da più recente a meno recente):
+
+# Riga di Input Storia (da più recente a meno recente):
+
+# Riga di Debug Storia (da più recente a meno recente):
+
+# Registri:
+"0	CHAR	0
+	%{F#F0C674}BAT%{F-}
+|3,0,0,0,1,0,1690470192,"%{F#F0C674}BAT%{F-}"
+""1	LINE	0
+	Zsh Manual](http://zsh.sourceforge.net/Doc/)
+|3,1,1,1,1,0,1690478867,"Zsh Manual](http://zsh.sourceforge.net/Doc/)"
+"2	CHAR	0
+	
+	## References
+	[
+|3,0,2,0,3,0,1690478866,"","## References","["
+"3	LINE	0
+	- LaTeXmk
+|3,0,3,1,1,0,1690478864,"- LaTeXmk"
+"4	LINE	0
+	- Git
+|3,0,4,1,1,0,1690478864,"- Git"
+"5	LINE	0
+	- Clang Format
+|3,0,5,1,1,0,1690478863,"- Clang Format"
+"6	LINE	0
+	- Tmux
+|3,0,6,1,1,0,1690478862,"- Tmux"
+"7	LINE	0
+	wpa_passphrase TheMuppets
+	wpa_passphrase TheMuppets
+	 wpa_passphrase TheMuppets Z5
+	 wpa_passphrase TheMuppets Z5
+	/bin/bash
+	/bin/bash
+	set +H
+	 wpa_passphrase TheMuppets Z5
+|3,0,7,1,8,0,1690471982,"wpa_passphrase TheMuppets","wpa_passphrase TheMuppets"," wpa_passphrase TheMuppets Z5"," wpa_passphrase TheMuppets Z5","/bin/bash","/bin/bash","set +H"," wpa_passphrase TheMuppets Z5"
+"8	LINE	0
+	 wpa_passphrase TheMuppets 'Z5!kVxCK3@tF5G6'
+|3,0,8,1,1,0,1690471969," wpa_passphrase TheMuppets 'Z5!kVxCK3@tF5G6'"
+"9	LINE	0
+	bspc rule -a Kupfer.py focus=on
+|3,0,9,1,1,0,1690471109,"bspc rule -a Kupfer.py focus=on"
+"w	CHAR	0
+	
+|3,0,32,0,1,0,1690471104,""
+"-	CHAR	0
+	 
+|3,0,36,0,1,0,1690478849," "
+
+# File mark:
+'0  12  0  ~/.dotfiles/README.md
+|4,48,12,0,1690478869,"~/.dotfiles/README.md"
+'1  860  0  ~/.histfile
+|4,49,860,0,1690471983,"~/.histfile"
+'2  868  0  ~/.histfile
+|4,50,868,0,1690471970,"~/.histfile"
+'3  9  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,51,9,0,1690471230,"/etc/wpa_supplicant/wpa_supplicant.conf"
+'4  8  4  ~/.config/.alacritty.yml
+|4,52,8,4,1690471144,"~/.config/.alacritty.yml"
+'5  19  0  ~/.config/bspwm/bspwmrc
+|4,53,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+'6  8  0  ~/.xinitrc
+|4,54,8,0,1690471032,"~/.xinitrc"
+'7  8  35  ~/.xinitrc
+|4,55,8,35,1690470991,"~/.xinitrc"
+'8  8  34  ~/.xinitrc
+|4,56,8,34,1690470961,"~/.xinitrc"
+'9  8  34  ~/.xinitrc
+|4,57,8,34,1690470961,"~/.xinitrc"
+
+# Jumplist (dai più recenti):
+-'  12  0  ~/.dotfiles/README.md
+|4,39,12,0,1690478869,"~/.dotfiles/README.md"
+-'  1  0  ~/.dotfiles/README.md
+|4,39,1,0,1690478842,"~/.dotfiles/README.md"
+-'  860  0  ~/.histfile
+|4,39,860,0,1690471983,"~/.histfile"
+-'  860  0  ~/.histfile
+|4,39,860,0,1690471983,"~/.histfile"
+-'  1  0  ~/.histfile
+|4,39,1,0,1690471972,"~/.histfile"
+-'  1  0  ~/.histfile
+|4,39,1,0,1690471972,"~/.histfile"
+-'  868  0  ~/.histfile
+|4,39,868,0,1690471970,"~/.histfile"
+-'  868  0  ~/.histfile
+|4,39,868,0,1690471970,"~/.histfile"
+-'  2  0  ~/.histfile
+|4,39,2,0,1690471968,"~/.histfile"
+-'  2  0  ~/.histfile
+|4,39,2,0,1690471968,"~/.histfile"
+-'  2  0  ~/.histfile
+|4,39,2,0,1690471968,"~/.histfile"
+-'  2  0  ~/.histfile
+|4,39,2,0,1690471968,"~/.histfile"
+-'  1  0  ~/.histfile
+|4,39,1,0,1690471967,"~/.histfile"
+-'  1  0  ~/.histfile
+|4,39,1,0,1690471967,"~/.histfile"
+-'  9  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,39,9,0,1690471230,"/etc/wpa_supplicant/wpa_supplicant.conf"
+-'  9  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,39,9,0,1690471230,"/etc/wpa_supplicant/wpa_supplicant.conf"
+-'  9  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,39,9,0,1690471230,"/etc/wpa_supplicant/wpa_supplicant.conf"
+-'  9  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,39,9,0,1690471230,"/etc/wpa_supplicant/wpa_supplicant.conf"
+-'  9  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,39,9,0,1690471230,"/etc/wpa_supplicant/wpa_supplicant.conf"
+-'  9  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,39,9,0,1690471230,"/etc/wpa_supplicant/wpa_supplicant.conf"
+-'  9  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,39,9,0,1690471230,"/etc/wpa_supplicant/wpa_supplicant.conf"
+-'  9  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,39,9,0,1690471230,"/etc/wpa_supplicant/wpa_supplicant.conf"
+-'  1  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,39,1,0,1690471224,"/etc/wpa_supplicant/wpa_supplicant.conf"
+-'  1  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,39,1,0,1690471224,"/etc/wpa_supplicant/wpa_supplicant.conf"
+-'  1  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,39,1,0,1690471224,"/etc/wpa_supplicant/wpa_supplicant.conf"
+-'  1  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,39,1,0,1690471224,"/etc/wpa_supplicant/wpa_supplicant.conf"
+-'  1  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,39,1,0,1690471224,"/etc/wpa_supplicant/wpa_supplicant.conf"
+-'  1  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,39,1,0,1690471224,"/etc/wpa_supplicant/wpa_supplicant.conf"
+-'  1  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,39,1,0,1690471224,"/etc/wpa_supplicant/wpa_supplicant.conf"
+-'  1  0  /etc/wpa_supplicant/wpa_supplicant.conf
+|4,39,1,0,1690471224,"/etc/wpa_supplicant/wpa_supplicant.conf"
+-'  8  4  ~/.config/.alacritty.yml
+|4,39,8,4,1690471144,"~/.config/.alacritty.yml"
+-'  8  4  ~/.config/.alacritty.yml
+|4,39,8,4,1690471144,"~/.config/.alacritty.yml"
+-'  8  4  ~/.config/.alacritty.yml
+|4,39,8,4,1690471144,"~/.config/.alacritty.yml"
+-'  8  4  ~/.config/.alacritty.yml
+|4,39,8,4,1690471144,"~/.config/.alacritty.yml"
+-'  8  4  ~/.config/.alacritty.yml
+|4,39,8,4,1690471144,"~/.config/.alacritty.yml"
+-'  8  4  ~/.config/.alacritty.yml
+|4,39,8,4,1690471144,"~/.config/.alacritty.yml"
+-'  8  4  ~/.config/.alacritty.yml
+|4,39,8,4,1690471144,"~/.config/.alacritty.yml"
+-'  8  4  ~/.config/.alacritty.yml
+|4,39,8,4,1690471144,"~/.config/.alacritty.yml"
+-'  8  4  ~/.config/.alacritty.yml
+|4,39,8,4,1690471144,"~/.config/.alacritty.yml"
+-'  8  4  ~/.config/.alacritty.yml
+|4,39,8,4,1690471144,"~/.config/.alacritty.yml"
+-'  8  4  ~/.config/.alacritty.yml
+|4,39,8,4,1690471144,"~/.config/.alacritty.yml"
+-'  8  4  ~/.config/.alacritty.yml
+|4,39,8,4,1690471144,"~/.config/.alacritty.yml"
+-'  8  4  ~/.config/.alacritty.yml
+|4,39,8,4,1690471144,"~/.config/.alacritty.yml"
+-'  8  4  ~/.config/.alacritty.yml
+|4,39,8,4,1690471144,"~/.config/.alacritty.yml"
+-'  8  4  ~/.config/.alacritty.yml
+|4,39,8,4,1690471144,"~/.config/.alacritty.yml"
+-'  8  4  ~/.config/.alacritty.yml
+|4,39,8,4,1690471144,"~/.config/.alacritty.yml"
+-'  1  0  ~/.config/.alacritty.yml
+|4,39,1,0,1690471133,"~/.config/.alacritty.yml"
+-'  1  0  ~/.config/.alacritty.yml
+|4,39,1,0,1690471133,"~/.config/.alacritty.yml"
+-'  1  0  ~/.config/.alacritty.yml
+|4,39,1,0,1690471133,"~/.config/.alacritty.yml"
+-'  1  0  ~/.config/.alacritty.yml
+|4,39,1,0,1690471133,"~/.config/.alacritty.yml"
+-'  1  0  ~/.config/.alacritty.yml
+|4,39,1,0,1690471133,"~/.config/.alacritty.yml"
+-'  1  0  ~/.config/.alacritty.yml
+|4,39,1,0,1690471133,"~/.config/.alacritty.yml"
+-'  1  0  ~/.config/.alacritty.yml
+|4,39,1,0,1690471133,"~/.config/.alacritty.yml"
+-'  1  0  ~/.config/.alacritty.yml
+|4,39,1,0,1690471133,"~/.config/.alacritty.yml"
+-'  1  0  ~/.config/.alacritty.yml
+|4,39,1,0,1690471133,"~/.config/.alacritty.yml"
+-'  1  0  ~/.config/.alacritty.yml
+|4,39,1,0,1690471133,"~/.config/.alacritty.yml"
+-'  1  0  ~/.config/.alacritty.yml
+|4,39,1,0,1690471133,"~/.config/.alacritty.yml"
+-'  1  0  ~/.config/.alacritty.yml
+|4,39,1,0,1690471133,"~/.config/.alacritty.yml"
+-'  1  0  ~/.config/.alacritty.yml
+|4,39,1,0,1690471133,"~/.config/.alacritty.yml"
+-'  1  0  ~/.config/.alacritty.yml
+|4,39,1,0,1690471133,"~/.config/.alacritty.yml"
+-'  1  0  ~/.config/.alacritty.yml
+|4,39,1,0,1690471133,"~/.config/.alacritty.yml"
+-'  1  0  ~/.config/.alacritty.yml
+|4,39,1,0,1690471133,"~/.config/.alacritty.yml"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  19  0  ~/.config/bspwm/bspwmrc
+|4,39,19,0,1690471130,"~/.config/bspwm/bspwmrc"
+-'  1  0  ~/.config/bspwm/bspwmrc
+|4,39,1,0,1690471052,"~/.config/bspwm/bspwmrc"
+-'  1  0  ~/.config/bspwm/bspwmrc
+|4,39,1,0,1690471052,"~/.config/bspwm/bspwmrc"
+-'  1  0  ~/.config/bspwm/bspwmrc
+|4,39,1,0,1690471052,"~/.config/bspwm/bspwmrc"
+-'  1  0  ~/.config/bspwm/bspwmrc
+|4,39,1,0,1690471052,"~/.config/bspwm/bspwmrc"
+-'  1  0  ~/.config/bspwm/bspwmrc
+|4,39,1,0,1690471052,"~/.config/bspwm/bspwmrc"
+-'  1  0  ~/.config/bspwm/bspwmrc
+|4,39,1,0,1690471052,"~/.config/bspwm/bspwmrc"
+
+# Storia delle marcature all'interno dei file (dalle più recenti alle meno recenti):
+
+> ~/.dotfiles/README.md
+	*	1690478868	0
+	"	12	0
+	^	12	0
+	.	12	0
+	+	10	2
+	+	3	31
+	+	13	0
+	+	12	0
+
+> ~/.histfile
+	*	1690471982	0
+	"	860	0
+	.	860	0
+	+	860	0
+
+> /etc/wpa_supplicant/wpa_supplicant.conf
+	*	1690471227	0
+	"	9	0
+
+> ~/.config/.alacritty.yml
+	*	1690471142	0
+	"	8	4
+	^	9	9
+	.	9	8
+	+	1	0
+	+	1	7
+	+	4	7
+	+	155	0
+	+	3	8
+	+	4	8
+	+	3	7
+	+	4	7
+	+	1	0
+	+	155	0
+	+	3	7
+	+	4	7
+	+	3	8
+	+	4	8
+	+	7	0
+	+	154	0
+	+	12	16
+	+	154	9
+	+	13	5
+	+	15	14
+	+	154	0
+	+	9	0
+	+	17	34
+	+	153	0
+	+	152	24
+	+	18	0
+	+	9	8
+	+	12	16
+	+	9	8
+
+> ~/.config/bspwm/bspwmrc
+	*	1690471112	0
+	"	19	0
+	^	17	21
+	.	20	0
+	+	21	0
+	+	8	33
+	+	5	24
+	+	18	20
+	+	8	33
+	+	7	33
+	+	8	33
+	+	7	33
+	+	24	0
+	+	8	0
+	+	9	32
+	+	21	0
+	+	22	4
+	+	20	0
+	+	19	0
+	+	18	25
+	+	8	34
+	+	18	0
+	+	17	0
+	+	16	0
+	+	17	13
+	+	20	0
+
+> ~/.xinitrc
+	*	1690471032	0
+	"	8	0
+	^	8	1
+	.	8	0
+	+	10	39
+	+	10	9
+	+	6	35
+	+	6	28
+	+	5	28
+	+	6	70
+	+	9	0
+	+	9	28
+	+	9	35
+	+	7	0
+	+	3	15
+	+	6	67
+	+	6	64
+	+	9	45
+	+	3	0
+	+	12	0
+	+	8	0
+	+	9	0
+	+	8	0
+
+> ~/.config/picom.conf
+	*	1690470903	0
+	"	436	0
+	^	435	0
+	.	434	2
+	+	436	0
+	+	1	33
+	+	434	2
+
+> ~/.config/polybar/launch.sh
+	*	1690470360	0
+	"	7	0
+	^	11	42
+	.	11	0
+	+	1	19
+	+	13	23
+	+	12	0
+	+	11	0
+
+> ~/.config/polybar/config.ini
+	*	1690470203	0
+	"	187	29
+	^	187	30
+	.	187	29
+	+	204	15
+	+	205	0
+	+	29	10
+	+	155	0
+	+	157	0
+	+	189	0
+	+	44	15
+	+	30	11
+	+	29	9
+	+	158	0
+	+	185	0
+	+	90	0
+	+	162	0
+	+	161	1
+	+	164	0
+	+	189	0
+	+	152	18
+	+	174	11
+	+	154	0
+	+	89	0
+	+	90	0
+	+	91	0
+	+	54	26
+	+	55	64
+	+	185	17
+	+	55	54
+	+	30	11
+	+	29	10
+	+	189	0
+	+	160	0
+	+	161	0
+	+	186	0
+	+	188	34
+	+	65	0
+	+	147	0
+	+	152	39
+	+	147	43
+	+	188	37
+	+	28	8
+	+	52	47
+	+	188	59
+	+	199	0
+	+	200	0
+	+	52	57
+	+	188	56
+	+	185	16
+	+	52	0
+	+	187	29
+
+> ~/.config/sxhkd/sxhkdrc
+	*	1690469222	0
+	"	40	27
+	^	40	28
+	.	40	27
+	+	7	9
+	+	20	0
+	+	11	12
+	+	7	38
+	+	19	23
+	+	65	0
+	+	66	0
+	+	20	0
+	+	21	1
+	+	28	1
+	+	25	9
+	+	28	8
+	+	25	7
+	+	29	0
+	+	36	1
+	+	37	0
+	+	40	27
+
+> ~/Pkgs/void-packages/srcpkgs/pipes.c/template
+	*	1690462844	0
+	"	1	0
+
+> ~/Pkgs/install.sh
+	*	1690462064	0
+	"	12	0
+
+> ~/.config/rofi/config.rasi
+	*	1690461460	0
+	"	4	0
+	^	4	0
+	.	3	21
+	+	1	15
+	+	2	0
+	+	2	4
+	+	2	0
+	+	2	63
+	+	2	0
+	+	2	64
+	+	2	0
+	+	3	21
+
+> ~/.vimrc
+	*	1690461221	0
+	"	10	14
+	^	10	18
+	.	10	14
+	+	1	16
+	+	5	15
+	+	3	21
+	+	17	19
+	+	18	18
+	+	19	0
+	+	17	14
+	+	15	12
+	+	18	0
+	+	17	0
+	+	18	0
+	+	16	0
+	+	19	17
+	+	19	0
+	+	12	0
+	+	14	0
+	+	19	0
+	+	10	29
+	+	9	13
+	+	10	17
+	+	9	11
+	+	8	0
+	+	9	12
+	+	10	14
+
+> ~/.config/rofi/config
+	*	1690461113	0
+	"	2	0
+	.	2	0
+	+	2	0
+	+	1	14
+	+	2	1
+	+	2	0
+
+> ~/Downloads/ppd_files/Readme-Install.txt
+	*	1690460300	0
+	"	54	0
+
+> ~/Downloads/ppd_files/Readme-CUPS.txt
+	*	1690460289	0
+	"	23	0
+
+> ~/Downloads/ppd_files/Readme-
+	*	1690460260	0
+	"	1	0
+
+> ~/Downloads/ppd_files/install_ppd.sh
+	*	1690460255	0
+	"	1	0
+
+> /usr/share/vim/vim90/doc/help.txt
+	*	1690456229	0
+	"	1	0
+
+> /etc/localtime
+	*	1690452068	0
+	"	1	0
+
+> ~/.config/al
+	*	1690450463	0
+	"	1	0
+
+> ~/.zshrc
+	*	1690413980	0
+	"	25	0
+	.	25	0
+	+	17	0
+	+	13	0
+	+	12	0
+	+	7	0
+	+	1	1
+	+	28	0
+	+	22	0
+	+	17	10
+	+	5	17
+	+	3	25
+	+	17	0
+	+	3	0
+	+	17	0
+	+	18	0
+	+	3	68
+	+	3	10
+	+	3	0
+	+	2	0
+	+	3	82
+	+	3	23
+	+	3	0
+	+	23	0
+	+	27	0
+	+	3	0
+	+	26	10
+	+	24	0
+	+	25	0
+
+> ~/.vimr
+	*	1690411572	0
+	"	1	0
+
+> ~/Downloads/JetBrains/readme.md
+	*	1690409067	0
+	"	5	0
+
+> ~/.config/.alacritty.toml
+	*	1690407625	0
+	"	1	0
+	^	1	0
+	.	1	0
+	+	1	0
+
+> /usr/share/doc/bspwm/README.md
+	*	1690405516	0
+	"	193	0
+
+> /usr/share/doc/bspwm/INSTALL.md
+	*	1690405498	0
+	"	7	0
+
+> /usr/share/doc/bspwm/examples/bspwmrc
+	*	1690405469	0
+	"	3	0
+
+> ~/.bashrc
+	*	1690405194	0
+	"	7	17
+	^	7	18
+	.	7	17
+	+	9	0
+	+	7	17
