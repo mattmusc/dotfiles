@@ -1,5 +1,10 @@
 #! /bin/sh
 
+BG_IMAGE=003.jpg
+
+xsetroot -cursor_name arrow &
+pgrep -x feh > /dev/null || feh --bg-scale $HOME/Pictures/Walls/$BG_IMAGE &
+
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d 1 2 3 4 5

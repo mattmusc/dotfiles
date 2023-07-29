@@ -1,5 +1,6 @@
 call plug#begin()
 
+Plug 'Fymyte/rasi.vim'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
