@@ -2,6 +2,7 @@ call plug#begin()
 
 Plug 'Fymyte/rasi.vim'
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -16,5 +17,5 @@ set statusline=1
 set syntax=on
 
 set background=dark
-colorscheme gruvbox
+colorscheme nord
 

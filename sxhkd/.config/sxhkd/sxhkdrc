@@ -32,8 +32,8 @@ XF86Audio{Raise,Lower}Volume
 #
 # To adjust the brightness the user must be added to the video group:
 # sudo gpasswd -a $USER video
-#XF86MonBrightness{Up,Down}
-#	brightnessctl set 5%{+,-}
+XF86MonBrightness{Up,Down}
+	brightnessctl set 5%{+,-}
 
 # lockscreen
 alt + shift + x
